@@ -9,7 +9,7 @@
             <nav class="header__nav ">
                 <li class="nav-item"><a class="header__link" href="index.html">{{__("Homepage")}}</a></li>
                 <li class="nav-item js-header-item has-megamenu">
-                    <a class="header__link js-header-head" href="#" data-bs-toggle="dropdown" href="search01.html">Collections</a>
+                    <a class="header__link js-header-head" href="#" data-bs-toggle="dropdown" href="search01.html">{{__("Collections")}}</a>
                     <div class="megamenu__container header__body js-header-body" style="z-index: 3;">
                         <div class="row justify-content-start">
                             <div class="col-md-12">
@@ -106,7 +106,7 @@
             </button>
             <div class="header__body js-header-body">
                 <div class="js-header-header d-flex justify-content-between align-items-center w-100">
-                    <div class="header__title h5">Your cart</div>
+                    <div class="header__title h5">{{__("Your cart")}}</div>
                     <span class="header__title__total__price badge badge-pill badge-warning">Total: $124.55</span>
                 </div>
                 <div class="header__list">

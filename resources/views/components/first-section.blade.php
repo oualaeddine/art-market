@@ -3,8 +3,8 @@
     <div class="section-pb selection pt-1 pb-20">
         <div class="container">
             <div class="text-left">
-                <div class="popular__stage">Discover unique</div>
-                <h3 class="hot__title h3">hand-picked items</h3>
+                <div class="popular__stage">{{__("Discover unique")}}</div>
+                <h3 class="hot__title h3">{{__("hand-picked items")}}</h3>
             </div>
             <div class="row justify-content-center">
                 @foreach($tops as $top)

@@ -4,8 +4,8 @@
         <div class="container">
             <div class="popular__top">
                 <div class="popular__box">
-                    <div class="popular__stage">Browser products by most popular</div>
-                    <h3 class="hot__title h3 mb-0">Brands</h3>
+                    <div class="popular__stage">{{__("Browser products by most popular")}}</div>
+                    <h3 class="hot__title h3 mb-0">{{__("Brands")}}</h3>
                 </div>
 {{--                <div class="field">--}}
 {{--                    <div class="field__label">timeframe</div>--}}

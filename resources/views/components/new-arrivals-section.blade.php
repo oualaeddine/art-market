@@ -5,7 +5,7 @@
             <div class="main__title__text d-flex align-items-center justify-content-between mb-15">
                 <div class="title__text">
                     <h3 class="hot__title__outline h3 mb-0">{{__("New")}}<span>{{__("Arrivals")}}</span></h3>
-                    <div class="popular__stage">{{__("Enjoy the summer time and shop our SS22 Collection")}}</div>
+                    <div class="popular__stage">{{__("Enjoy the summer time and shop our latest Products")}}</div>
                 </div>
                 <div class="title__more__btn">
                     <a href="#" class="btn btn-outline-dark py-1 px-10">{{__('View all products')}}</a>
