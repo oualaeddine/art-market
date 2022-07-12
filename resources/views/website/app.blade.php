@@ -32,8 +32,8 @@
 
 </div>
 
-@include('WebsiteUi::style')
     <!-- Scripts -->
+@include('website.styles')
 
 
 </body>

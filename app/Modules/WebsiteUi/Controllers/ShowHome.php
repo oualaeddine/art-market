@@ -26,8 +26,11 @@ class ShowHome
     public function asController(ActionRequest $request)
     {
 
+
+
+
         return view('WebsiteUi::index')->with([
-                'page_title' => 'Accueil'
+                'page_title' => trans('Home'),
             ]);
     }
 

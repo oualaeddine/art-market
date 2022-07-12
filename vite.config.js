@@ -25,6 +25,17 @@ export default defineConfig({
             // 'resources/js/custom.js',
             // 'resources/js/vendor.min.js',
         ]),
+        {
+            name: 'blade',
+            handleHotUpdate({ file, server }) {
+                if (file.endsWith('.blade.php')) {
+                    server.ws.send({
+                        type: 'full-reload',
+                        path: '*',
+                    });
+                }
+            },
+        },
     ],
     resolve: {
         alias: {
