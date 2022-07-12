@@ -13123,7 +13123,7 @@ input:disabled {
 .header__burger {
     margin-left: 15px;
 }
-.megamenu__container { 
+.megamenu__container {
     border-radius: 17px;
     padding: 40px 40px;
     margin-top: 15px;
@@ -13446,7 +13446,7 @@ input:disabled {
     margin-bottom: 10px;
 }
 .art-market-pace-header {
-    background-image: url(../img/header-bg.png);
+    background-image: url(../../public/website/images/header-bg.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

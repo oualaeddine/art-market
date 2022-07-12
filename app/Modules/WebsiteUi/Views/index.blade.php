@@ -1,942 +1,935 @@
-@extends('website.layouts.master')
+@extends('website.app')
+
+
 
 @section('content')
 
-    <style>
-        .cat-dropdown .nav > li.level:hover .megamenu {
-            top: 10%;
-        }
 
-        .cat-dropdown .navbar-nav > li > a {
-            color: #041e42;
-        }
-
-        @media (max-width: 991px) {
-            .cat-dropdown .navbar-nav > li > a {
-                color: #fff;
-            }
-        }
-
-        .card {
-
-             border: 0px solid rgba(0, 0, 0, 0.125);
-        }
-    </style>
-    <div class="container-fluid" style="width: 90%;">
-
-        <div class="card mt-3  p-3">
-            <div class="row">
-                <div class="col-lg-3 ">
-                    <div class="cat-dropdown rounded-lg shadow-sm">
-                        <div class="sidebar-contant">
-
-                            <div id="menu" class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav ">
-                                    @foreach($categories as $category)
-                                        @if($category->sub_categories?->isNotEmpty())
-                                            <li class="level sub-megamenu">
-                                                <span class="opener plus"></span>
-                                                <a href=" {{route('shop',['c'=>\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr])}}"
-                                                   class="page-scroll">{{\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr}}</a>
-                                                <div class="megamenu mobile-sub-menu overflow-auto"
-                                                     style="    width: 332%;/* width: 430px; */height:100%">
-                                                    <div class="flex-column h-100 row w-100">
-                                                        @foreach($category?->sub_categories as $category)
-                                                            <div class="w-20 mr-3 d-flex flex-column">
-                                                                <div class="mt-1"><a
-                                                                        href=" {{route('shop',['c'=>\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr])}}"
-                                                                         style="font-weight: 700;">{{\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr}}</a>
-                                                                </div>
-                                                                <div class="">
-                                                                    @foreach($category?->sub_categories as $category)
-                                                                        <div class="mt-1"
-                                                                             @if($loop->first) style="border-top: 1px solid #ededed;" @endif>
-                                                                            <a
-                                                                                href=" {{route('shop',['c'=>\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr])}}"
-                                                                            >{{\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr}}</a></div>
-                                                                    @endforeach
-                                                                </div>
-
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        @else
-                                            <li class="level">
-                                                <a href="{{route('shop',['c'=>\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr])}}"
-                                                   class="page-scroll">{{\Illuminate\Support\Facades\Session::get('client_lang')?($category->name_ar??$category->name_fr):$category->name_fr}}</a>
-                                            </li>
-                                        @endif
-                                    @endforeach
-
-                                </ul>
+    <div class="section-pb selection pt-1 pb-20">
+        <div class="container">
+            <div class="text-left">
+                <div class="popular__stage">Discover unique</div>
+                <h3 class="hot__title h3">hand-picked items</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <a class="selection__card" href="item.html">
+                        <div class="selection__preview"><img src="https://i.etsystatic.com/6060897/r/il/6413a9/2355473127/il_680x540.2355473127_lfxx.jpg" alt="Selection" /></div>
+                        <div class="selection__head">
+                            <div class="selection__line">
+                                <div class="selection__description">
+                                    <div class="selection__title">Assorted Blue Band Stoneware.</div>
+                                    <div class="selection__counter">You can't resist em'!</div>
+                                </div>
                             </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="selection__card d-flex h-100" href="item.html">
+                        <div class="selection__preview position-relative with-absolute-description">
+                            <img src="https://i.etsystatic.com/7136732/c/1894/1505/0/817/il/b75904/3544148363/il_680x540.3544148363_43f0.jpg" alt="Selection" />
+                            <div class="selection__description absolute-home-description-item">
+                                <div class="selection__title">Leather Handle Flag End</div>
+                                <div class="selection__counter">Comfy all around.</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="selection__card d-flex h-100" href="item.html">
+                        <div class="selection__preview position-relative with-absolute-description">
+                            <img src="https://i.etsystatic.com/16453670/c/1970/1566/555/437/il/58a788/3468479551/il_680x540.3468479551_qx4k.jpg" alt="Selection" />
+                            <div class="selection__description absolute-home-description-item">
+                                <div class="selection__title">Stoneware Speckled Hand Built</div>
+                                <div class="selection__counter">Comfy all around.</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-12 mb-lg-0 mb-15">
+                <div class="col-12 col-lg-8">
+                    <div class="brand-logos d-flex justify-content-center align-items-center mx-n9 flex-wrap">
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-once="true">
+                            <img src="website/images/customers/logo-01.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="700" data-aos-once="true">
+                            <img src="website/images/customers/logo-02.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="900" data-aos-once="true">
+                            <img src="website/images/customers/logo-03.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1100" data-aos-once="true">
+                            <img src="website/images/customers/logo-04.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1300" data-aos-once="true">
+                            <img src="website/images/customers/logo-05.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
+                            <img src="website/images/customers/logo-06.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
+                            <img src="website/images/customers/logo-07.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
+                            <img src="website/images/customers/logo-08.png" alt="#" />
+                        </div>
+                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
+                            <img src="website/images/customers/logo-09.png" alt="#" />
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-9">
-                    <section class="banner-main">
-                        <div class="banner">
-                            <div class="main-banner owl-carousel">
-                                @foreach ($slider as $item)
-                                    <div class="item">
-                                        <div class="banner-1">
-
-                                            @if ($item->image != null)
-                                                <img style="" src="{{asset($item->image)}}" class="" alt="Null">
-                                            @else
-                                                <img style="" src="/website/assets/images/banner1.jpg" alt="Null">
-                                            @endif
-                                            <div class="banner-detail">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-lg-5 col-md-4 col-4"></div>
-                                                        <div class="col-lg-7 col-md-8 col-8">
-                                                            <div class="banner-detail-inner">
-                                                                <span class="slogan">{{$item->title}}</span>
-                                                                <h1 class="banner-title animated">{{$item->main_title}}</h1>
-                                                                <p class="offer">{{$item->sub_title}}</p>
-                                                                <a class="btn btn-color"
-                                                                   href="{{$item->link}}">{{__("Acheter maintenant")}}
-                                                                    !</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </section>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- CONTAIN START -->
-
-    <!-- SUB-BANNER START -->
-    <div class="sub-banner-block ">
-        <div class="">
-            <div class="">
-                <div class="row mlr_-10">
-                    @foreach ($tops as $item)
-
-                        <div class="col-md-4 plr-10">
-                            <div class="sub-banner sub-banner1">
-                                @if ($item->image != null)
-                                    <img style="" src="{{asset($item->image)}}" alt="Null">
-                                @else
-                                    <img style="" alt="Stylexpo" src="/website/assets/images/sub-banner1.jpg">
-                                @endif
-
-                                <div class="sub-banner-detail">
-                                    <div class="sub-banner-slogan">{{$item->title}}</div>
-                                    <div class="sub-banner-title sub-banner-title-color">{{$item->main_title}}</div>
-                                    <div class="sub-banner-subtitle">{{$item->sub_title}}</div>
-                                    {{--                                    @if($item->type==='product')--}}
-                                    <a class="btn btn-color"
-                                       href="{{$item->link}}">{{__("Acheter maintenant")}}
-                                        !</a>
-                                    {{--                                    @else--}}
-                                    {{--                                        <a class="btn btn-color"--}}
-                                    {{--                                           href="{{route('shop',['c'=>$item->product_id])}}">{{__("Acheter maintenant")}}--}}
-                                    {{--                                            !</a>--}}
-                                    {{--                                    @endif--}}
+    <div class="section-bg popular py-20">
+        <div class="container">
+            <div class="popular__top">
+                <div class="popular__box">
+                    <div class="popular__stage">Browser products by most popular</div>
+                    <h3 class="hot__title h3 mb-0">Brands</h3>
+                </div>
+                <div class="field">
+                    <div class="field__label">timeframe</div>
+                    <div class="field__wrap">
+                        <select class="select">
+                            <option>Today</option>
+                            <option>Morning</option>
+                            <option>Dinner</option>
+                            <option>Evening</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="popular__wrapper">
+                <div class="popular__slider js-slider-popular">
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #3772ff;">
+                                    <div class="popular__number">Best phone brand category</div>
                                 </div>
                             </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-01.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
                         </div>
+                    </div>
 
-                    @endforeach
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #9757d7;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-02.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #45b26b;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-03.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #23262f;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-04.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #777e90;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-05.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #23262f;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-06.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #45b26b;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-07.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #9757d7;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-08.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popular__slide">
+                        <div class="popular__item">
+                            <div class="popular__head justify-content-center">
+                                <div class="popular__rating" style="background-color: #777e90;">
+                                    <div class="popular__number">Best phone brand category</div>
+                                </div>
+                            </div>
+                            <div class="popular__body">
+                                <div class="company__logo d-block mb-4"><img class="mx-auto" src="website/images/customers/logo-09.png" alt="company" /></div>
+                                <div class="popular__name">APPLE INC</div>
+                                <div class="popular__price"><span>134</span> product</div>
+                                <a class="button-stroke main__button d-flex w-100 mt-5" href="search01.html">Store</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- SUB-BANNER END -->
 
-    <!--  New arrivals Products Slider Block Start  -->
-    <section class="pt-70">
+
+
+    <div class="section hot py-25">
         <div class="container">
-            <div class="product-listing">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading-part mb-30">
-                            <h2 class="main_title heading"><span>{{__("Nouveautés")}}</span></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="pro_cat">
-                    <div class="row">
-
-                        @if ($new_arrived->isNotEmpty())
-
-                            <div class="owl-carousel pro-cat-slider">
-                                @foreach ($new_arrived as $b)
-
-                                    <div class="item">
-                                        <div class="product-item">
-                                            {{-- <div class="main-label new-label"><span>New</span></div> --}}
-                                            <div class="product-image shadow"><a href="{{route('product',$b->slug)}}">
-                                                    @if ($b->image != null)
-                                                        <img src="{{asset($b->image)}}" style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" class="image-home" alt="Stylexpo">
-                                                    @else
-                                                        <img src="/website/assets/images/product/product_1_md.jpg"
-                                                             alt="Stylexpo">
-                                                    @endif
-                                                </a>
-                                                <div class="product-detail-inner">
-                                                    <div class="detail-inner-left align-center">
-                                                        <ul>
-                                                            <li class="pro-cart-icon">
-                                                                <form>
-                                                                    <button type="button" class="add-to-cart"
-                                                                            data-id="{{$b->id}}"
-                                                                            title="Ajouter au panier">
-                                                                        <span></span>{{__("Ajouter au panier")}}
-                                                                    </button>
-                                                                </form>
-                                                            </li>
-                                                            {{-- <li class="pro-wishlist-icon active"><a href="wishlist.html" title="Wishlist"></a></li> --}}
-                                                            {{--     <li class="pro-compare-icon"><a href="{{route('compare')}}" title="Compare"></a></li> --}}
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item-details">
-                                                <div class="product-item-name font-weight-bold"><a
-                                                        href="{{route('product',$b->slug)}}">
-                                                        @if(\Illuminate\Support\Facades\Session::get('client_lang'))
-                                                            {{$b->name_ar}}
-                                                        @else
-                                                            {{$b->name_fr}}
-
-                                                        @endif
-
-                                                    </a></div>
-                                                <div class="price-box"><span
-                                                        class="price">{{number_format($b->price, 2, '.', ',')}} {{__("DA")}} </span>
-                                                    <del
-                                                        class="price old-price"> {{number_format($b->price_old, 2, '.', ',')}} {{__("DA")}}</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @endforeach
-
-                            </div>
-
-                        @else
-
-                            <div class="col-12 text-center">
-
-
-                                <img src="{{asset('data-none.png')}}" style="width: 200px" alt="">
-                                <h4 class="section-title">{{__("aucune donnée n'a été trouvée")}}</h4>
-
-                            </div>
-
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  New arrivals Products Slider Block End  -->
-
-    <!-- Top Categories Start-->
-    <section class=" pt-70">
-        <div class="top-cate-bg ptb-70">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading-part mb-30">
-                            <h2 class="main_title heading"><span>{{__("Catégories principales")}}</span></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="pro_cat">
-                    <div class="row">
-                        @if ($top_categories->isNotEmpty())
-
-                            <div id="top-cat-pro" class="owl-carousel sell-pro align-center">
-                                @foreach ($top_categories as $c)
-                                    <div class="item ">
-                                        <a href="{{route('shop',['c'=>\Illuminate\Support\Facades\Session::get('client_lang')?$c->name_ar:$c->name_fr])}}">
-                                            <div class="item-inner">
-
-                                                @if ($c->icon != null)
-                                                    <img src="{{asset($c->icon)}}" class="category-home" alt="Stylexpo">
-                                                @else
-                                                    <img src="/website/assets/images/cate_1.jpg" style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" alt="Stylexpo">
-                                                @endif
-
-                                                <div class="effect"></div>
-                                                <div class="cate-detail">
-                                                    <span>{{\Illuminate\Support\Facades\Session::get('client_lang')?$c->name_ar:$c->name_fr}}</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                @endforeach
-
-                            </div>
-
-                        @else
-
-                            <div class="col-12 text-center">
-
-
-                                <img src="{{asset('data-none.png')}}" style="width: 200px" alt="">
-                                <h4 class="section-title">{{__("aucune donnée n'a été trouvée")}}</h4>
-
-                            </div>
-
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Top Categories End-->
-
-    <!-- perellex-banner Start -->
-    <section>
-        @if ( !is_null($banner) && $banner->image != null)
-            <div class="perellex-banner"
-                 style='background: rgba(0, 0, 0, 0) url("{{asset($banner->image)}}") no-repeat fixed center center'>
-                @else
-                    <div class="perellex-banner"
-                         style='background: rgba(0, 0, 0, 0) url("/website/assets/images/perellex.jpg") no-repeat fixed center center'>
-                        @endif
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-8 offset-xl-2 ptb-70 client-box">
-                                    <div class="perellex-delail align-center">
-                                        <div class="perellex-offer"><span
-                                                class="line-bottom">{{$banner->title??'example titre'}}</span></div>
-                                        <div class="perellex-title ">{{$banner->main_title??' example titre'}} </div>
-                                        <p>{{$banner->sub_title??' example titre'}}</p>
-                                        {{--                                        @if($banner->type==='product')--}}
-                                        <a class="btn btn-color"
-                                           href="{{$banner->link}}">{{__("Acheter maintenant")}}
-                                            !</a>
-                                        {{--                                        @else--}}
-                                        {{--                                            <a class="btn btn-color"--}}
-                                        {{--                                               href="{{route('shop',['c'=>$banner->product_id])}}">{{__("Acheter maintenant")}}--}}
-                                        {{--                                                !</a>--}}
-                                        {{--                                        @endif--}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-    </section>
-    <!-- perellex-banner End -->
-
-    <!-- Daily Deals Start -->
-    <section class=" ptb-70">
-        <div class="container">
-            <div class="daily-deals">
-                <div class="row m-0">
-                    <div class="col-12 p-0">
-                        <div class="heading-part mb-30">
-                            <h2 class="main_title heading"><span>{{__("Offres du jour")}}</span></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="pro_cat">
-                    <div class="row">
-
-                        @if ($daily_deals->isNotEmpty())
-
-                            <div id="daily_deals" class="owl-carousel ">
-
-                                @foreach ($daily_deals as $b)
-
-                                    <div class="item">
-                                        <div class="product-item">
-                                            <div class="row ">
-                                                <div class="col-md-6 col-12 deals-img ">
-                                                    <div class="product-image shadow">
-                                                        <a href="{{route('product',$b->slug)}}">
-                                                            @if ($b->image != null)
-                                                                <img style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" src="{{asset($b->image)}}" class="image-home" alt="Stylexpo">
-                                                            @else
-                                                                <img
-                                                                    src="/website/assets/images/product/product_1_md.jpg"
-                                                                    style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" alt="Stylexpo">
-                                                            @endif
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12 mt-xs-30">
-                                                    <div class="product-item-details">
-                                                        <div class="product-item-name font-weight-bold">
-                                                            <a href="{{route('product',$b->slug)}}">   @if(\Illuminate\Support\Facades\Session::get('client_lang'))
-                                                                    {{$b->name_ar}}
-                                                                @else
-                                                                    {{$b->name_fr}}
-                                                                @endif</a>
-                                                        </div>
-                                                        <div class="price-box">
-                                                            <span
-                                                                class="price"> {{number_format($b->price, 2, '.', ',')}} {{__("DA")}}</span>
-                                                            <del
-                                                                class="price old-price">{{number_format($b->price_old, 2, '.', ',')}} {{__("DA")}}</del>
-                                                        </div>
-                                                        <div class="product-item-name font-weight-bold">
-                                                            <a href="{{route('shop')}}">{{$b->vendor->name_fr}}</a>
-                                                        </div>
-                                                        @if(\Illuminate\Support\Facades\Session::get('client_lang'))
-                                                            <p>{{$b->desc_ar}}</p>
-
-                                                        @else
-                                                            <p>{{$b->desc_fr}}</p>
-                                                        @endif
-                                                    </div>
-                                                    <div class="product-detail-inner">
-                                                        <div class="detail-inner-left">
-                                                            <ul>
-                                                                <li class="pro-cart-icon">
-                                                                    <form>
-                                                                        <button type="button" title="Ajouter au panier"
-                                                                                class="add-to-cart"
-                                                                                data-id="{{$b->id}}">
-                                                                            <span></span>{{__("Ajouter au panier")}}
-                                                                        </button>
-                                                                    </form>
-                                                                </li>
-                                                                {{-- <li class="pro-wishlist-icon active"><a href="wishlist.html" title="Wishlist"></a></li> --}}
-                                                                {{--    <li class="pro-compare-icon"><a href="{{route('compare')}}" title="Compare"></a></li> --}}
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    {{-- <div class="item-offer-clock">
-                                                      <ul class="countdown-clock">
-                                                        <li>
-                                                          <span class="days">00</span>
-                                                          <p class="days_ref">days</p>
-                                                        </li>
-                                                        <li class="seperator">:</li>
-                                                        <li>
-                                                          <span class="hours">00</span>
-                                                          <p class="hours_ref">hrs</p>
-                                                        </li>
-                                                        <li class="seperator">:</li>
-                                                        <li>
-                                                          <span class="minutes">00</span>
-                                                          <p class="minutes_ref">min</p>
-                                                        </li>
-                                                        <li class="seperator">:</li>
-                                                        <li>
-                                                          <span class="seconds">00</span>
-                                                          <p class="seconds_ref">sec</p>
-                                                        </li>
-                                                      </ul>
-                                                    </div> --}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @endforeach
-                            </div>
-
-                        @else
-
-                            <div class="col-12 text-center">
-
-
-                                <img src="{{asset('data-none.png')}}" style="width: 200px" alt="">
-                                <h4 class="section-title">{{__("aucune donnée n'a été trouvée")}}</h4>
-
-                            </div>
-
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Daily Deals End -->
-
-    <!--  Site Services Features Block Start  -->
-    {{--    <div class="ser-feature-block">--}}
-    {{--        <div class="container">--}}
-    {{--            <div class="center-xs">--}}
-    {{--                <div class="row">--}}
-    {{--                    <div class="col-xl-3 col-6 service-box">--}}
-    {{--                        <div class="feature-box ">--}}
-    {{--                            <div class="feature-icon feature1"></div>--}}
-    {{--                            <div class="feature-detail">--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-title">{{$icons->where('name','Icon 1')->first()->main_title??'Livraison gratuite'}} </div>--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-subtitle">{{$icons->where('name','Icon 1')->first()->sub_title??'0.59 DA'}}</div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="col-xl-3 col-6 service-box">--}}
-    {{--                        <div class="feature-box">--}}
-    {{--                            <div class="feature-icon feature2"></div>--}}
-    {{--                            <div class="feature-detail">--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-title">{{$icons->where('name','Icon 2')->first()->main_title??'Livraison gratuite'}} </div>--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-subtitle">{{$icons->where('name','Icon 2')->first()->sub_title??'0.59 DA'}}</div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="col-xl-3 col-6 service-box">--}}
-    {{--                        <div class="feature-box ">--}}
-    {{--                            <div class="feature-icon feature3"></div>--}}
-    {{--                            <div class="feature-detail">--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-title">{{$icons->where('name','Icon 3')->first()->main_title??'Livraison gratuite'}} </div>--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-subtitle">{{$icons->where('name','Icon 3')->first()->sub_title??'0.59 DA'}}</div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="col-xl-3 col-6 service-box">--}}
-    {{--                        <div class="feature-box ">--}}
-    {{--                            <div class="feature-icon feature4"></div>--}}
-    {{--                            <div class="feature-detail">--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-title">{{$icons->where('name','Icon 4')->first()->main_title??'Livraison gratuite'}} </div>--}}
-    {{--                                <div--}}
-    {{--                                    class="ser-subtitle">{{$icons->where('name','Icon 4')->first()->sub_title??'0.59 DA'}}</div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-    <!--  Site Services Features Block End  -->
-
-    <!--small banner Block Start-->
-    {{--     <section class="pt-70">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="sub-banner small-banner small-banner1">
-                  <a href="shop.html">
-                    <img src="/website/assets/images/small-banner1.jpg" alt="Stylexpo">
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6 mt-sm-30">
-                <div class="sub-banner small-banner small-banner2">
-                  <a href="shop.html">
-                    <img src="/website/assets/images/small-banner2.jpg" alt="Stylexpo">
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> --}}
-    <!--small banner Block Start-->
-
-    <!--  Special products Products Slider Block Start  -->
-    <section class="ptb-70">
-        <div class="container">
-            <div class="product-listing">
-                <div class="row">
-                    {{--    <div class="col-md-6 col-12">
-                         <div class="row">
-                           <div class="col-12">
-                             <div class="heading-part mb-30">
-                               <h2 class="main_title heading"><span>Meilleur vendeur</span></h2>
-                             </div>
-                           </div>
-                         </div>
-                         <div class="pro_cat">
-                           <div class="row">
-
-                             @if ($best_seller->isNotEmpty())
-
-                             <div class="owl-carousel best-seller-pro">
-                               @foreach ($best_seller as $b)
-
-                               <div class="item">
-                                 <div class="product-item ">
-
-                                   <div class="product-image shadow"> <a href="{{route('product',$b->slug)}}">
-                                     @if ($b->image != null)
-                                       <img src="{{asset($b->image)}}" class="image-home" alt="Stylexpo">
-                                     @else
-                                       <img src="/website/assets/images/product/product_1_md.jpg" alt="Stylexpo">
-                                     @endif
-                                   </a>
-                                     <div class="product-detail-inner">
-                                       <div class="detail-inner-left align-center">
-                                         <ul>
-                                           <li class="pro-cart-icon">
-                                             <form>
-                                               <button type="button" class="add-to-cart" data-id="{{$b->id}}" title="Ajouter au panier"><span></span>Ajouter au panier</button>
-                                             </form>
-                                           </li>
-
-                                         </ul>
-                                       </div>
-                                     </div>
-                                   </div>
-                                   <div class="product-item-details">
-                                     <div class="product-item-name"> <a href="{{route('product',$b->slug)}}">{{$b->name_fr}}</a> </div>
-                                     <div class="price-box"> <span class="price"> {{number_format($b->price, 2, '.', ',')}} DA</span> <del class="price old-price"> {{number_format($b->price_old, 2, '.', ',')}} DA</del> </div>
-                                   </div>
-                                 </div>
-                               </div>
-
-                               @endforeach
-
-                             </div>
-
-
-                             @else
-
-                             <div class="col-12 text-center">
-
-
-                               <img src="{{asset('data-none.png')}}" style="width: 200px"  alt="">
-                               <h4 class="section-title">aucune donnée n'a été trouvée</h4>
-
-                             </div>
-
-                             @endif
-
-                           </div>
-                         </div>
-                       </div> --}}
-                    <div class="col-md-12 col-12 mt-xs-30">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="heading-part mb-30">
-                                    <h2 class="main_title heading"><span>{{__("Nouveaux produits")}} </span></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pro_cat">
-                            <div class="row">
-
-                                @if ($new_products->isNotEmpty())
-
-                                    <div class="owl-carousel pro-cat-slider">
-                                        @foreach ($new_products as $b)
-
-                                            <div class="item">
-                                                <div class="product-item">
-                                                    {{-- <div class="main-label new-label"><span>New</span></div> --}}
-                                                    <div class="product-image shadow"><a
-                                                            href="{{route('product',$b->slug)}}">
-                                                            @if ($b->image != null)
-                                                                <img src="{{asset($b->image)}}" style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" class="image-home" alt="Stylexpo">
-                                                            @else
-                                                                <img
-                                                                    src="/website/assets/images/product/product_1_md.jpg"
-                                                                    style="    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    ;" alt="Stylexpo">
-                                                            @endif
-                                                        </a>
-                                                        <div class="product-detail-inner">
-                                                            <div class="detail-inner-left align-center">
-                                                                <ul>
-                                                                    <li class="pro-cart-icon">
-                                                                        <form>
-                                                                            <button type="button" class="add-to-cart"
-                                                                                    data-id="{{$b->id}}"
-                                                                                    title="Ajouter au panier">
-                                                                                <span></span>{{__("Ajouter au panier")}}
-                                                                            </button>
-                                                                        </form>
-                                                                    </li>
-                                                                    {{-- <li class="pro-wishlist-icon active"><a href="wishlist.html" title="Wishlist"></a></li> --}}
-                                                                    {{--     <li class="pro-compare-icon"><a href="{{route('compare')}}" title="Compare"></a></li> --}}
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-item-details">
-                                                        <div class="product-item-name font-weight-bold"><a
-                                                                href="{{route('product',$b->slug)}}">{{\Illuminate\Support\Facades\Session::get('client_lang')?$b->name_ar:$b->name_fr}}</a>
-                                                        </div>
-                                                        <div class="price-box"><span
-                                                                class="price">{{number_format($b->price, 2, '.', ',')}} {{__("DA")}} </span>
-                                                            <del
-                                                                class="price old-price"> {{number_format($b->price_old, 2, '.', ',')}} {{__("DA")}}</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        @endforeach
-
-                                    </div>
-
-                                @else
-
-                                    <div class="col-12 text-center">
-
-
-                                        <img src="{{asset('data-none.png')}}" style="width: 200px" alt="">
-                                        <h4 class="section-title">{{__("aucune donnée n'a été trouvée")}}</h4>
-
-                                    </div>
-
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  Special products Products Slider Block End  -->
-
-    <!--Blog Block Start -->
-    {{-- <section class="pb-70">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 ">
-            <div class="heading-part mb-30">
-              <h2 class="main_title heading"><span>Latest News</span></h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div id="blog" class="owl-carousel">
-            <div class="item mb-md-30">
-              <div class="blog-item">
+            <div class="hot__wrapper">
                 <div class="">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img1_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
+                    <div class="popular__stage">Browser the most popular products</div>
+                    <h3 class="hot__title h3">Right now</h3>
                 </div>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item mb-md-30">
-              <div class="blog-item">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img2_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="blog-item">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img3_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="blog-item">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img4_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="blog-item">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img5_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="blog-item">
-                <div class="blog-media">
-                  <img src="/website/assets/images/blog/blog_img6_md_home.jpg" alt="Stylexpo">
-                  <div class="blog-effect"></div>
-                  <a href="single-blog.html" title="Click For Read More" class="read">&nbsp;</a>
-                </div>
-                <div class="mt-20">
-                  <div class="blog-detail">
-                    <div class="post-date"><span>22</span> / Aug 2020 </div>
-                    <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                    <p>Lorem khaled ipsum is a major key to success. It’s on you how you want to live your life.</p>
-                    <hr>
-                    <div class="post-info mt-2">
-                      <ul>
-                        <li><span>By</span><a href="#"> cormon jons</a></li>
-                        <li>
-                          <a href="single-blog.html">Read more
-                            <i class="fa fa-angle-double-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> --}}
-    <!--Blog Block End -->
+                <div class="hot__inner">
+                    <div class="hot__slider js-slider-hot">
+                        <div class="hot__slide">
+                            <div class="card border-0">
+                                <div class="card__preview">
+                                    <img src="https://i.etsystatic.com/6120089/r/il/93acdb/1571178682/il_794xN.1571178682_m7ex.jpg" alt="Card preview" />
 
-    <!-- Brand logo block Start  -->
-    <div class="brand-logo pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 ">
-                    <div class="heading-part mb-30">
-                        <h2 class="main_title heading"><span>{{__("Nos marques")}}</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class=" brand">
-                <div class="row">
-                    @if ($brands->isNotEmpty())
-
-                        <div id="brand-logo" class="owl-carousel align_center">
-                            @foreach ($brands as $brand)
-                                <div class="item"><a
-                                        href="{{route('shop',['marque'=>\Illuminate\Support\Facades\Session::get('client_lang')?$brand->name_ar:$brand->name_fr])}}"><img
-                                            class="shadow-sm" style="  height: 140px;width: 200px; opacity: 1!important;  background-repeat: no-repeat;
-    background-position: 50% 50%;" src="{{asset($brand->image)}}"
-                                            alt="{{\Illuminate\Support\Facades\Session::get('client_lang')?$brand->name_ar:$brand->name_fr}}"></a>
+                                    <div class="card__control">
+                                        <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>
+                                        <button class="card__favorite">
+                                            <svg class="icon icon-heart">
+                                            </svg>
+                                        </button>
+                                        <a href="#" class="button-small card__button text-white"><span>Place an order now</span></a>
+                                    </div>
                                 </div>
-                            @endforeach
+                                <a class="card__link" href="item.html">
+                                    <div class="card__body">
+                                        <div class="card__line">
+                                            <div class="card__title">Black Lace Sleeve Pleat Top <small class="d-block font-weight-light">more then 4,532 customers like this</small></div>
+                                        </div>
+
+                                        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="card__counter">378 in stock</div>
+                                            <div class="card__price">$225.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="card__foot">
+                                        <div class="card__status">CATEGORY <span>Questindustries</span></div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
 
-                    @else
+                        <div class="hot__slide">
+                            <div class="card border-0">
+                                <div class="card__preview">
+                                    <img src="https://i.etsystatic.com/7874461/r/il/a02dbc/1185641664/il_794xN.1185641664_hm1v.jpg" alt="Card preview" />
 
-                        <div class="col-12 text-center">
+                                    <div class="card__control">
+                                        <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>
+                                        <button class="card__favorite">
+                                            <svg class="icon icon-heart">
+                                                <use xlink:href="#icon-heart"></use>
+                                            </svg>
+                                        </button>
+                                        <a href="#" class="button-small card__button text-white"><span>Place an order now</span></a>
+                                    </div>
+                                </div>
+                                <a class="card__link" href="item.html">
+                                    <div class="card__body">
+                                        <div class="card__line">
+                                            <div class="card__title">Black Lace Sleeve Pleat Top <small class="d-block font-weight-light">more then 4,532 customers like this</small></div>
+                                        </div>
+
+                                        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="card__counter">378 in stock</div>
+                                            <div class="card__price">$225.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="card__foot">
+                                        <div class="card__status">CATEGORY <span>Questindustries</span></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hot__slide">
+                            <div class="card border-0">
+                                <div class="card__preview">
+                                    <img src="https://i.etsystatic.com/8042223/r/il/369464/3842783131/il_794xN.3842783131_bmed.jpg" alt="Card preview" />
+
+                                    <div class="card__control">
+                                        <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>
+                                        <button class="card__favorite">
+                                            <svg class="icon icon-heart">
+                                                <use xlink:href="#icon-heart"></use>
+                                            </svg>
+                                        </button>
+                                        <a href="#" class="button-small card__button text-white"><span>Place an order now</span></a>
+                                    </div>
+                                </div>
+                                <a class="card__link" href="item.html">
+                                    <div class="card__body">
+                                        <div class="card__line">
+                                            <div class="card__title">Black Lace Sleeve Pleat Top <small class="d-block font-weight-light">more then 4,532 customers like this</small></div>
+                                        </div>
+
+                                        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="card__counter">378 in stock</div>
+                                            <div class="card__price">$225.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="card__foot">
+                                        <div class="card__status">CATEGORY <span>Questindustries</span></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hot__slide">
+                            <div class="card border-0">
+                                <div class="card__preview">
+                                    <img src="https://i.etsystatic.com/6903082/r/il/25555e/666794044/il_794xN.666794044_256k.jpg" alt="Card preview" />
+
+                                    <div class="card__control">
+                                        <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>
+                                        <button class="card__favorite">
+                                            <svg class="icon icon-heart">
+                                                <use xlink:href="#icon-heart"></use>
+                                            </svg>
+                                        </button>
+                                        <a href="#" class="button-small card__button text-white"><span>Place an order now</span></a>
+                                    </div>
+                                </div>
+                                <a class="card__link" href="item.html">
+                                    <div class="card__body">
+                                        <div class="card__line">
+                                            <div class="card__title">Black Lace Sleeve Pleat Top <small class="d-block font-weight-light">more then 4,532 customers like this</small></div>
+                                        </div>
+
+                                        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="card__counter">378 in stock</div>
+                                            <div class="card__price">$225.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="card__foot">
+                                        <div class="card__status">CATEGORY <span>Questindustries</span></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hot__slide">
+                            <div class="card border-0">
+                                <div class="card__preview">
+                                    <img src="https://i.etsystatic.com/6903082/r/il/25555e/666794044/il_794xN.666794044_256k.jpg" alt="Card preview" />
+
+                                    <div class="card__control">
+                                        <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>
+                                        <button class="card__favorite">
+                                            <svg class="icon icon-heart">
+                                                <use xlink:href="#icon-heart"></use>
+                                            </svg>
+                                        </button>
+                                        <a href="#" class="button-small card__button text-white"><span>Place an order now</span></a>
+                                    </div>
+                                </div>
+                                <a class="card__link" href="item.html">
+                                    <div class="card__body">
+                                        <div class="card__line">
+                                            <div class="card__title">Black Lace Sleeve Pleat Top <small class="d-block font-weight-light">more then 4,532 customers like this</small></div>
+                                        </div>
+
+                                        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="card__counter">378 in stock</div>
+                                            <div class="card__price">$225.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="card__foot">
+                                        <div class="card__status">CATEGORY <span>Questindustries</span></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-                            <img src="{{asset('data-none.png')}}" style="width: 200px" alt="">
-                            <h4 class="section-title">{{__("aucune donnée n'a été trouvée")}}</h4>
+        </div>
+    </div>
+
+    <div class="section-bg collections py-20">
+        <div class="container">
+            <div class="collections__wrapper">
+                <div class="">
+                    <div class="popular__stage">Discover other extremely</div>
+                    <h3 class="hot__title h3">popular collections</h3>
+                </div>
+
+
+
+                <div class="row justify-content-start">
+                    <div class="col-md-5 col-12">
+                        <a href="#" class="homepage-item-box white-bg">
+                            <img src="https://toka.b-cdn.net/wp-content/uploads/2022/04/frfrghj.png" alt="">
+                            <div class="item__control px-5 py-5">
+                                <h5>Slotted Stoneware Sponge Holder</h5>
+                                <p>Organic in shape and charming by nature, this unique sponge holder is both beautiful and functional.</p>
+                                <div class="item__head">
+                                    <div class="item__description">
+                                        <div class="item__info">Highest bid by <span>Nedjai Mohamed</span></div>
+                                        <div class="item__currency"><div class="item__price">$652.22 </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="homepage-item-box white-bg">
+                            <img src="https://toka.b-cdn.net/wp-content/uploads/2022/04/fujm.png" alt="">
+                            <div class="item__control px-5 py-5">
+                                <h5>Slotted Stoneware Sponge Holder</h5>
+                                <p>Organic in shape and charming by nature, this unique sponge holder is both beautiful and functional.</p>
+                                <div class="item__head">
+                                    <div class="item__description">
+                                        <div class="item__info">Highest bid by <span>Nedjai Mohamed</span></div>
+                                        <div class="item__currency"><div class="item__price">$652.22 </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-7 col-12">
+                        <a href="#" class="homepage-item-box white-bg">
+                            <img src="https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png" alt="">
+                            <div class="item__control px-5 py-5">
+                                <h5>Slotted Stoneware Sponge Holder</h5>
+                                <p>Organic in shape and charming by nature, this unique sponge holder is both beautiful and functional.</p>
+                                <div class="item__head">
+                                    <div class="item__description">
+                                        <div class="item__info">Highest bid by <span>Nedjai Mohamed</span></div>
+                                        <div class="item__currency"><div class="item__price">$652.22 </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <a href="#" class="homepage-item-box white-bg">
+                                    <img src="https://toka.b-cdn.net/wp-content/uploads/2022/04/abstract-blue-painting-with-purple-dots-1.png" alt="">
+                                    <div class="item__control px-5 py-5">
+                                        <h5>Slotted Stoneware Sponge Holder</h5>
+                                        <p>Organic in shape and charming by nature, this unique sponge holder is both beautiful and functional.</p>
+                                        <div class="item__head">
+                                            <div class="item__description">
+                                                <div class="item__info">Highest bid by <span>Nedjai Mohamed</span></div>
+                                                <div class="item__currency"><div class="item__price">$652.22 </div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <a href="#" class="homepage-item-box white-bg">
+                                    <img src="https://toka.b-cdn.net/wp-content/uploads/2022/04/rvgls.png" alt="">
+                                    <div class="item__control px-5 py-5">
+                                        <h5>Slotted Stoneware Sponge Holder</h5>
+                                        <p>Organic in shape and charming by nature, this unique sponge holder is both beautiful and functional.</p>
+                                        <div class="item__head">
+                                            <div class="item__description">
+                                                <div class="item__info">Highest bid by <span>Nedjai Mohamed</span></div>
+                                                <div class="item__currency"><div class="item__price">$652.22 </div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
 
                         </div>
 
-                    @endif
+                    </div>
 
+                </div>
+
+                <div class="more__products__btns white-bg-btn d-flex justify-content-center mt-15">
+                    <button class="more__products__btn">
+                        <span class="more__products__text">load more</span> <span class="more__products__icon"><i class="fad fa-spinner-third"></i></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section discover py-20">
+        <div class="container">
+            <div class="main__title__text d-flex align-items-center justify-content-between mb-15">
+                <div class="title__text">
+                    <h3 class="hot__title__outline h3 mb-0">New<span>Arrivals</span></h3>
+                    <div class="popular__stage">Enjoy the summer time and shop our SS22 Collection</div>
+                </div>
+                <div class="title__more__btn">
+                    <a href="#" class="btn btn-outline-dark py-1 px-10">View all products</a>
+                </div>
+            </div>
+
+            <div class="discover__top justify-content-between align-items-center">
+                <div class="discover__nav">
+                    <a class="discover__link active" href="#"><i class="fad fa-ball-pile"></i> All products</a>
+                    <a class="discover__link" href="#"><i class="fad fa-globe"></i> Best sallers</a>
+                    <a class="discover__link" href="#"><i class="fad fa-tshirt"></i> Tops</a>
+                    <a class="discover__link" href="#"><i class="fad fa-mitten"></i> Pants & Tights</a>
+                    <a class="discover__link" href="#"><i class="fad fa-boot"></i> Shoes <span class="onsalle">-22%</span></a>
+                    <a class="discover__link" href="#"><i class="fad fa-sunglasses"></i> Sunglasses</a>
+                </div>
+
+                <div class="tablet-show">
+                    <select class="select">
+                        <option>All items</option>
+                        <option>Art</option>
+                        <option>Game</option>
+                        <option>Photography</option>
+                        <option>Music</option>
+                        <option>Video</option>
+                    </select>
+                </div>
+
+                <button class="discover__filter">
+                    <span class="closed__discover__filter">Filter <i class="fad fa-sliders-h"></i></span> <i class="fal fa-times opened__discover__filter"></i>
+                </button>
+            </div>
+
+            <div class="discover__filters">
+                <div class="discover__sorting">
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>Price</option>
+                                    <option>The lowest price</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>Colour</option>
+                                    <option>Least liked</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>Season</option>
+                                    <option>All</option>
+                                    <option>Most liked</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>purpose</option>
+                                    <option>All</option>
+                                    <option>Most liked</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>Style</option>
+                                    <option>All</option>
+                                    <option>Most liked</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="discover__cell">
+                        <div class="field">
+                            <div class="field__wrap">
+                                <select class="select">
+                                    <option>Matriel</option>
+                                    <option>All</option>
+                                    <option>Most liked</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="discover__list">
+                <div class="discover__slider js-slider-discover js-slider-resize">
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/20380734/r/il/d77040/3195396323/il_794xN.3195396323_p13r.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/28405914/r/il/9ac5b2/3231359403/il_794xN.3231359403_48fq.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__default__card card border-0">
+                        <a href="#" class="product__card__preview">
+                            <img class="front__card__preview" src="https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg" alt="Card preview" />
+                            <img class="back__card__preview" src="https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg" alt="Card preview" />
+                        </a>
+                        <div class="card__default__informations">
+                            <div class="card__body">
+                                <button class="card__favorite">
+                                    <svg class="icon icon-heart">
+
+                                    </svg>
+                                </button>
+
+                                <div class="card__line">
+                                    <h6 class="h6 mb-4">
+                                        <small class="d-block font-weight-light">ACESHOW</small>
+                                        Lipsy V neck Lace Bodycon Dress
+                                    </h6>
+                                </div>
+                                <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                                    <div class="the__price__discount">£89.00</div>
+                                    <div class="the__price">£89.00</div>
+                                </div>
+                            </div>
+
+                            <div class="card__additionel__informations d-flex align-items-center justify-content-between">
+                                <a href="#" class="card__additionel__informations__btn">Order now</a>
+                                <span class="card__additionel__informations__orders">4,532 order on this product</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more__products__btns d-flex justify-content-center mt-15">
+                <button class="more__products__btn">
+                    <span class="more__products__text">load more</span> <span class="more__products__icon"><i class="fad fa-spinner-third"></i></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="more__arts__section py-20">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-12">
+                    <div class="more__arts__widget__wrap">
+                        <h5>Want to get more art?</h5>
+                        <p>Browse dozens of my other extraordinary art collections in the world’s largest NFT marketplace.</p>
+                        <a href="#">Browse</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Brand logo block End  -->
-
 @endsection
