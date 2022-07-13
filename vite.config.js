@@ -7,9 +7,11 @@ export default defineConfig({
     plugins: [
         laravel([
             'resources/css/app.css',
+            'resources/css/fancybox.min.css',
 
             'resources/css/bootstrap.css',
 
+            'resources/js/shop.js',
             // 'resources/js/app.js',
             // 'resources/js/card-js.min.js',
             // 'resources/js/fancybox.js',

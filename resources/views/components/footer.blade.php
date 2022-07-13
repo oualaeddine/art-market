@@ -3,9 +3,9 @@
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-md-3 col-12 text-lg-left text-center mb-lg-0 mb-10">
-                    <a class="footer__logo" href="index.html"><img class="some-icon" src="website/images/logo-dark.png"
+                    <a class="footer__logo" href="index.html"><img class="some-icon" src="/website/images/logo-dark.png"
                                                                    alt="Crypter NFT"/><img class="some-icon-dark"
-                                                                                           src="website/images/logo-light.png"
+                                                                                           src="/website/images/logo-light.png"
                                                                                            alt="Crypter NFT"/></a>
                     <div class="footer__info"><i class="fad fa-map-marked-alt"></i> 17 rue de setif, algeria.</div>
                     <div class="footer__info__contact"><a href="#">support@coodiv.net</a> <a href="#">003135566332</a>

@@ -9,13 +9,15 @@
 
     <!-- Styles -->
     @vite(['resources/css/bootstrap.css'])
-    <link rel="stylesheet" media="all" href="website/fonts/sofia-pro/typographie.css" />
-    <link rel="stylesheet" media="all" href="website/fonts/fontawesome-5/css/all.css" />
-    @vite(['resources/css/app.css'])
+    <link rel="stylesheet" media="all" href="{{asset("website/fonts/sofia-pro/typographie.css")}}" />
+    <link rel="stylesheet" media="all" href="{{asset("website/fonts/fontawesome-5/css/all.css")}}" />
+    @vite(['resources/css/app.css','resources/css/fancybox.min.css'])
+
 
 </head>
 <body>
 
+<script src="{{asset("website/js/lib/jquery.min.js")}}"></script>
 
 
 <div class="outer">
@@ -31,9 +33,10 @@
     <x-footer />
 
 </div>
+<!-- Scripts -->
+@include('website.scripts')
 
-    <!-- Scripts -->
-@include('website.styles')
+
 
 
 </body>

@@ -2,10 +2,9 @@
 
 namespace App\View\Components;
 
-use App\Modules\ProductsLogic\Models\Product;
 use Illuminate\View\Component;
 
-class NewArrivalsSection extends Component
+class ProductRelated extends Component
 {
 
     public $products;
@@ -14,10 +13,9 @@ class NewArrivalsSection extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($products)
     {
-        $this->products=Product::query()->withWhereHas('vendor')->whereIsActive(true)->orderByDesc('created_at')->limit(12)->get();
-
+        $this->products=$products;
     }
 
     /**
@@ -27,6 +25,6 @@ class NewArrivalsSection extends Component
      */
     public function render()
     {
-        return view('components.new-arrivals-section');
+        return view('components.product-related');
     }
 }

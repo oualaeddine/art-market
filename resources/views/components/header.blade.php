@@ -1,9 +1,9 @@
-<header class="art-market-pace-header header js-header homepage-header" data-id="#header">
+<header class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header" data-id="#header">
 
     <div class="header__center center">
         <a class="header__logo" href="index.html">
-            <img class="some-icon" src="website/images/logo-dark.png" alt="logo"/>
-            <img class="some-icon-dark" src="website/images/logo-light.png" alt="logo"/>
+            <img class="some-icon" src="/website/images/logo-dark.png" alt="logo"/>
+            <img class="some-icon-dark" src="/website/images/logo-light.png" alt="logo"/>
         </a>
         <div class="header__wrapper js-header-wrapper">
             <nav class="header__nav ">
@@ -56,6 +56,7 @@
                     </div>
                 </li>
 {{--                <li class="nav-item"><a class="header__link" href="item.html">Shop</a></li>--}}
+                <li class="nav-item"><a class="header__link" href="{{route('shop')}}">{{__("Shop")}}</a></li>
                 <li class="nav-item"><a class="header__link" href="profile.html">{{__("Contact us")}}</a></li>
             </nav>
             <form class="header__search">
@@ -78,7 +79,7 @@
 {{--                    <div class="col-6">--}}
 {{--                        <div class="header__favority__container position-relative">--}}
 {{--                            <a href="#" class="header__favority__preview"><img--}}
-{{--                                    src="website/images/demo/product-0-8.jpeg" alt="item"></a>--}}
+{{--                                    src="/website/images/demo/product-0-8.jpeg" alt="item"></a>--}}
 {{--                            <a href="#" class="header__favority__subtitle">Steel chair in modern</a>--}}
 {{--                            <span href="#" class="header__favority__price">$99.33</span>--}}
 {{--                            <a href="#" class="header__remove"><i class="fal fa-times"></i></a>--}}
@@ -87,7 +88,7 @@
 {{--                    <div class="col-6">--}}
 {{--                        <div class="header__favority__container position-relative">--}}
 {{--                            <a href="#" class="header__favority__preview"><img--}}
-{{--                                    src="website/images/demo/product-0-9.jpeg" alt="item"></a>--}}
+{{--                                    src="/website/images/demo/product-0-9.jpeg" alt="item"></a>--}}
 {{--                            <a href="#" class="header__favority__subtitle">Steel chair in modern</a>--}}
 {{--                            <span href="#" class="header__favority__price">$99.33</span>--}}
 {{--                            <a href="#" class="header__remove"><i class="fal fa-times"></i></a>--}}
@@ -111,7 +112,7 @@
                 </div>
                 <div class="header__list">
                     <div class="header__notification">
-                        <a href="#" class="header__preview"><img src="website/images/demo/product-0-8.jpeg" alt="item"></a>
+                        <a href="#" class="header__preview"><img src="/website/images/demo/product-0-8.jpeg" alt="item"></a>
                         <div class="header__details">
                             <a href="#" class="header__subtitle">Steel chair in modern</a>
                             <div class="header__payment__method">6 months installment <span>+22%</span></div>
@@ -123,7 +124,7 @@
                     </div>
 
                     <div class="header__notification">
-                        <a href="#" class="header__preview"><img src="website/images/demo/product-0-7.jpeg" alt="item"></a>
+                        <a href="#" class="header__preview"><img src="/website/images/demo/product-0-7.jpeg" alt="item"></a>
                         <div class="header__details">
                             <a href="#" class="header__subtitle">Steel chair in modern</a>
                             <div class="header__payment__method">6 months installment <span>+22%</span></div>

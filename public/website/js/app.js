@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------
- * Theme Name: 
+ * Theme Name:
  * Author: coodiv (nedjai mohamed) (nbames.mohamed@gmail.com)
  * Author URI: https://coodiv.net/
  * Author URI: https://themeforest.net/user/coodiv
@@ -234,6 +234,14 @@ $('.main__timer').countdown('2050/04/28 00:00:00').on('update.countdown', functi
           postfix: postfix
         })
       });
+
+        // added this js to handle updates on slider in shop page it can be change later on to be specific for that page
+        slider[0].noUiSlider.on('change', function (values, handle, unencoded) {
+            let url_p = new URL(window.location.href)
+            url_p.searchParams.set("price", unencoded[0]);
+            var url = url_p.href;
+            $(location).prop('href', url)
+        });
     });
   }
 })();
@@ -339,7 +347,7 @@ $(document).ready(function () {
     open.toggleClass('active');
     filters.slideToggle();
   });
-})(); 
+})();
 
 
 (function () {
@@ -411,7 +419,7 @@ if(jQuery("#sticky-sidebar").length > 0) {
   var filtersidebarwrapper = $('.wrapper__sidebar__filter__shop_section');
   var filtersidebar = $('.sidebar__filter__shop_section');
   var filtersidebarclose = $('.sidebar__filter__shop_section__closebtn');
-  
+
   filtersidebarbtn.on('click', function () {
 	if ((filtersidebar).hasClass("active")) {
 	$(this).removeClass('active');
@@ -425,22 +433,22 @@ if(jQuery("#sticky-sidebar").length > 0) {
 	$('.catalog__row').addClass('sidebar__filter__shop_section__opened');
 	}
   });
-  
+
   filtersidebarclose.on('click', function () {
 	$('.sidebar__filter__toggle').removeClass('active');
 	$('.wrapper__sidebar__filter__shop_section').removeClass('active');
 	$('.sidebar__filter__shop_section').removeClass('active');
 	$('.catalog__row').removeClass('sidebar__filter__shop_section__opened');
   })
-  
+
   filtersidebarwrapper.on('click', function () {
 	$('.sidebar__filter__toggle').removeClass('active');
 	$('.wrapper__sidebar__filter__shop_section').removeClass('active');
 	$('.sidebar__filter__shop_section').removeClass('active');
 	$('.catalog__row').removeClass('sidebar__filter__shop_section__opened');
   });
-  
-  
+
+
 })();
 
 if(jQuery("#mainCarousel").length > 0) {

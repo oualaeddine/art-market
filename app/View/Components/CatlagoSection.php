@@ -2,22 +2,22 @@
 
 namespace App\View\Components;
 
-use App\Modules\ProductsLogic\Models\Product;
 use Illuminate\View\Component;
 
-class NewArrivalsSection extends Component
+class CatlagoSection extends Component
 {
 
-    public $products;
+    public  $products;
+    public  $sort_by;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($products,$sortBy)
     {
-        $this->products=Product::query()->withWhereHas('vendor')->whereIsActive(true)->orderByDesc('created_at')->limit(12)->get();
-
+        $this->products=$products;
+        $this->sort_by=$sortBy;
     }
 
     /**
@@ -27,6 +27,6 @@ class NewArrivalsSection extends Component
      */
     public function render()
     {
-        return view('components.new-arrivals-section');
+        return view('components.catlago-section');
     }
 }
