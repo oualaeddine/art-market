@@ -12,6 +12,7 @@
     <link rel="stylesheet" media="all" href="{{asset("website/fonts/sofia-pro/typographie.css")}}" />
     <link rel="stylesheet" media="all" href="{{asset("website/fonts/fontawesome-5/css/all.css")}}" />
     @vite(['resources/css/app.css','resources/css/fancybox.min.css'])
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 
 </head>
@@ -35,8 +36,8 @@
 </div>
 <!-- Scripts -->
 @include('website.scripts')
-
-
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 
 </body>

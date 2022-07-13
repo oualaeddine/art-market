@@ -20,7 +20,7 @@ class GetCommune
     public function asController(Request $request, $id)
     {
 
-        $lang=Session::get('client_lang');
+
 
         $communs = DB::table('yalidine_mairies')
             ->when(isset($request->q), function ($query) use ($request) {
@@ -35,9 +35,8 @@ class GetCommune
                 'yalidine_mairies.name_ar as name_ar'
 
             )
-            ->get()->map(function ($commun) use($lang){
-                $name='';
-                if (Session::get('client_lang')){
+            ->get()->map(function ($commun){
+                if (app()->getLocale()=='ar'){
                     $name=$commun->name_ar??$commun->name;
                 }else{
                     $name=$commun->name;

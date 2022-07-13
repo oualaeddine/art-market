@@ -22,6 +22,6 @@ class LogoutAction
 
         }
 
-        return redirect()->back();
+        return redirect()->route('index');
     }
 }

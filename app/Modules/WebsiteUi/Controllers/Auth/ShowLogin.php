@@ -20,17 +20,11 @@ class ShowLogin
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-        
 
         if(Auth::guard('client')->user()){
             return redirect()->route('client.account');
         }
-        return view('WebsiteUi::auth.login')->with(['page_title' => 'Login']);
+        return view('WebsiteUi::login')->with(['page_title' => trans('Login')]);
     }
 
 }

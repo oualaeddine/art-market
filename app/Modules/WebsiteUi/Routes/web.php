@@ -53,18 +53,18 @@ Route::group(['prefix'=>'','middleware' => ['ChangeLang'] ], function () {
     //auth
     Route::group(['prefix' => '', 'as' => 'client.'], function () {
 
-        Route::get('/account', ShowAccount::class)->name('account')->middleware('auth:client');
-        Route::get('/login', ShowLogin::class)->name('login');
-        Route::post('/login', LoginAction::class)->name('login.action');
-        Route::post('/register', RegisterAction::class)->name('register.action');
-        Route::post('/logout', LogoutAction::class)->name('logout.action')->middleware('auth:client');
-        Route::get('/register', ShowRegister::class)->name('register');
+        Route::get('account', ShowAccount::class)->name('account')->middleware('auth:client');
+        Route::get('login', ShowLogin::class)->name('login');
+        Route::post('login', LoginAction::class)->name('login.action');
+        Route::post('register', RegisterAction::class)->name('register.action');
+        Route::post('logout', LogoutAction::class)->name('logout.action')->middleware('auth:client');
+        Route::get('register', ShowRegister::class)->name('register');
 
 
-        Route::get('/forgetpassword', ShowForgetPassword::class)->name('forget-password');
-        Route::post('/forgetpassword', SendResetSms::class)->name('forget-password.action');
-        Route::get('/resetpassword/{token}', ShowResetPassword::class)->name('reset.password.get');
-        Route::post('/resetpassword', ResetPassword::class)->name('reset-password.action');
+        Route::get('forgetpassword', ShowForgetPassword::class)->name('forget-password');
+        Route::post('forgetpassword', SendResetSms::class)->name('forget-password.action');
+        Route::get('resetpassword/{token}', ShowResetPassword::class)->name('reset.password.get');
+        Route::post('resetpassword', ResetPassword::class)->name('reset-password.action');
 
 
         Route::post('{client}/address/store', StoreAddress::class)->name('store.address')->middleware('auth:client');

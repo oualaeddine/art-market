@@ -535,3 +535,55 @@ $('.popup_price .popup__button:first-child').on('click', function () {
   var text = $(this).parents('.popup_price').find('.field__input').val();
   $('.item__currency .item__price:first-child span').text(text);
 });
+
+
+
+const PhoneRegEx = /^0\d{9}$/g;
+const PhoneRegEx2 = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+const PhoneRegEx3 = /^\d{9}$/g;
+const PhoneRegEx4 = /^[0-9]{1,2}?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+
+$('.phone-input').on('input',function(){
+    var phone=$(this).val();
+    $(this).removeClass('is-invalid')
+
+    if($(this).val().length >= 9 && $(this).val().length <= 14 ){
+
+        if (
+            ($(this).val().match(PhoneRegEx) ||
+                $(this).val().match(PhoneRegEx2)||
+                $(this).val().match(PhoneRegEx3) ||
+                $(this).val().match(PhoneRegEx4))
+
+            && (
+                phone.startsWith('00213') && phone.length===14 ||
+                phone.startsWith('0213') && phone.length===13 ||
+                phone.startsWith('213') && phone.length===12 ||
+                phone.startsWith('+213') && phone.length===13 ||
+                (phone.startsWith('5') || phone.startsWith('6') || phone.startsWith('7')) && phone.length===9 ||
+                phone.startsWith('0')  && phone.length===10
+            )
+
+        ) {
+
+            $('.btn-phone-send').attr('disabled',false)
+            $(this).addClass('is-valid')
+            $(this).removeClass('is-invalid')
+            // $('.invalid-phone').hide()
+
+        }else{
+
+            $('.btn-phone-send').attr('disabled',true)
+            $(this).removeClass('is-valid')
+            $(this).addClass('is-invalid')
+            // $('.invalid-phone').show()
+
+        }
+    }else{
+        $('.btn-phone-send').attr('disabled',true)
+        $(this).removeClass('is-valid')
+        $(this).addClass('is-invalid')
+        // $('.invalid-phone').show()
+    }
+})
