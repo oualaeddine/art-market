@@ -9,12 +9,10 @@
             <span class="header__title__total__price badge badge-pill badge-warning">{{__("Total")}}: {{\Gloudemans\Shoppingcart\Facades\Cart::total().trans('DA')}}</span>
         </div>
 
-        <div class="header__list" style="    max-height: 23rem;
-    overflow-y: scroll;">
+        <div class="header__list" style="max-height: 23rem;overflow-y: scroll;">
             @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $item)
                 <x-cart-header-item :item="$item" />
             @endforeach
-
 
         </div>
         <div class="js-header-footer">

@@ -43,6 +43,7 @@
                     toastr.error(data.message);
                 },
                 success:function(data){
+                    toastr.options.positionClass = 'toast-bottom-right';
                     toastr.success(data.message);
                     $('.cart-notification').text(data.data.count);
                     // i will change it later to make it auto generate without html call
@@ -62,6 +63,40 @@
 
 
         });
+        function DeleteCartItem(id){
+
+            var url = '{{ route("delete-item-cart",":product") }}';
+
+            url = url.replace(':product', id );
+
+            $.ajax({
+                type: 'POST',
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                /*  data : { value : false }, */
+                url: url,
+                error:function(data){
+                    toastr.error(data.message);
+                },
+                success:function (data){
+                    $('.cart-notification').text(data.count);
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    toastr.success(data.message);
+                    $.when(  $.get('/', function(response) { //append data
+                        $html_modal = $(response).find("#cart-in-header").html();
+                        /* $div.append($html); */
+                    }) ).done(function() {
+
+                        $('#cart-in-header').empty();
+                        $('#cart-in-header').append($html_modal);
+
+                    });
+                }
+            });
+
+
+        }
     </script>
 
 @endsection
