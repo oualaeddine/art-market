@@ -13,17 +13,18 @@ class StoreAddress
 {
     use AsAction;
 
-    public function asController(ActionRequest $request, Client $client)
+    public function asController(ActionRequest $request)
     {
+        $client=auth()->guard('client')->user();
 
         $this->handle($request, $client);
 
-        Session::flash('message', app()->getLocale()=='ar'?'تمت إضافة العنوان بنجاح': 'Adresse ajouté avec succès');
+        Session::flash('message', trans('Address added successfully'));
 
-        return redirect()->back()->with(['#'=>'step6']);
+        return redirect()->back();
     }
 
-    public function handle(ActionRequest $request, Client $client)
+    public function handle(ActionRequest $request, $client)
     {
         ClientAddress::create($this->getClientAddressFields($request) + ['client_id' => auth()->guard('client')->id()]);
     }
@@ -35,7 +36,6 @@ class StoreAddress
 
     public function rules(): array
     {
-        Session::put(['profile_tab'=>'profile-tab']);
 
         return [
             'address' => ['required', 'string', 'max:255'],
@@ -47,9 +47,9 @@ class StoreAddress
     public function getValidationAttributes(): array
     {
         return [
-            'address' => 'address',
-            'code_postal' => 'code postal',
-            'commune_id' => 'commune',
+            'address' => trans('address'),
+            'code_postal' => trans('code postal'),
+            'commune_id' => trans('commune'),
         ];
     }
 }

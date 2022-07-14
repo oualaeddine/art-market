@@ -12,6 +12,7 @@ export default defineConfig({
             'resources/css/bootstrap.css',
 
             'resources/js/shop.js',
+            'resources/js/wilaya.js',
             // 'resources/js/app.js',
             // 'resources/js/card-js.min.js',
             // 'resources/js/fancybox.js',

@@ -108,34 +108,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $('#wilaya_id').on('change', function () {
-                var id = $(this).val();
-                var url_coumne = '{{ route("get.commune",":id") }}';
-
-                url_coumne = url_coumne.replace(':id', id);
-
-                $.ajax({
-                    url: url_coumne,
-                    type: 'GET',
-                    dataType: 'json',
-                    error: function(error) {
-                        console.log(error)
-                    },
-                    success: function(data) {
-                        $('#commune_id').empty()
-
-                        $('#commune_id').append("<option value='' disabled selected>{{__('Your commune')}}</option>")
-                        $.each(data, function (i, commune) {
-                            $('#commune_id').append(new Option(commune.text,commune.id,false,false))
-                        });
-                        $('.select').niceSelect('destroy'); //destroy the plugin
-                        $('.select').niceSelect(); //apply again
-                    }
-                });
-            });
-        });
-    </script>
+    @vite(['resources/js/wilaya.js'])
 
 @endsection

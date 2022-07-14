@@ -23,21 +23,13 @@ class ShowAccount
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-
 
         $client = Auth::guard('client')->user();
         $client->load('addresses');
-        $client_orders = Client::where('id',$client->id)->with('orders.orderProducts')->with('coupons')->first();
-
+        $client->load('orders.orderProducts');
+        $client->loadCount('orders');
         $wilayas = YalidineWilaya::get();
-        $communes=DB::table('yalidine_mairies')->get();
-
-        return view('WebsiteUi::account',compact('communes','client','client_orders','wilayas'))->with(['page_title' => 'Account']);
+        return view('WebsiteUi::account',compact('client','wilayas'))->with(['page_title' => trans('Account')]);
     }
 
 }

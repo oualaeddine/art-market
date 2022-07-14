@@ -78,11 +78,6 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/../app/Modules/WebsiteUi/Routes/web.php';
 
-require __DIR__ . '/../app/Modules/WebsiteLogic/Routes/web.php';
-Route::get('migrate', function (){
-    \Illuminate\Support\Facades\Artisan::call('migrate');
-});
-
 
 Route::group(['prefix' => 'cod-dash'], function () {
     Auth::routes(['register'=>false]);
