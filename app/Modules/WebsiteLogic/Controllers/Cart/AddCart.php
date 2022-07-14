@@ -35,6 +35,7 @@ class AddCart
                         'name_ar' => $product->name_ar,
                         'image' => $product->image,
                         'price_old' => $product->price_old,
+                        'created_at'=>now()
                        /*  'sub_total' => $product->price_old * $qty, */
                     ]
                 ],

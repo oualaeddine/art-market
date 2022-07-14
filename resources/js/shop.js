@@ -9,7 +9,7 @@ $(document).ready(function (){
 
         $(location).prop('href', url)
 
-    })
+    });
 
     $('.brand-link').on('click',function(){
 
@@ -21,7 +21,7 @@ $(document).ready(function (){
 
         $(location).prop('href', url)
 
-    })
+    });
 
     $('.vendor-link').on('click',function(){
 
@@ -33,7 +33,7 @@ $(document).ready(function (){
 
         $(location).prop('href', url)
 
-    })
+    });
 
     $('#sort-prods').on('change',function(){
 
@@ -45,6 +45,7 @@ $(document).ready(function (){
 
         $(location).prop('href', url)
 
-    })
+    });
+
 
 });

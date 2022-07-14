@@ -24,7 +24,7 @@
         </div>
 
         <div class="card__additionel__informations d-flex align-items-center justify-content-between">
-            <a href="#" class="card__additionel__informations__btn">{{__("Order now")}}</a>
+            <a href="javascript:void(0)" data-id="{{$product->id}}" class="card__additionel__informations__btn add-to-cart">{{__("Order now")}}</a>
 {{--            <span class="card__additionel__informations__orders">4,532 order on this product</span>--}}
         </div>
     </div>
