@@ -99,6 +99,12 @@ class Order extends Model
         return $this->hasMany(Order_product::class, 'order_id');
     }
 
+    public function products()
+    {
+        return $this->hasMany(Order_product::class, 'order_id');
+    }
+
+
     public function vendor()
     {
         return $this->belongsTo(Vendor::class,'vendor_id')->withTrashed();
