@@ -34,16 +34,21 @@
                                         <small>{{$order->tracking_code}}</small></span>
                                     <div class="package__tracking__box__main__informations">
                                         <i class="fad fa-box-alt"></i>
-                                        @foreach ($order->products as $p)
+                                        <div class="row">
 
-                                            <div class="package__tracking__box__main__text">
-                                                <h5 class="">{{$p->product->name_fr}} * {{$p->quantity}}</h5>
-                                                <small class="dis"><b>{{number_format($p->price,2)}}</b> {{__('DA')}}</small>
-                                                {{-- <small class="dis"><b>from</b> Setif - Algeria</small> --}}
-                                                {{-- <small class="dis mt-n1"><b>Delevry</b> Medea - Algeria</small> --}}
-                                            </div>
+                                            @foreach ($order->products as $p)
+
+                                                <div class="package__tracking__box__main__text col-md-12 mb-4">
+                                                    <h5 class="">{{$p->product->name_fr}} * {{$p->quantity}}</h5>
+                                                    <small class="dis"><b>{{number_format($p->price,2)}}</b> {{__('DA')}}</small>
+                                                    {{-- <small class="dis"><b>from</b> Setif - Algeria</small> --}}
+                                                    {{-- <small class="dis mt-n1"><b>Delevry</b> Medea - Algeria</small> --}}
+                                                </div>
                                                 
-                                        @endforeach
+                                            @endforeach
+
+                                        </div>
+                                       
                                        
                                     </div>
                                     <div class="package__tracking__box__estimate">
