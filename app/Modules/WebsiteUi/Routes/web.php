@@ -19,6 +19,7 @@ use App\Modules\WebsiteLogic\Controllers\Help\SetLang;
 use App\Modules\WebsiteLogic\Controllers\Profile\DeleteOrder;
 use App\Modules\WebsiteLogic\Controllers\Profile\StoreAddress;
 use App\Modules\WebsiteLogic\Controllers\Profile\TrackOrder;
+use App\Modules\WebsiteLogic\Controllers\Profile\UpdateAvatar;
 use App\Modules\WebsiteLogic\Controllers\Profile\UpdatePassword;
 use App\Modules\WebsiteLogic\Controllers\Profile\UpdateProfile;
 use App\Modules\WebsiteUi\Controllers\Auth\ShowForgetPassword;
@@ -81,6 +82,7 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
 
         Route::post('address/store', StoreAddress::class)->name('store.address')->middleware('auth:client');
         Route::put('update/profile', UpdateProfile::class)->name('update.profile')->middleware('auth:client');
+        Route::put('update/avatar', UpdateAvatar::class)->name('update.avatar')->middleware('auth:client');
         Route::put('{client}/update/password', UpdatePassword::class)->name('update.password')->middleware('auth:client');
 
         Route::put('{client_address}/address/update', UpdateAddress::class)->name('update.address')->middleware('auth:client');

@@ -17,7 +17,12 @@
 
                     <x-profile-tabs-card :client="$client"/>
 
-                    <x-edit-profile-card :client="$client" :wilayas="$wilayas"/>
+                    @if($tab =='account')
+                        <x-edit-profile-card :client="$client" :wilayas="$wilayas"/>
+
+                    @else
+
+                    @endif
 
                 </div>
             </div>

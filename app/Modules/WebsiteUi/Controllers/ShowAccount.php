@@ -29,7 +29,8 @@ class ShowAccount
         $client->load('orders.orderProducts');
         $client->loadCount('orders');
         $wilayas = YalidineWilaya::get();
-        return view('WebsiteUi::account',compact('client','wilayas'))->with(['page_title' => trans('Account')]);
+        $tab=$request->tab??'account';
+        return view('WebsiteUi::account',compact('tab','client','wilayas'))->with(['page_title' => trans('Account')]);
     }
 
 }

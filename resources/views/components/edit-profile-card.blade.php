@@ -42,7 +42,7 @@
                             <div class="field field__style__one">
                                 <div class="field__label">{{__("Phone")}}</div>
                                 <div class="field__wrap">
-                                    <input class="field__input" type="tel" name="email"
+                                    <input class="field__input" type="tel" name="phone"
                                            value="{{'0'.$client->phone}}"  required="">
                                 </div>
                             </div>
@@ -119,18 +119,27 @@
 
         <div class="col-md-4">
 
-            <div class="details__user">
-                <div class="edit__avatar">
-                    <div class="details__avatar"><img src="/website/images/content/avatar-1.jpg" alt="Avatar"></div>
-                    <div class="details__wrap">
-                        <div class="details__stage">{{__("Profile photo")}}</div>
-                        <div class="details__text">{{__("We recommend an image of at least 400x400")}}.</div>
-                        <div class="details__file">
-                            <input class="details__input" type="file">
-                            <button class="button-stroke button-small details__button">{{__("Upload")}}</button>
+            <div class="details__user" style="display:block !important;height: auto">
+                <form action="{{route('client.update.avatar')}}" method="POST" class="pos-relative" enctype="multipart/form-data" >
+                    @csrf
+                    @method('PUT')
+                    <div class="edit__avatar align-items-center">
+                        <div class="details__avatar"><img id="imgPreview" src="{{asset($client->avatar??"/website/images/content/avatar-big.jpg")}}" alt="Avatar"></div>
+                        <div class="details__wrap">
+                            <div class="details__stage">{{__("Profile photo")}}</div>
+                            <div class="details__text">{{__("We recommend an image of at least 400x400")}}.</div>
+                            <div class="details__file" style="cursor: pointer">
+                                <input required class="details__input" id="photo" name="avatar" type="file">
+                                <button class="button-stroke button-small details__button" >{{__("Upload")}}</button>
+                            </div>
+                            <div>
+
+                            </div>
                         </div>
+
                     </div>
-                </div>
+                    <button type="submit" style="position: absolute;top: -7px;right: 19px;font-weight: 900;font-size: x-large;" class=" d-none p-1 text-primary rounded " id="photo_submit"><i class="fal fa-check-circle"></i></button>
+                </form>
             </div>
 
         </div>
@@ -212,3 +221,20 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(()=>{
+        $('#photo').change(function(){
+            const file = this.files[0];
+            if (file){
+                let reader = new FileReader();
+                reader.onload = function(event){
+                    $('#imgPreview').attr('src', event.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+            $("#photo_submit").removeClass("d-none")
+
+
+        });
+    });
+</script>

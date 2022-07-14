@@ -5,6 +5,7 @@ namespace App\Modules\WebsiteLogic\Controllers\Profile;
 
 use App\Modules\ClientsLogic\Models\Client;
 use App\Modules\ClientsLogic\Models\ClientAddress;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -16,17 +17,14 @@ class StoreAddress
     public function asController(ActionRequest $request)
     {
         $client=auth()->guard('client')->user();
-
         $this->handle($request, $client);
-
-        Session::flash('message', trans('Address added successfully'));
-
+        Toastr::success(trans('Address added successfully'), 'Address', ["positionClass" => "toast-bottom-right"]);
         return redirect()->back();
     }
 
     public function handle(ActionRequest $request, $client)
     {
-        ClientAddress::create($this->getClientAddressFields($request) + ['client_id' => auth()->guard('client')->id()]);
+        ClientAddress::create($this->getClientAddressFields($request) + ['client_id' => $client->id()]);
     }
 
     private function getClientAddressFields($request): array

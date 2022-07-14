@@ -22,7 +22,7 @@ class LoginAction
         }
 
 
-        Toastr::success(trans('Logged in successfully'), '', ["positionClass" => "toast-top-center"]);
+        Toastr::success(trans('Logged in successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
         return redirect()->route('client.account');
 
