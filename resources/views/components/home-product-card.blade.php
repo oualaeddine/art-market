@@ -9,10 +9,10 @@
 {{--                    <svg class="icon icon-heart">--}}
 {{--                    </svg>--}}
 {{--                </button>--}}
-                <a href="#" class="button-small card__button text-white"><span>{{__("Place an order now")}}</span></a>
+                <a href="javascript:void(0)" class="button-small card__button text-white add-to-cart" data-id="{{$product->id}}"><span>{{__("Place an order now")}}</span></a>
             </div>
         </div>
-        <a class="card__link" href="item.html">
+        <a class="card__link" href="{{(route('product',['product'=>$product->slug]))}}">
             <div class="card__body">
                 <div class="card__line">
                     <div class="card__title">{{$product->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}

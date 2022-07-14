@@ -16,33 +16,20 @@ class ShowCheckoutInfo
 
     use AsAction;
 
-    public function handle()
-    {
-        // ...
+    private function checkCart(){
+        return Cart::count() != 0;
     }
-
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
 
-        if($lang){
-            SetLocal::generate('ar');
-        }
-
-
-        if(Cart::count() == 0){
-
-            return redirect()->route('shop');
-
-        }
+        if(!$this->checkCart()) return redirect()->route('shop');
 
         $client = Auth::guard('client')->user();
-
 
         $wilayas = YalidineWilaya::get();
         $communes=YalidineMairie::query()->get();
 
-        return view('WebsiteUi::checkout.info',compact('communes','wilayas','client'))->with(['page_title' => 'Checkout | Info']);
+        return view('WebsiteUi::checkout',compact('communes','wilayas','client'))->with(['page_title' => trans('Checkout')]);
     }
 
 }

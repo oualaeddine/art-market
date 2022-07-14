@@ -39,11 +39,11 @@
 
         <div class="header__menu profile__menu">
             <span class="profile__menu__title">My account</span>
-            <a class="header__link__with__underline" href="profile.html">
-                Update my profile
+            <a class="header__link__with__underline" href="{{route('client.account',['tab'=>'account'])}}">
+                {{__("Update my profile")}}
             </a>
             <a class="header__link__with__underline logout" href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();">
-                Log Out
+                {{__("Log Out")}}
             </a>
             <form action="{{route('client.logout.action')}}" method="POST" id="logout-form">
                 @csrf

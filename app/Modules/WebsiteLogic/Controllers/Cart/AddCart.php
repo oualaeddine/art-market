@@ -30,9 +30,11 @@ class AddCart
                     'id' => $product->id, 'name' => $product->name_fr, 'qty' => $qty, 'price' => $product->price, "tax" => 0,
                     'options' => [
                         'vendor_id'=>$product->vendor_id,
+                        'name_ar'=>$product->name_ar,
                         'discount' => $product->discount,
                         'slug' => $product->slug,
-                        'name_ar' => $product->name_ar,
+                        'vendor_name_ar' => $product->vendor->name_ar,
+                        'vendor_name_fr' => $product->vendor->name_fr,
                         'image' => $product->image,
                         'price_old' => $product->price_old,
                         'created_at'=>now()

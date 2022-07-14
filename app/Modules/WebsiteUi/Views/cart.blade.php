@@ -27,10 +27,14 @@
                                     </div>
                                 </div>
                             </div>
-                            @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $item)
-                                <x-cart-item :item="$item" />
 
-                            @endforeach
+{{--                            <div style="max-height: 37rem;overflow-y: scroll">--}}
+                                @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $item)
+                                    <x-cart-item :item="$item" />
+
+                                @endforeach
+{{--                            </div>--}}
+
                         </div>
                     </div>
 
@@ -58,7 +62,7 @@
                             </div>
 
                             <div class="popup__btns">
-                                <button class="button popup__button">{{__("PROCEED TO CHECKOUT")}}</button>
+                                <a href="{{route('checkout')}}" class="button popup__button">{{__("PROCEED TO CHECKOUT")}}</a>
                             </div>
                         </div>
                     </div>

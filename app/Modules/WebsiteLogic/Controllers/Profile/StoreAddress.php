@@ -24,7 +24,7 @@ class StoreAddress
 
     public function handle(ActionRequest $request, $client)
     {
-        ClientAddress::create($this->getClientAddressFields($request) + ['client_id' => $client->id()]);
+        ClientAddress::create($this->getClientAddressFields($request) + ['client_id' => $client->id]);
     }
 
     private function getClientAddressFields($request): array
