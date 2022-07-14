@@ -13,31 +13,12 @@ class ShowCart
 
     use AsAction;
 
-    public function handle()
+    public function asController()
     {
-        // ...
-    }
-
-    public function asController(ActionRequest $request)
-    {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-        
 
         $cart = Cart::content();
 
-        $sub_total = 0;
-
-        foreach($cart as $c){
-
-            $sub_total = $sub_total + $c->options->price_old * $c->qty; 
-        };
-
-
-        return view('WebsiteUi::cart',compact('cart','sub_total'))->with(['page_title' => 'Cart']);
+        return view('WebsiteUi::cart',compact('cart'))->with(['page_title' => trans('Cart')]);
     }
 
 }
