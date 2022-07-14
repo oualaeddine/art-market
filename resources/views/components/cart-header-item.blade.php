@@ -8,5 +8,5 @@
         <div class="header__date">{{\Illuminate\Support\Carbon::parse($item->options->created_at)}}</div>
     </div>
     <div class="header__price">{{(number_format($item->price*$item->qty,2).trans('DA'))}}</div>
-    <div class="header__remove cart-remove-item" onclick="DeleteCartItem({{$item->id}})" ><i class="fal fa-times"></i></div>
+    <div class="header__remove cart-remove-item" data-id="{{$item->id}}" onclick="DeleteCartItem({{$item->id}})" ><i class="fal fa-times"></i></div>
 </div>

@@ -28,9 +28,8 @@
     <script>
         $('.add-to-cart').click(function(){
 
-            var url = '{{ route("add-cart",":product") }}';
+            var url = $(this).data('id')+'/add-to-cart';
 
-            url = url.replace(':product', $(this).data('id') );
 
             $.ajax({
                 type: 'POST',
@@ -65,9 +64,7 @@
         });
         function DeleteCartItem(id){
 
-            var url = '{{ route("delete-item-cart",":product") }}';
-
-            url = url.replace(':product', id );
+            var url = id+'/delete-item-cart';
 
             $.ajax({
                 type: 'POST',
