@@ -5,6 +5,7 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@defstudio/vite-livewire-plugin": "^0.1.15",
         "@popperjs/core": "^2.10.2",
         "axios": "^0.25",
         "bootstrap": "^5.1.3",

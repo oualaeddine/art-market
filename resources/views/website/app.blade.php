@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css','resources/css/fancybox.min.css'])
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
-
+    @livewireStyles
 </head>
 <body>
 
@@ -38,6 +38,6 @@
 @include('website.scripts')
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
-
+@livewireScripts
 </body>
 </html>
