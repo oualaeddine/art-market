@@ -1,7 +1,7 @@
 <div class="hot__slide">
     <div class="card border-0">
         <div class="card__preview">
-            <img src="{{$product->image??'https://i.etsystatic.com/6120089/r/il/93acdb/1571178682/il_794xN.1571178682_m7ex.jpg'}}" alt="Card preview" />
+            <img src="{{asset($product->image??'https://i.etsystatic.com/6120089/r/il/93acdb/1571178682/il_794xN.1571178682_m7ex.jpg')}}" alt="Card preview" />
 
             <div class="card__control">
 {{--                <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>--}}

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Modules\BrandsLogic\Models\Brand;
 use App\Modules\CategoriesLogic\Models\Category;
+use App\Modules\OrdersLogic\Models\Order;
 use App\Modules\ProductsLogic\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -115,5 +116,10 @@ class Vendor extends Model
             ])
             ->withTimestamps()
             ;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class,'vendor_id');
     }
 }

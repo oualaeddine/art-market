@@ -1,4 +1,5 @@
 <div class="header__notification">
+
     <a href="{{route('product',[$item->options->slug])}}" class="header__preview"><img src="{{asset($item->options->image??"/website/images/demo/product-0-8.jpeg")}}" alt="item"></a>
     <div class="header__details">
         <a href="{{route('product',[$item->options->slug])}}" class="header__subtitle">{{$item->{app()->getLocale()=='fr'?'name':'->options->name_ar'} }}</a>

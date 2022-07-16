@@ -17,7 +17,7 @@
         </div>
         <div class="js-header-footer">
             <a class="btn__outline__animation mr-4" href="{{route('cart')}}">{{__("Cart")}}</a>
-            <a class="btn__outline__animation" href="#">{{__("Checkout now")}}</a>
+            <a class="btn__outline__animation" href="{{route('checkout')}}">{{__("Checkout now")}}</a>
         </div>
     </div>
 

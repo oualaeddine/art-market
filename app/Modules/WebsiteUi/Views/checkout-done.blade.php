@@ -37,7 +37,7 @@
                                         <div class="row justify-content-start w-100 align-items-center">
                                             <a href="{{route('product',[$item->instance->slug])}}"
                                                class="cart__preview col-md-2"><img
-                                                    src="/website/images/demo/product-0-8.jpeg" alt="item"/></a>
+                                                    src="{{asset($item->instance->image??'/website/images/demo/product-0-8.jpeg')}}" alt="item"/></a>
 
                                             <div class="col-md-4">
                                                 <div

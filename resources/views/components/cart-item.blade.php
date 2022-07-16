@@ -1,6 +1,6 @@
 <div class="cart__item">
     <div class="row justify-content-start w-100 align-items-center">
-        <a href="{{route('product',[$item->options->slug])}}" class="cart__preview col-md-2"><img src="/website/images/demo/product-0-8.jpeg" alt="item" /></a>
+        <a href="{{route('product',[$item->options->slug])}}" class="cart__preview col-md-2"><img src="{{asset($item->options->image??'/website/images/demo/product-0-8.jpeg')}}" alt="item" /></a>
 
         <div class="col-md-4">
             <div class="cart__subtitle">{{$item->{app()->getLocale()=='fr'?'name':'->options->name_ar'} }}</div>

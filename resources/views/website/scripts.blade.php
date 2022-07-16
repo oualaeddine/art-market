@@ -15,7 +15,7 @@
 <script>
     $('.add-to-cart').click(function(){
 
-        var url = $(this).data('id')+'/add-to-cart';
+        var url = '/'+$(this).data('id')+'/add-to-cart';
 
 
         $.ajax({
@@ -51,7 +51,7 @@
     });
     function DeleteCartItem(id){
 
-        var url = id+'/delete-item-cart';
+        var url = '/'+id+'/delete-item-cart';
 
         $.ajax({
             type: 'POST',

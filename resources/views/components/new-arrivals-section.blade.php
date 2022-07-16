@@ -8,7 +8,7 @@
                     <div class="popular__stage">{{__("Enjoy the summer time and shop our latest Products")}}</div>
                 </div>
                 <div class="title__more__btn">
-                    <a href="#" class="btn btn-outline-dark py-1 px-10">{{__('View all products')}}</a>
+                    <a href="{{route('shop')}}" class="btn btn-outline-dark py-1 px-10">{{__('View all products')}}</a>
                 </div>
             </div>
 
