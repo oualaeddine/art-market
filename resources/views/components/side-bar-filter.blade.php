@@ -9,7 +9,7 @@
         </div>
 
         <div class="sidebar__filter__shop_section__body mt-8">
-            {{$selected_category}}
+
             <h6 class="sidebar__filter__shop_section__body__element__title">{{__("Category")}}</h6>
             <ul class="sidebar__filter__shop_section__body__element__ul">
                 @foreach($categories as $category)
@@ -19,7 +19,7 @@
                 @endforeach
             </ul>
 
-            {{$selected_brand}}
+
             <h6 class="sidebar__filter__shop_section__body__element__title">{{__("Brand")}}</h6>
             <ul class="sidebar__filter__shop_section__body__element__ul">
                 @foreach($brands as $brand)
@@ -37,7 +37,6 @@
 {{--                <a id="size_1">XL<span>25</span></a>--}}
 {{--                <a id="size_1">XXL<span>25</span></a>--}}
 {{--            </div>--}}
-            {{$selected_vendor?->name_fr}}
             <h6 class="sidebar__filter__shop_section__body__element__title">{{__("Vendors")}}</h6>
             <ul class="sidebar__filter__shop_section__body__element__ul">
                 @foreach($vendors as $vendor)

@@ -2,12 +2,10 @@
 
 namespace App\Modules\WebsiteUi\Controllers;
 
-use App\Helpers\SetLocal;
 use App\Models\Vendor;
 use App\Modules\BrandsLogic\Models\Brand;
 use App\Modules\CategoriesLogic\Models\Category;
 use App\Modules\ProductsLogic\Models\Product;
-use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -21,75 +19,93 @@ class ShowVendorDetail
         // ...
     }
 
-    public function asController(ActionRequest $request,Vendor $vendor)
+    public function asController(ActionRequest $request, Vendor $vendor)
     {
 
 
+        if (!$this->checkSroting($request->trier)) return redirect()->route('vendor-detail', ['vendor' => $vendor->name_fr]);
 
-        if (!in_array($request->trier,['','name_fr-asc','name_fr-desc','price-asc','price-desc','rating-desc','rating-asc'])){
-            return redirect()->route('vendor-detail',['vendor'=>$vendor->id]);
-        }
+        $categories = $this->getCategories($vendor);
+
+        $brands = $this->getBrands($request, $vendor);
+
+        $price = $request->price ?? null;
+
+        $per_page = $request->par_page ?? 24;
+
+
+        $sort_by = $request->trier ?? 'name_fr-asc';
+
+        $sort_by_array = explode('-', $sort_by);
+
+        $selected_category = $request->category ?? null;
+
+        $selected_brand = $request->marque ?? null;
+
+        $products = $this->getProducts($request, $vendor, $sort_by_array, $selected_category, $selected_brand, $price, $per_page);
 
         $vendor->loadCount('active_products as products_count');
+        $vendor->loadCount('orders as sales_count');
         $vendor->load('images');
-        $lang = Session::get('client_lang');
-
-        if ($lang) {
-            SetLocal::generate('ar');
-        }
 
 
-        $categories = Category::query()->where(  'is_active',1)
-          ->whereHas('products',function ($query)use ($vendor){
-               $query->whereRelation('vendor','id',$vendor->id);
+        return view('WebsiteUi::vendor-detail', compact('price', 'selected_brand', 'selected_category', 'categories', 'brands', 'products', 'per_page', 'sort_by', 'vendor'))->with(['page_title' => trans('Vendor Detail')]);
+    }
 
-        })
-            ->get();
-
-        $brands = Brand::query()->whereHas('products')
-           ->whereHas('products',function ($query)use ($vendor){
-               $query->whereRelation('vendor','id',$vendor->id);
-            })
-            ->get();
+    private function checkSroting($sort)
+    {
+        return in_array($sort, ['', 'name_fr-asc', 'name_fr-desc', 'created_at-desc', 'price-asc', 'price-desc', 'rating-desc', 'rating-asc']);
+    }
 
 
+    private function getCategories($selected_vendor)
+    {
+        return Category::query()->where('is_active', 1)
+            ->whereHas('products', function ($query) use ($selected_vendor) {
+                $query->where('vendor_id', $selected_vendor->id);
 
-        $per_page = $request->par_page?? 24;
-        $price_l = $request->prix_l?? null;
-        $price_u = $request->prix_u?? null;
+            })->whereHas('products')->get();
+    }
 
+    private function getBrands($request, $selected_vendor)
+    {
+        return Brand::query()->whereHas('products')
+            ->whereHas('products', function ($query) use ($selected_vendor) {
+                $query->where('vendor_id', $selected_vendor->id);
 
-        $sort_by = $request->trier?? 'name_fr-asc';
+        })->get();
 
-        $sort_by_array = explode('-',$sort_by);
+    }
 
-        $category = $request->c??null;
-
-        $brand = $request->marque??null;
-
-        $products = Product::query()->orderby($sort_by_array[0],$sort_by_array[1])
-
-            ->where('vendor_id',$vendor->id)
-            ->where('is_active',1)
-            ->when($request->filled('c'),function($query) use($category){
-                $query->wherehas('categories',function($q) use($category){
-                    $q->where('name_fr',$category)
-                        ->orWhere('name_ar',$category);
+    private function getProducts($request, $vendor, $sort_by_array, $selected_category, $selected_brand, $price, $per_page)
+    {
+        return Product::query()->orderby($sort_by_array[0], $sort_by_array[1])->with('vendor')
+            ->where('vendor_id', $vendor->id)
+            ->where('is_active', 1)
+            ->when($request->filled('category'), function ($query) use ($selected_category) {
+                $query->where(function ($query) use ($selected_category) {
+                    $query->wherehas('categories', function ($q) use ($selected_category) {
+                        $q->where('name_fr', $selected_category)->orWhere('name_ar', $selected_category);
+                    });
                 });
-            })->when($request->filled('marque'),function($query) use($brand){
-                $query->wherehas('brands',function($q) use($brand){
-                    $q->where('name_fr',$brand)
-                        ->orWhere('name_ar',$brand);
-                });
-            })->when($request->filled('prix_l','prix_u'),function($query) use($price_l,$price_u){
-                $query->whereBetween('price', [$price_l, $price_u]);
+
             })
+            ->when($request->filled('marque'), function ($query) use ($selected_brand) {
+                $query->where(function ($query) use ($selected_brand) {
+                    $query->wherehas('brands', function ($q) use ($selected_brand) {
+                        $q->where('name_fr', $selected_brand)->orWhere('name_ar', $selected_brand);
+                    });
+                });
 
-
-            ->paginate($per_page);
-
-
-        return view('WebsiteUi::vendor-detail', compact(  'category','brand','categories','brands','products','per_page','sort_by','vendor'))->with(['page_title' => 'Vendor Detail']);
+            })
+            ->when($request->filled('price'), function ($query) use ($price) {
+                $query->where(function ($query) use ($price) {
+                    $query->whereBetween('price', [0, $price]);
+                });
+            })
+            ->with('categories')
+            ->paginate($per_page)
+            ->withQueryString();
     }
 
 }
