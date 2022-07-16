@@ -7,8 +7,8 @@
         </div>
 
         <div class="user__links">
-            <a class="active" href="{{route('client.account',['tab'=>'account'])}}"><span class="user__links__texts"><i class="fal fa-cog"></i> {{__("Account settings")}}</span></a>
-            <a href="#"><span class="user__links__texts"><i class="fal fa-list-alt"></i> {{__("Your orders")}}</span> <span class="badge badge-pill badge-primary">{{$client->orders_count}}</span></a>
+            <a class="{{$tab=='account'?'active':''}}" href="{{route('client.account',['tab'=>'account'])}}"><span class="user__links__texts"><i class="fal fa-cog"></i> {{__("Account settings")}}</span></a>
+            <a class="{{$tab=='orders'?'active':''}}" href="{{route('client.account',['tab'=>'orders'])}}"><span class="user__links__texts"><i class="fal fa-list-alt"></i> {{__("Your orders")}}</span> <span class="badge badge-pill badge-primary">{{$client->orders_count}}</span></a>
             <a class="signout" href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();"><span>{{__("Sign Out")}}</span></a>
 
         </div>

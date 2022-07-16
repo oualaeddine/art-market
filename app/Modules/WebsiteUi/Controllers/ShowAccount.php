@@ -26,7 +26,7 @@ class ShowAccount
 
         $client = Auth::guard('client')->user();
         $client->load('addresses');
-        $client->load('orders.orderProducts');
+        $client->load('orders.products');
         $client->loadCount('orders');
         $wilayas = YalidineWilaya::get();
         $tab=$request->tab??'account';

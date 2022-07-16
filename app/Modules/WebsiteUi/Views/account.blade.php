@@ -15,13 +15,13 @@
             <div class="container">
                 <div class="row justify-content-start">
 
-                    <x-profile-tabs-card :client="$client"/>
+                    <x-profile-tabs-card :client="$client" :tab="$tab"/>
 
                     @if($tab =='account')
                         <x-edit-profile-card :client="$client" :wilayas="$wilayas"/>
 
                     @else
-
+                        <x-order-history-card :client="$client" />
                     @endif
 
                 </div>
