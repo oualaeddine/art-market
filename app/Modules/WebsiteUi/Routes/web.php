@@ -27,6 +27,7 @@ use App\Modules\WebsiteUi\Controllers\Auth\ShowLogin;
 use App\Modules\WebsiteUi\Controllers\Auth\ShowRegister;
 use App\Modules\WebsiteUi\Controllers\Auth\ShowResetPassword;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutComplete;
+use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutConfirmation;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutInfo;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutOverView;
 use App\Modules\WebsiteUi\Controllers\ShowAboutUs;
@@ -48,7 +49,7 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
     Route::get('', ShowHome::class)->name('index');
     Route::get('product/{product:slug}', ShowProductPage::class)->name('product');
     Route::get('checkout-info', ShowCheckoutInfo::class)->name('checkout');
-    Route::get('{order}/checkout-overview', ShowCheckoutOverView::class)->name('checkout.overview');
+    Route::get('checkout-confirmation', ShowCheckoutConfirmation::class)->name('checkout.confirmation');
     Route::get('{order}/checkout-complete', ShowCheckoutComplete::class)->name('checkout.complete');
 
     //  Route::get('/blog', ShowBlog::class)->name('blog');

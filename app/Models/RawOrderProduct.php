@@ -40,6 +40,11 @@ class RawOrderProduct extends Model
         return $this->belongsTo(Product::class, 'product_id')->withTrashed();
     }
 
+    public function instance()
+    {
+        return $this->belongsTo(Product::class, 'product_id')->withTrashed();
+    }
+
     public function order()
     {
         return $this->belongsTo(RawOrder::class,'raw_order_id');

@@ -21,21 +21,17 @@ class ShowCheckoutComplete
 
     public function asController(ActionRequest $request, $order)
     {
-        $lang = Session::get('client_lang');
 
-        if ($lang) {
-            SetLocal::generate('ar');
-        }
-
-        $normal_orders = Order::query()->with('orderProducts')->where('tracking_code',$order)->get();
+        $normal_orders = Order::query()->with('products.instance')->where('tracking_code',$order)->get();
 
 
         if ($normal_orders->isEmpty()) {
-            $raw_orders = RawOrder::query()->with('orderProducts')->where('tracking_code',$order)->get();
+            $raw_orders = RawOrder::query()->with('products.instance')->where('tracking_code',$order)->get();
 
         }
 
         if ($normal_orders->isEmpty() && $raw_orders->isEmpty()) {
+
             Session::flash('error', Session::get('client_lang') ? 'لم يتم العثور على الطلب' : 'aucune commande n\'a été trouvée');
             return redirect()->back();
         }
@@ -43,7 +39,7 @@ class ShowCheckoutComplete
         $orders=$normal_orders->isEmpty()?$raw_orders:$normal_orders;
 
 
-        return view('WebsiteUi::checkout.order-complete', compact('orders'))->with(['page_title' => 'Checkout | Complete']);
+        return view('WebsiteUi::checkout-done', compact('order','orders'))->with(['page_title' => trans('Complete')]);
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Modules\OrdersLogic\Models;
 use App\Modules\ProductsLogic\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Modules\OrdersLogic\Models\Order_product
@@ -51,10 +52,13 @@ class Order_product extends Model
         return $this->belongsTo(Order::class, 'order_id');
     }
 
-    /**
-     * @return BelongsTo
-     **/
-    public function product()
+
+    public function product():BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'product_id')->withTrashed();
+    }
+
+    public function instance():BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id')->withTrashed();
     }

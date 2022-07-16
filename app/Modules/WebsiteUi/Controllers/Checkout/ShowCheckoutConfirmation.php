@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Modules\WebsiteUi\Controllers\Checkout;
+
+use App\Modules\ClientsLogic\Models\ClientAddress;
+use App\Rules\PhoneNumber;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Lorisleiva\Actions\ActionRequest;
+use Lorisleiva\Actions\Concerns\AsAction;
+
+class ShowCheckoutConfirmation
+{
+
+    use AsAction;
+
+    public function asController(ActionRequest $request)
+    {
+
+        if (!$this->checkCart()) return redirect()->route('shop');
+
+        $client = Auth::guard('client')->user();
+
+        if ($client) {
+            $info = $this->getLoggedInClientInfo($request, $client);
+        } else {
+            if (!Session::exists('non_logged_client_info')) return redirect()->route('shop');
+            $info = $this->getNonLoggedInClientInfo($request);
+
+        }
+
+
+        return view('WebsiteUi::checkout-confirmation', compact('info', 'client'))->with(['page_title' => trans('Checkout')]);
+    }
+
+    private function checkCart(): bool
+    {
+        return Cart::count() != 0;
+    }
+
+    private function getLoggedInClientInfo($request, $client): array
+    {
+        $selected_address = ClientAddress::query()->find($request->address);
+        Session::put('logged_client_info',[
+            'address_id' => $selected_address->id,
+        ]);
+        return [
+            'address_id' => $selected_address->id,
+            'address' => $selected_address->address,
+            'wilaya' => $selected_address->commune->wilaya->{app()->getLocale() == 'fr' ? 'name' : 'name_ar'},
+            'commune' => $selected_address->commune->{app()->getLocale() == 'fr' ? 'name' : 'name_ar'},
+            'phone' => '0' . $selected_address->client->phone,
+            'full_name' => $client->last_name . ' ' . $client->first_name,
+        ];
+
+
+    }
+
+    private function getNonLoggedInClientInfo($request): array
+    {
+
+        Session::put('non_logged_client_info',[
+            'address' => $request->address,
+            'wilaya' => $request->wilaya,
+            'commune' => $request->commune,
+            'phone' => $request->phone,
+            'full_name' => $request->last_name . ' ' . $request->first_name,
+        ]);
+        return [
+            'address' => $request->address,
+            'wilaya' => $request->wilaya,
+            'commune' => $request->commune,
+            'phone' => $request->phone,
+            'full_name' => $request->last_name . ' ' . $request->first_name,
+        ];
+    }
+
+    public function rules(): array
+    {
+        if (auth()->guard('client')->check()) {
+            $rules = ['address' => ['required', 'exists:client_addresses,id'],];
+        } else {
+            $rules = [
+                'last_name' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
+                'first_name' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
+                'phone' => ['required', new PhoneNumber],
+                'wilaya' => ['required', 'string', 'max:190'],
+                'commune' => ['required', 'string', 'max:190'],
+                'address' => ['required', 'string', 'max:190']
+            ];
+        }
+
+        return $rules;
+    }
+
+}

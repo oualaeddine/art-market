@@ -21,14 +21,6 @@ class ShowCheckoutOverView
     public function asController($order)
     {
 
-
-        $lang = Session::get('client_lang');
-
-        if ($lang) {
-            SetLocal::generate('ar');
-        }
-
-
         $normal_orders = Order::query()->with(['orderProducts','clientRelation'])->where('tracking_code',$order)->get();
 
 

@@ -51,4 +51,9 @@ class ClientAddress extends Model
     {
         return $this->belongsTo(YalidineMairie::class, 'commune_id');
     }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class,'client_id');
+    }
 }
