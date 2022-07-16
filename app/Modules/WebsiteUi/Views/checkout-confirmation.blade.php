@@ -38,7 +38,9 @@
                                         <div class="row justify-content-start w-100 align-items-center">
                                             <a href="{{route('product',[$item->options->slug])}}"
                                                class="cart__preview col-md-2"><img
-                                                    src="/website/images/demo/product-0-8.jpeg" alt="item"/></a>
+                                                    src="{{asset($item->options->image??'/website/images/demo/product-0-8.jpeg')}}"
+                                                    alt="item"/></a>
+
 
                                             <div class="col-md-4">
                                                 <div
@@ -119,7 +121,8 @@
                                     </div>
                                 </div>
                                 <div class="footer_btn w-100 px-3 mt-10">
-                                    <button type="submit" class="button popup__button d-block w-100">{{__("CHECKOUT NOW")}}</button>
+                                    <button type="submit"
+                                            class="button popup__button d-block w-100">{{__("CHECKOUT NOW")}}</button>
                                 </div>
                             </div>
                         </div>
