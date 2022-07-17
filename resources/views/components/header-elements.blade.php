@@ -56,7 +56,7 @@
             {{--                <li class="nav-item"><a class="header__link" href="item.html">Shop</a></li>--}}
             <li class="nav-item"><a class="header__link" href="{{route('vendors')}}">{{__("Vendors")}}</a></li>
             <li class="nav-item"><a class="header__link" href="{{route('shop')}}">{{__("Shop")}}</a></li>
-            <li class="nav-item"><a class="header__link" href="profile.html">{{__("Contact us")}}</a></li>
+            <li class="nav-item"><a class="header__link" href="{{route('contact')}}">{{__("Contact us")}}</a></li>
         </nav>
         <form class="header__search">
             <input class="header__input" type="text" name="search" placeholder="{{__("Search")}}" required=""/>

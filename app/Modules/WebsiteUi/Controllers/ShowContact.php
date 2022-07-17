@@ -20,15 +20,9 @@ class ShowContact
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-
 
         $setting = Setting::get();
-        return view('WebsiteUi::contact',compact('setting'))->with(['page_title' => 'Nous contacter']);
+        return view('WebsiteUi::contact',compact('setting'))->with(['page_title' => trans('Contact us')]);
     }
 
 }
