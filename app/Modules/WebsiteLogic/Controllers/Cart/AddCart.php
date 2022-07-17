@@ -67,7 +67,7 @@ class AddCart
 
             return Response::json([
                 'success' => true,
-                'message' => Session::get('client_lang')?'تمت إضافة المنتج بنجاح إلى سلة التسوق الخاصة بك':'le produit a été ajouté à votre panier avec succès',
+                'message' => trans('Product added to the cart successfully'),
                 'data' => ['count' => Cart::count()]
            ]);
 
@@ -75,7 +75,7 @@ class AddCart
 
             return Response::json([
                 'success' => false,
-                'message' => Session::get('client_lang')?'حدث خطأ ما ، يرجى الانتظار والمحاولة مرة أخرى':'Quelque chose a mal tourné, veuillez patienter et réessayer',
+                'message' => trans('Something went wrong'),
 
            ]);
         }

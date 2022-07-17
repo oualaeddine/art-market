@@ -4,7 +4,7 @@
         <div class="popup__img">
             <i class="fal fa-map"></i>
         </div>
-        <h5 class="h5 text-center">{{__("Add new address")}}</h5>
+        <h5 class="h5 text-center">{{__("Add a new address")}}</h5>
 
         <div class="billing__item">
 
@@ -38,7 +38,7 @@
 
                     <div class="col-md-5 pl-0">
                         <div class="field field__style__one">
-                            <div class="field__label">ZIP</div>
+                            <div class="field__label">{{__("ZIP")}}</div>
                             <div class="field__wrap">
                                 <input class="field__input" type="number" name="code_postal">
                             </div>

@@ -37,7 +37,7 @@
 {{--                <a id="size_1">XL<span>25</span></a>--}}
 {{--                <a id="size_1">XXL<span>25</span></a>--}}
 {{--            </div>--}}
-            <h6 class="sidebar__filter__shop_section__body__element__title">{{__("Vendors")}}</h6>
+            <h6 class="sidebar__filter__shop_section__body__element__title">{{__("Vendor")}}</h6>
             <ul class="sidebar__filter__shop_section__body__element__ul">
                 @foreach($vendors as $vendor)
                     <li>

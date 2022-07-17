@@ -17,7 +17,7 @@ class LoginAction
     public function handle(ActionRequest $request)
     {
         if (!$this->checkCred($request)){
-            Toastr::error(trans('Invalid credentials'), '', ["positionClass" => "toast-top-center"]);
+            Toastr::error(trans('Invalid credentials'), '', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back()->withInput(['phone' => '0' . $request->phone]);
         }
 

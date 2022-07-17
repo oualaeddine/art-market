@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="footer__foot">
-                <div class="footer__copyright">© coodiv.net 2022. All rights reserved.</div>
+                <div class="footer__copyright">© {{__("coodiv.net 2022. All rights reserved")}}.</div>
                 <div class="footer__note">
                     <i class="fab fa-cc-amazon-pay"></i>
                     <i class="fab fa-cc-amex"></i>

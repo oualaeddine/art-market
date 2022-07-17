@@ -8,6 +8,7 @@ use App\Models\YalidineWilaya;
 use App\Modules\ClientsLogic\Models\Client;
 use App\Modules\ClientsLogic\Models\Client_wallet;
 use App\Rules\PhoneNumber;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +50,8 @@ class RegisterAction
         Auth::guard('client')->loginUsingId($client->id);
         Session::forget('wilaya');
         Session::forget('commune');
-        Session::flash('message',Session::get('client_lang')?'مرحبا':'Bienvenue');
+        Toastr::success(trans('Welcome'), '', ["positionClass" => "toast-bottom-right"]);
+
         return redirect()->route('client.account');
     }
 
@@ -95,11 +97,11 @@ class RegisterAction
     public function getValidationAttributes(): array
     {
         return [
-            'phone' => trans('Téléphone'),
+            'phone' => trans('Phone'),
             'wilaya' => trans('Wilaya'),
-            'first_name' => trans('Prénom'),
-            'last_name' => trans('Nom'),
-            'password' => trans('Mot de passe'),
+            'first_name' => trans('First name'),
+            'last_name' => trans('Last name'),
+            'password' => trans('Password'),
             'commune_id' =>trans('Commune'),
         ];
     }

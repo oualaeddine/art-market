@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Modules\ClientsLogic\Models\Client;
 use App\Modules\OrdersLogic\Models\Order;
 use App\Modules\ProductsLogic\Models\Product;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
@@ -35,7 +36,7 @@ class Checkout
     public function asController(ActionRequest $request,Client $client)
     {
         $this->handle($request,$client);
-        Session::flash('message', 'Checkout avec succés');
+        Toastr::success(trans('Checkout successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
         return redirect()->back();
 
@@ -55,9 +56,9 @@ class Checkout
     public function getValidationAttributes(): array
     {
         return [
-            'product_id' => 'Produit',
-            'wilaya_id' => 'Wilaya',
-            'phone' => 'Téléphone',
+            'product_id' => trans('Product'),
+            'wilaya_id' => trans('Wilaya'),
+            'phone' => trans('Phone'),
         ];
     }
 

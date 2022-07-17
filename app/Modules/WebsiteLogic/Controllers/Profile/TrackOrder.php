@@ -5,6 +5,7 @@ namespace App\Modules\WebsiteLogic\Controllers\Profile;
 use App\Helpers\SetLocal;
 use App\Models\RawOrder;
 use App\Modules\OrdersLogic\Models\Order;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -16,18 +17,11 @@ class TrackOrder
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if ($lang) {
-            SetLocal::generate('ar');
-        }
-
-
         $orders = Order::query()->with('vendor')->where('tracking_code', $request->tracking_code)->get();
         $raw_orders = RawOrder::query()->with('vendor')->where('tracking_code', $request->tracking_code)->get();
 
         if ($orders->isEmpty() && $raw_orders->isEmpty()) {
-            Session::flash('error', Session::get('client_lang') ? 'لم يتم العثور على أي طلب من خلال رمز التتبع' : 'aucune commande n\'a été trouvée par ce code de suivi');
+            Toastr::error(trans('No orders were found by this tracking code'), '', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
 

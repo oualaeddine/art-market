@@ -29,7 +29,7 @@ class ShowCheckoutInfo
         $wilayas = YalidineWilaya::get();
         $communes=YalidineMairie::query()->get();
 
-        return view('WebsiteUi::checkout',compact('communes','wilayas','client'))->with(['page_title' => trans('Checkout informations')]);
+        return view('WebsiteUi::checkout',compact('communes','wilayas','client'))->with(['page_title' => trans('Checkout information')]);
     }
 
 }

@@ -28,7 +28,7 @@ class StoreInfo
         $orders = Cart::content()->groupBy('options.vendor_id');
 
         if ($request->phone == 0) {
-            Session::flash('error', 'Le format du champ téléphone est incorrect');
+            Toastr::error(trans('The phone number is invalid'), '', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back()->withInput();
         }
 
@@ -64,7 +64,7 @@ class StoreInfo
             Cart::destroy();
             Cart::store($request->phone);
 
-            Toastr::success(trans('Checkout successfully'), '', ["positionClass" => "toast-bottom-right"]);
+            Toastr::success(trans('Checkout successful'), '', ["positionClass" => "toast-bottom-right"]);
             DB::commit();
 
             Session::forget('non_logged_client_info');
@@ -183,11 +183,11 @@ class StoreInfo
     public function getValidationAttributes(): array
     {
         return [
-            'address' => trans('address'),
-            'full_name' => trans('full_name'),
-            'phone' => trans('phone'),
-            'wilaya' => trans('wilaya'),
-            'commune' => trans('commune'),
+            'address' => trans('Address'),
+            'full_name' => trans('Full name'),
+            'phone' => trans('Phone'),
+            'wilaya' => trans('Wilaya'),
+            'commune' => trans('Commune'),
         ];
     }
 

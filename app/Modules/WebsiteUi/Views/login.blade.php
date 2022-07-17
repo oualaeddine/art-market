@@ -8,7 +8,7 @@
                 <div class="signin_page_coodiv my-10">
                     <div class="h4 mt-8 entry__title">{{__("Sign in")}}</div>
                     <div class="alert alert-success text-center shadow-sm" role="alert">
-                        {{__("Happy to see you again 🥳")}}
+                        {{__("Happy to see you again")}} 🥳
                     </div>
                     @include('partials.error.error')
 
@@ -36,7 +36,7 @@
                                     class="button entry__button d-flex w-100 mt-10 btn-phone-send">{{__("Sign in")}}</button>
                         </form>
                     </div>
-                    <div class="signin__page__info">Don’t have an account? <a
+                    <div class="signin__page__info">{{__("Don’t have an account?")}} <a
                             href="{{route('client.register')}}">{{__("Sign up")}}</a></div>
 
                 </div>

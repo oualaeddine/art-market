@@ -14,7 +14,7 @@
                                 <div class="billing__list">
                                     <div class="billing__item">
                                         <div class="d-lg-flex justify-content-between align-items-center">
-                                            <div class="billing__category">{{__("Your personal informations")}} </div>
+                                            <div class="billing__category">{{__("Your personal information")}} </div>
                                             @guest('client')
                                                 <a class="button description__button mt-lg-0 mt-3"
                                                    href="{{route('client.login')}}">{{__("Do you have an account?")}}</a>
@@ -67,7 +67,7 @@
                                 @auth('client')
                                     <div class="billing__list">
                                         <div class="billing__item">
-                                            <div class="billing__category">{{__("Shipping informations")}}</div>
+                                            <div class="billing__category">{{__("Shipping information")}}</div>
                                             <div class="billing__fieldset">
                                                 <div class="row justify-content-start">
                                                     <div class="col-md-10">
@@ -101,7 +101,7 @@
                                 @guest('client')
                                     <div class="billing__list">
                                         <div class="billing__item">
-                                            <div class="billing__category">{{__("Shipping informations")}}</div>
+                                            <div class="billing__category">{{__("Shipping information")}}</div>
                                             <div class="billing__fieldset">
                                                 <div class="row justify-content-start">
                                                     <div class="col-md-5">
@@ -147,7 +147,7 @@
 
                         <div id="sticky-sidebar" class="col-lg-4 col-12 mt-lg-0 mt-10 pl-lg-0">
                             <div class="cart__filters js-activity-filters sidebar__inner">
-                                <div class="cart__info">Cart total</div>
+                                <div class="cart__info">{{__("Cart total")}}</div>
 
                                 <div class="popup__table">
                                     <div class="popup__row">

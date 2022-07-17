@@ -43,18 +43,18 @@ class DeleteItemCart
             return Response::json([
                 'success' => false,
                 'count'=>Cart::count(),
-                'message' => 'Quelque chose a mal tourné, veuillez patienter et réessayer',
+                'message' => trans('Something went wrong'),
 
            ]);
         }
 
-        Session::flash(Session::get('client_lang')?'تم حذف المنتج بنجاح':'le produit a été supprimé avec succès');
+        Session::flash(trans('Product deleted successfully'));
 
 
         return Response::json([
              'success' => true,
              'count'=>Cart::count(),
-             'message' => Session::get('client_lang')?'تم حذف المنتج بنجاح':'le produit a été supprimé avec succès',
+             'message' => trans('Product deleted successfully'),
         ]);
     }
 }

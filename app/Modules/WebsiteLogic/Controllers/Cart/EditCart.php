@@ -44,16 +44,15 @@ class EditCart
 
             return Response::json([
                 'success' => false,
-                'message' => 'Quelque chose a mal tourné, veuillez patienter et réessayer',
+                'message' => trans('Something went wrong'),
 
            ]);
         }
-
-        Session::flash(Session::get('client_lang')?'تم تعديل المنتج بنجاح':'le produit a été modifié avec succès');
+        Session::flash( trans('Product updated successfully'));
 
         return Response::json([
              'success' => true,
-             'message' => Session::get('client_lang')?'تم تعديل المنتج بنجاح':'le produit a été modifié avec succès',
+             'message' => trans('Product updated successfully'),
         ]);
     }
 

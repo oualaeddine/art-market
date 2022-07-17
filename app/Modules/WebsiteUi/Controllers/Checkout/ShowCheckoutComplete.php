@@ -5,6 +5,7 @@ namespace App\Modules\WebsiteUi\Controllers\Checkout;
 use App\Helpers\SetLocal;
 use App\Models\RawOrder;
 use App\Modules\OrdersLogic\Models\Order;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -32,7 +33,7 @@ class ShowCheckoutComplete
 
         if ($normal_orders->isEmpty() && $raw_orders->isEmpty()) {
 
-            Session::flash('error', Session::get('client_lang') ? 'لم يتم العثور على الطلب' : 'aucune commande n\'a été trouvée');
+            Toastr::error(trans('No order was found'), '', ["positionClass" => "toast-bottom-right"]);
             return redirect()->back();
         }
 
