@@ -20,16 +20,10 @@ class ShowFAQ
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-
 
         return view('WebsiteUi::faq',[
             'faqs'=>FAQ::query()->where('is_active',1)->where('lang',app()->getLocale())->get()
-        ])->with(['page_title' => 'FAQ']);
+        ])->with(['page_title' => trans('FAQ')]);
     }
 
 }
