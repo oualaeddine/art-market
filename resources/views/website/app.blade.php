@@ -2,8 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
+    <title>{{ $page_title.' | '.  trans('ArtMarket') }}</title>
 
     <x-meta />
 

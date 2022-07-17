@@ -6,7 +6,7 @@
 
     <div class="outer__inner">
 
-{{--        <x-shop-page-hero />--}}
+        <x-shop-page-hero />
 
         <x-catlago-section :products="$products" :sort-by="$sort_by"  />
 
