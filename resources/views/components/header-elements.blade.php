@@ -5,10 +5,10 @@
     </a>
     <div class="header__wrapper js-header-wrapper">
         <nav class="header__nav ">
-            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='index'}}" href="{{route('index')}}">{{__("Homepage")}}</a></li>
-            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='vendors'}}" href="{{route('vendors')}}">{{__("Vendors")}}</a></li>
-            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='shop'}}" href="{{route('shop')}}">{{__("Shop")}}</a></li>
-            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='contact'}}" href="{{route('contact')}}">{{__("Contact us")}}</a></li>
+            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='index'?'active':''}}" href="{{route('index')}}">{{__("Homepage")}}</a></li>
+            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='vendors'?'active':''}}" href="{{route('vendors')}}">{{__("Vendors")}}</a></li>
+            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='shop'?'active':''}}" href="{{route('shop')}}">{{__("Shop")}}</a></li>
+            <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='contact'?'active':''}}" href="{{route('contact')}}">{{__("Contact us")}}</a></li>
         </nav>
         <form class="header__search">
             <input class="header__input" type="text" name="search" placeholder="{{__("Search")}}" required=""/>
