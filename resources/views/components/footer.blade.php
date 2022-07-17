@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-md-3 col-12 text-lg-left text-center mb-lg-0 mb-10">
-                    <a class="footer__logo" href="index.html"><img class="some-icon" src="/website/images/logo-dark.png"
+                    <a class="footer__logo" href="index.html"><img class="some-icon" src="/ArtMarket.png"
                                                                    alt="Crypter NFT"/><img class="some-icon-dark"
                                                                                            src="/website/images/logo-light.png"
                                                                                            alt="Crypter NFT"/></a>
