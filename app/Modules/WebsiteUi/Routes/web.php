@@ -45,7 +45,7 @@ use App\Modules\WebsiteUi\Controllers\ShowVendorDetail;
 use App\Modules\WebsiteUi\Controllers\ShowVendors;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
+Route::group(['prefix' => '',], function () {
 
     Route::get('', ShowHome::class)->name('index');
     Route::get('product/{product:slug}', ShowProductPage::class)->name('product');
@@ -122,7 +122,7 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
 
 //set lang
 
-    Route::post('/SetLang', SetLang::class)->name('SetLang');
+    Route::get('SetLang/{locale}', SetLang::class)->name('SetLang');
 
 
 });
