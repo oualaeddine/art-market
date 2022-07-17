@@ -68,12 +68,12 @@ class ShowShop
                 $query->whereHas('products', function ($query) use ($selected_vendor) {
                     $query->where('vendor_id', $selected_vendor->id);
                 });
-            })->whereHas('products')->withCount('products')->get();
+            })/* ->whereHas('products') */->withCount('products')->get();
     }
 
     private function getBrands($request, $selected_vendor)
     {
-        return Brand::query()->whereHas('products')->when($selected_vendor, function ($query) use ($selected_vendor) {
+        return Brand::query()/* ->whereHas('products') */->when($selected_vendor, function ($query) use ($selected_vendor) {
             $query->whereHas('products', function ($query) use ($selected_vendor) {
                 $query->where('vendor_id', $selected_vendor->id);
             });
@@ -84,7 +84,7 @@ class ShowShop
     private function getVendors()
     {
         return Vendor::query()
-            ->whereHas('products')
+            /* ->whereHas('products') */
             ->withCount('active_products as products_count')
             ->whereHas('vendors', function ($query) {
                 $query->where('is_active', 1);
