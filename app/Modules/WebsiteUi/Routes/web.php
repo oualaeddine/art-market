@@ -30,6 +30,7 @@ use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutComplete;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutConfirmation;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutInfo;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutOverView;
+use App\Modules\WebsiteUi\Controllers\ShowAbout;
 use App\Modules\WebsiteUi\Controllers\ShowAboutUs;
 use App\Modules\WebsiteUi\Controllers\ShowAccount;
 use App\Modules\WebsiteUi\Controllers\ShowCart;
@@ -95,7 +96,7 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
 
     Route::get('/faq', ShowFAQ::class)->name('faq');
     Route::get('/terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
-    Route::get('/about', ShowAboutUs::class)->name('about');
+    Route::get('/about', ShowAbout::class)->name('about');
 
 
     Route::post('{product}/add-to-cart', AddCart::class)->name('add-cart');
