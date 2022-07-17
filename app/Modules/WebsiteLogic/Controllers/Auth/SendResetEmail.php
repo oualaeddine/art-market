@@ -2,6 +2,7 @@
 
 namespace App\Modules\WebsiteLogic\Controllers\Auth;
 
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -9,14 +10,15 @@ use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class SendResetSms
+class SendResetEmail
 {
     use AsAction;
 
     public function asController(ActionRequest $request)
     {
         $this->handle($request);
-        return back()->with('message', 'We have sms\'ed your password reset link!');
+        Toastr::success(trans('Email sent successfully'), '', ["positionClass" => "toast-bottom-right"]);
+        return redirect()->back();
 
     }
 
@@ -24,18 +26,18 @@ class SendResetSms
     {
 
         $token = Str::random(64);
-        $code = Str::random(6);
+//        $code = Str::random(6);
 
-        DB::table('client_password_resets')->updateOrInsert( ['phone'=>$request->phone],[
+        DB::table('client_password_resets')->updateOrInsert( ['email'=>$request->email],[
             'token' => $token,
-            'code' => $code,
+//            'code' => $code,
             'created_at' => Carbon::now()
         ]);
 
-//        Mail::send('WebsiteUi::email.forgetPassword', ['token' => $token], function($message) use($request){
-//            $message->to($request->email);
-//            $message->subject('Reset Password');
-//        });
+        Mail::send('WebsiteUi::email.forgot-password', ['token' => $token], function($message) use($request){
+            $message->to($request->email);
+            $message->subject(trans('Reset Password'));
+        });
 
     }
 
@@ -43,7 +45,7 @@ class SendResetSms
     {
 
         return [
-            'phone' => ['required', 'exists:clients'],
+            'email' => ['required', 'exists:clients'],
         ];
 
     }
@@ -51,7 +53,7 @@ class SendResetSms
     public function getValidationAttributes(): array
     {
         return [
-            'phone' => 'Téléphone',
+            'email' => trans('Email'),
         ];
     }
 

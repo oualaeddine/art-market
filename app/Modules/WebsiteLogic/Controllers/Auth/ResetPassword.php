@@ -3,6 +3,7 @@
 namespace App\Modules\WebsiteLogic\Controllers\Auth;
 
 use App\Modules\ClientsLogic\Models\Client;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Lorisleiva\Actions\ActionRequest;
@@ -16,9 +17,13 @@ class ResetPassword
     {
         $method = $this->handle($request);
         if ($method === false) {
-            return back()->withInput()->with('error', 'Invalid token!');
+            Toastr::error(trans('Invalid token!'), '', ["positionClass" => "toast-bottom-right"]);
+
+            return back()->withInput();
         }
-        return redirect()->route('client.login')->with('message', 'Your password has been changed!');
+        Toastr::success(trans('Your password has been changed!'), '', ["positionClass" => "toast-bottom-right"]);
+
+        return redirect()->route('client.login');
 
     }
 
@@ -26,19 +31,18 @@ class ResetPassword
     {
         $updatePassword = DB::table('client_password_resets')
             ->where([
-                'phone' => $request->phone,
+                'email' => $request->email,
                 'token' => $request->token,
-                'code'=>$request->code
+//                'code'=>$request->code
             ])
             ->first();
 
-        if (!$updatePassword) {
-            return false;
-        }
+        if (!$updatePassword) return false;
 
-        Client::where('phone', $request->phone)->update(['password' => Hash::make($request->password)]);
 
-        DB::table('client_password_resets')->where(['phone' => $request->phone])->delete();
+        Client::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
+
+        DB::table('client_password_resets')->where(['email' => $request->email])->delete();
         return true;
     }
 
@@ -46,8 +50,8 @@ class ResetPassword
     {
 
         return [
-            'phone' => 'required|exists:clients',
-            'code' => 'required',
+            'email' => 'required|exists:clients',
+//            'code' => 'required',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required'
         ];
@@ -57,9 +61,9 @@ class ResetPassword
     public function getValidationAttributes(): array
     {
         return [
-            'phone' => 'Téléphone',
-            'password'=>'mot de passe',
-            'password_confirmation'=>'confirmation mot de passe'
+            'phone' => trans('Phone'),
+            'password'=>trans('Password'),
+            'password_confirmation'=>trans('Password confirmation')
         ];
     }
 

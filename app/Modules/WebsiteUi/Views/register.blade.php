@@ -52,7 +52,7 @@
                                            type="email" name="email" autocomplete="off"
                                            placeholder="{{__("Your email")}}">
                                     <div class="field__icon">
-                                        <i class="fal fa-phone"></i>
+                                        <i class="fal fa-envelope"></i>
                                     </div>
                                 </div>
                             </div>

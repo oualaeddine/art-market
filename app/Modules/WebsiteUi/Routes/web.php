@@ -7,6 +7,7 @@ use App\Modules\WebsiteLogic\Controllers\Auth\LoginAction;
 use App\Modules\WebsiteLogic\Controllers\Auth\LogoutAction;
 use App\Modules\WebsiteLogic\Controllers\Auth\RegisterAction;
 use App\Modules\WebsiteLogic\Controllers\Auth\ResetPassword;
+use App\Modules\WebsiteLogic\Controllers\Auth\SendResetEmail;
 use App\Modules\WebsiteLogic\Controllers\Auth\SendResetSms;
 use App\Modules\WebsiteLogic\Controllers\Cart\AddCart;
 use App\Modules\WebsiteLogic\Controllers\Cart\DeleteItemCart;
@@ -29,7 +30,6 @@ use App\Modules\WebsiteUi\Controllers\Auth\ShowResetPassword;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutComplete;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutConfirmation;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutInfo;
-use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutOverView;
 use App\Modules\WebsiteUi\Controllers\ShowAbout;
 use App\Modules\WebsiteUi\Controllers\ShowAccount;
 use App\Modules\WebsiteUi\Controllers\ShowCart;
@@ -77,7 +77,7 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
 
 
         Route::get('forgetpassword', ShowForgetPassword::class)->name('forget-password');
-        Route::post('forgetpassword', SendResetSms::class)->name('forget-password.action');
+        Route::post('forgetpassword', SendResetEmail::class)->name('forget-password.action');
         Route::get('resetpassword/{token}', ShowResetPassword::class)->name('reset.password.get');
         Route::post('resetpassword', ResetPassword::class)->name('reset-password.action');
 

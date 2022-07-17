@@ -19,14 +19,7 @@ class ShowForgetPassword
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-        
-
-        return view('WebsiteUi::auth.forget-password')->with(['page_title' => 'Forget Password']);
+        return view('WebsiteUi::forgot-password')->with(['page_title' => trans('Forget Password')]);
     }
 
 }

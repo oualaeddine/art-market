@@ -19,14 +19,7 @@ class ShowResetPassword
 
     public function asController($token)
     {
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-        
-
-        return view('WebsiteUi::auth.reset-password',['token'=>$token])->with(['page_title' => 'Reset Password']);
+        return view('WebsiteUi::reset-password',['token'=>$token])->with(['page_title' => trans('Reset Password')]);
     }
 
 }

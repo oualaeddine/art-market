@@ -32,6 +32,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-right float-right text-mute my-2"><a href="{{route('client.forget-password')}}">{{__("Forgot your password ?")}}</a></span>
                             <button type="submit"
                                     class="button entry__button d-flex w-100 mt-10 btn-phone-send">{{__("Sign in")}}</button>
                         </form>
