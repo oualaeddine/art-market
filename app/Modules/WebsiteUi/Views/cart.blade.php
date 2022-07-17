@@ -56,7 +56,7 @@
                                     <div class="popup__col">0.00 DA</div>
                                 </div>
                                 <div class="popup__row">
-                                    <div class="popup__col">{{_("You will pay")}}</div>
+                                    <div class="popup__col">{{__("You will pay")}}</div>
                                     <div class="popup__col">{{\Gloudemans\Shoppingcart\Facades\Cart::total().trans('DA')}}</div>
                                 </div>
                             </div>
