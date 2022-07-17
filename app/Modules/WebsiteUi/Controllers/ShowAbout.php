@@ -20,16 +20,10 @@ class ShowAbout
 
     public function asController(ActionRequest $request)
     {
-        $lang = Session::get('client_lang');
 
-        if($lang){
-            SetLocal::generate('ar');
-        }
-        
         $about = Setting::where('name','about_us_fr')->first();
 
-
-        return view('WebsiteUi::about',compact('about'))->with(['page_title' => 'About']);
+        return view('WebsiteUi::about',compact('about'))->with(['page_title' => trans('About Us')]);
     }
 
 }

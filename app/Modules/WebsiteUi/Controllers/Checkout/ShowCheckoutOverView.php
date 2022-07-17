@@ -37,7 +37,7 @@ class ShowCheckoutOverView
         $orders=$normal_orders->isEmpty()?$raw_orders:$normal_orders;
 
 
-        return view('WebsiteUi::checkout.order-overview', compact('orders'))->with(['page_title' => 'Checkout | Overview']);
+        return view('WebsiteUi::checkout.order-overview', compact('orders'))->with(['page_title' => trans('Checkout Overview')]);
     }
 
 }
