@@ -4,10 +4,9 @@
 
     <div class="header__center center">
 
+
         <x-header-elements/>
-
         <x-cart-header/>
-
         @auth('client')
             <x-profile-dropdown/>
         @endauth
