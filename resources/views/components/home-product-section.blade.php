@@ -8,11 +8,18 @@
                     <h3 class="hot__title h3">{{__("Right now")}}</h3>
                 </div>
                 <div class="hot__inner">
-                    <div class="hot__slider js-slider-hot">
-                        @foreach($products as $product)
-                            <x-home-product-card :product="$product" />
-                        @endforeach
-                    </div>
+                    @if($products->isNotEmpty())
+                        <div class="hot__slider js-slider-hot">
+                            @foreach($products as $product)
+                                <x-home-product-card :product="$product" />
+                            @endforeach
+                        </div>
+
+                    @else
+
+                        <x-no-data />
+                    @endif
+
                 </div>
             </div>
 

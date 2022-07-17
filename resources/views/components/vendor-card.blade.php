@@ -1,6 +1,6 @@
 <div class="card border-0">
     <div class="card__preview">
-        <img src="https://i.etsystatic.com/6120089/r/il/93acdb/1571178682/il_794xN.1571178682_m7ex.jpg" alt="Card preview">
+        <img src="{{$vendor->logo_fr??'	https://toka.b-cdn.net/wp-content/uploads/2022/03/NFT-25.png'}}" alt="Card preview">
 
         <div class="card__control">
             <a href="{{route('vendor-detail',['vendor'=>$vendor->name_fr])}}" class="button-small card__button text-white" tabindex="0"><span>{{__("View products now")}}</span></a>

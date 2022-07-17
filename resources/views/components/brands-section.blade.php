@@ -7,27 +7,21 @@
                     <div class="popular__stage">{{__("Browser products by most popular")}}</div>
                     <h3 class="hot__title h3 mb-0">{{__("Brands")}}</h3>
                 </div>
-{{--                <div class="field">--}}
-{{--                    <div class="field__label">timeframe</div>--}}
-{{--                    <div class="field__wrap">--}}
-{{--                        <select class="select">--}}
-{{--                            <option>Today</option>--}}
-{{--                            <option>Morning</option>--}}
-{{--                            <option>Dinner</option>--}}
-{{--                            <option>Evening</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
             <div class="popular__wrapper">
-                <div class="popular__slider js-slider-popular">
+                @if($brands->isNotEmpty())
 
-                    @foreach($brands as $brand)
-                        <x-brand-card :brand="$brand" />
+                    <div class="popular__slider js-slider-popular">
 
-                    @endforeach
+                        @foreach($brands as $brand)
+                            <x-brand-card :brand="$brand"/>
 
-                </div>
+                        @endforeach
+
+                    </div>
+                @else
+                    <x-no-data/>
+                @endif
             </div>
         </div>
     </div>

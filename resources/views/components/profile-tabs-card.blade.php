@@ -2,7 +2,7 @@
 
     <div class="user">
         <div class="user__header d-flex align-items-center mb-8">
-            <div class="user__avatar"><img style="width: 85px;height: 85px;" src="{{asset($client->avatar??"/website/images/content/avatar-big.jpg")}}" alt="Avatar"></div>
+            <div class="user__avatar"><img style="width: 85px;height: 85px;" src="{{asset($client->avatar??'client.png')}}" alt="Avatar"></div>
             <div class="user__name">{{$client->last_name.' '.$client->first_name}} <span class="badge badge-pill badge-success white-text">{{__("verifeid account")}}</span></div>
         </div>
 

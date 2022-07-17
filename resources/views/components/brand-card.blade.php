@@ -6,7 +6,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
         <div class="popular__body">
-            <div class="company__logo d-block mb-4"><img class="mx-auto" src="{{asset($brand->image??'website/images/customers/logo-08.png')}}" alt="company" /></div>
+            <div class="company__logo d-block mb-4"><img class="mx-auto" src="{{asset($brand->image??'website/images/brand.png')}}" alt="company" /></div>
             <div class="popular__name">{{app()->getLocale()=='fr'?$brand->name_fr:$brand->name_ar}}</div>
             <div class="popular__price"><span>{{$brand->products_count}}</span> {{__("Products")}}</div>
             <a class="button-stroke main__button d-flex w-100 mt-5" href="{{route('shop',['marque'=>$brand->name_fr])}}">{{__('Shop')}}</a>

@@ -33,9 +33,14 @@
             <div class="catalog__row">
                 <div class="catalog__wrapper">
                     <div class="catalog__list">
-                        @foreach($products as $product)
-                            <x-product-card :product="$product" />
-                        @endforeach
+                        @if($products->isNotEmpty())
+                            @foreach($products as $product)
+                                <x-product-card :product="$product" />
+                            @endforeach
+                        @else
+                            <x-no-data />
+                        @endif
+
                     </div>
 
                     <div class="more__products__btns d-flex justify-content-center mt-15">

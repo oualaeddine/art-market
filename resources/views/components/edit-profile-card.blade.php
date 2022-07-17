@@ -124,7 +124,7 @@
                     @csrf
                     @method('PUT')
                     <div class="edit__avatar align-items-center">
-                        <div class="details__avatar"><img id="imgPreview" src="{{asset($client->avatar??"/website/images/content/avatar-big.jpg")}}" alt="Avatar"></div>
+                        <div class="details__avatar"><img id="imgPreview" src="{{asset($client->avatar??'client.png')}}" alt="Avatar"></div>
                         <div class="details__wrap">
                             <div class="details__stage">{{__("Profile photo")}}</div>
                             <div class="details__text">{{__("We recommend an image of at least 400x400")}}.</div>

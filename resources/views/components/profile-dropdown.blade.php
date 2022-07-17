@@ -1,10 +1,10 @@
 <div class="header__item header__item_user js-header-item js-demo-user">
     <button class="header__head js-header-head">
-        <div class="header__avatar"><img src="{{asset(auth()->guard('client')->user()->avatar??'admin.png')}}" alt="Avatar" /></div>
+        <div class="header__avatar"><img src="{{asset(auth()->guard('client')->user()->avatar??'client.png')}}" alt="Avatar" /></div>
     </button>
     <div class="header__body js-header-body">
         <div class="d-flex profile__header__body">
-            <div class="header__avatar"><img src="{{asset(auth()->guard('client')->user()->avatar)}}" alt="Avatar" /></div>
+            <div class="header__avatar"><img src="{{asset(auth()->guard('client')->user()->avatar??'client.png')}}" alt="Avatar" /></div>
             <div class="profile_user_main_informations">
                 <div class="header__name">{{auth()->guard('client')->user()->last_name.' '.auth()->guard('client')->user()->first_name}}</div>
             </div>

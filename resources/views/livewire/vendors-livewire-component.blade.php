@@ -30,9 +30,17 @@
             <div class="catalog__row" >
                 <div class="catalog__wrapper">
                     <div class="catalog__list">
-                        @foreach($vendors as $vendor)
-                            <x-vendor-card :vendor="$vendor" />
-                        @endforeach
+                        @if($vendors->isNotEmpty())
+
+                            @foreach($vendors as $vendor)
+                                <x-vendor-card :vendor="$vendor" />
+                            @endforeach
+                        @else
+
+                            <x-no-data />
+
+                        @endif
+
                     </div>
                     <div class="more__products__btns d-flex justify-content-center mt-15">
                         <div class="catalog__pagination mr-5">

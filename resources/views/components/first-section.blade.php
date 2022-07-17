@@ -44,33 +44,11 @@
             <div class="row justify-content-center mt-12 mb-lg-0 mb-15">
                 <div class="col-12 col-lg-8">
                     <div class="brand-logos d-flex justify-content-center align-items-center mx-n9 flex-wrap">
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-once="true">
-                            <img src="website/images/customers/logo-01.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="700" data-aos-once="true">
-                            <img src="website/images/customers/logo-02.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="900" data-aos-once="true">
-                            <img src="website/images/customers/logo-03.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1100" data-aos-once="true">
-                            <img src="website/images/customers/logo-04.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1300" data-aos-once="true">
-                            <img src="website/images/customers/logo-05.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
-                            <img src="website/images/customers/logo-06.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
-                            <img src="website/images/customers/logo-07.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
-                            <img src="website/images/customers/logo-08.png" alt="#" />
-                        </div>
-                        <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-once="true">
-                            <img src="website/images/customers/logo-09.png" alt="#" />
-                        </div>
+                        @foreach($brands as $brand)
+                            <div class="single-brand mx-9 py-7 coodiv-opacity-8 aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-once="true">
+                                <img style="width: 146px" src="{{asset($brand->image??'/website/images/brand.png')}}" alt="#" />
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

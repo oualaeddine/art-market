@@ -1,7 +1,7 @@
 <div class="product__default__card card border-0">
     <a href="{{route('product',['product'=>$product->slug])}}" class="product__card__preview">
-        <img class="front__card__preview" src="{{asset($product->image??'https://i.etsystatic.com/7136732/r/il/b75904/3544148363/il_794xN.3544148363_43f0.jpg')}}" alt="Card preview" />
-        <img class="back__card__preview" src="{{asset($product->images->first()->image??'https://i.etsystatic.com/7136732/r/il/8c36c2/2180488642/il_794xN.2180488642_i1fs.jpg')}}" alt="Card preview" />
+        <img class="front__card__preview" src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" alt="Card preview" />
+        <img class="back__card__preview" src="{{asset($product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" alt="Card preview" />
     </a>
     <div class="card__default__informations">
         <div class="card__body">

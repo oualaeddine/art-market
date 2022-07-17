@@ -44,12 +44,12 @@
                                                     {{-- <small class="dis"><b>from</b> Setif - Algeria</small> --}}
                                                     {{-- <small class="dis mt-n1"><b>Delevry</b> Medea - Algeria</small> --}}
                                                 </div>
-                                                
+
                                             @endforeach
 
                                         </div>
-                                       
-                                       
+
+
                                     </div>
                                     <div class="package__tracking__box__estimate">
                                         {{-- <span class="eta">ETA</span> --}}
@@ -95,12 +95,11 @@
                             <img src="{{asset('website/images/not_found404.svg')}}" alt="">
                             <p>{{__('Order not found')}}</p>
                         </div>
-                       
                     </div>
                 </div>
-                    
+
                 @endif
-              
+
             </div>
         </div>
     </div>
