@@ -1,0 +1,27 @@
+{
+  "resources/js/shop.js": {
+    "file": "assets/shop.19c659bf.js",
+    "src": "resources/js/shop.js",
+    "isEntry": true
+  },
+  "resources/js/wilaya.js": {
+    "file": "assets/wilaya.63b38d65.js",
+    "src": "resources/js/wilaya.js",
+    "isEntry": true
+  },
+  "resources/css/fancybox.min.css": {
+    "file": "assets/fancybox.min.43b298ca.css",
+    "src": "resources/css/fancybox.min.css",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.8db62acc.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/bootstrap.css": {
+    "file": "assets/bootstrap.6e684ba8.css",
+    "src": "resources/css/bootstrap.css",
+    "isEntry": true
+  }
+}
