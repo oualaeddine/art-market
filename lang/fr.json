@@ -29,5 +29,18 @@
     "pending":"",
     "canceled":"",
     "confirmed":"",
-    "completed":""
+    "completed":"",
+    "About Us":"",
+    "Cart":"",
+    "FAQ":"",
+    "Home":"",
+    "Product detail":"",
+    "Shop":"",
+    "Order Tracking":"",
+    "Vendor Detail":"",
+    "Vendor":"",
+    "Checkout complete":"",
+    "Checkout confirmation":"",
+    "Checkout informations":"",
+    "Checkout Overview":""
 }

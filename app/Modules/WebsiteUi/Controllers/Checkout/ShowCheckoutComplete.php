@@ -39,7 +39,7 @@ class ShowCheckoutComplete
         $orders=$normal_orders->isEmpty()?$raw_orders:$normal_orders;
 
 
-        return view('WebsiteUi::checkout-done', compact('order','orders'))->with(['page_title' => trans('Complete')]);
+        return view('WebsiteUi::checkout-done', compact('order','orders'))->with(['page_title' => trans('Checkout complete')]);
     }
 
 }

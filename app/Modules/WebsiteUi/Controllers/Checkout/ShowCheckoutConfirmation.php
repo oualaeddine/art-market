@@ -31,7 +31,7 @@ class ShowCheckoutConfirmation
         }
 
 
-        return view('WebsiteUi::checkout-confirmation', compact('info', 'client'))->with(['page_title' => trans('Checkout')]);
+        return view('WebsiteUi::checkout-confirmation', compact('info', 'client'))->with(['page_title' => trans('Checkout confirmation')]);
     }
 
     private function checkCart(): bool
