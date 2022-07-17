@@ -6,6 +6,7 @@
 
 
         <x-header-elements/>
+        <x-lang-switcher/>
         <x-cart-header/>
         @auth('client')
             <x-profile-dropdown/>
