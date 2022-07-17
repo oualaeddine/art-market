@@ -11,7 +11,7 @@
         </div>
 
         <div class="header__menu profile__menu">
-            <span class="profile__menu__title">Dashboard</span>
+            <span class="profile__menu__title">{{__("Dashboard")}}</span>
 
 
             <a class="header__link" href="{{route('client.account',['tab'=>'account'])}}">
@@ -25,12 +25,12 @@
                 <div class="header__icon green">
                     <i class="fad fa-credit-card"></i>
                 </div>
-                <div class="header__text d-flex justify-content-between align-items-center w-100">{{__("Orders")}} <span class="blue">{{auth()->guard('client')->user()->orders_count}}</span></div>
+                <div class="header__text d-flex justify-content-between align-items-center w-100">{{__("Orders")}} <span class="blue">{{auth()->guard('client')->user()->orders->count()}}</span></div>
             </a>
         </div>
 
         <div class="header__menu profile__menu">
-            <span class="profile__menu__title">My account</span>
+            <span class="profile__menu__title">{{__("My account")}}</span>
             <a class="header__link__with__underline" href="{{route('client.account',['tab'=>'account'])}}">
                 {{__("Update my profile")}}
             </a>

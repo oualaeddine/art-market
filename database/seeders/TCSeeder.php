@@ -14,44 +14,169 @@ class TCSeeder extends Seeder
      */
     public function run()
     {
-        Setting::create(['name' => 't_n_c_fr','value' => '<div class="ptb-30 prl-30">
-                <h3 class="t-uppercase h-title mb-40">TERMES ET CONDITIONS
-                </h3>
-                <h4 class="mb-20">1 - Donec bibendum libero id arcu tincidunt ornare.</h4>
-                <p class="mb-20">Nam at condimentum diam, vitae suscipit leo. Aliquam vel erat a turpis faucibus dapibus. Donec rutrum congue metus, fringilla eleifend quam luctus vitae. Morbi mi mauris, ullamcorper quis erat id, rutrum tempor leo. Nunc sit amet erat nibh. Sed vel mauris felis. Nulla nulla magna, porta sit amet semper ut, molestie at mi. Sed venenatis volutpat lobortis. Donec mattis fringilla arcu, id rhoncus est pharetra a. Etiam ut euismod tellus. Proin sagittis mauris tortor, sit amet vulputate turpis tincidunt sed. Etiam a consectetur enim, tristique malesuada ipsum. Maecenas vel placerat sapien. Nam et ultricies orci. Ut bibendum accumsan laoree.</p>
-                <p class="mb-20">Maecenas in mattis justo. Nulla aliquam dictum erat, vitae maximus sem interdum ut. Sed sollicitudin tempus accumsan. Vivamus eget dui at ligula semper aliquam eu vel erat. Sed sed mi molestie, eleifend nunc eu, finibus lorem. Morbi ulputate interdum finibus. Vestibulum bibendum iaculis dui sed ornare. Proin nec finibus mi. Sed odio diam, pharetra at dapibus nec, commodo quis risus. Cras et dui vitae lacus luctus maximus id sed erat. Maecenas dignissim malesuada elit, sit amet efficitur est suscipit nec. Sed quis rutrum libero. Nullam a lacus hendrerit, vestibulum nisi a, dictum quam.</p>
-                <h4 class="mb-20">2 - Maecenas in mattis justo. Nulla aliquam dictum erat.</h4>
-                <p class="mb-20">Aliquam et mattis nulla, vel molestie nulla. Suspendisse leo dui, sagittis auctor turpis ut, egestas non maximus enim. Aenean rutrum a magna eget scelerisque. Nulla magna diam, venenatis sit amet orci sed, dapibus imperdiet leo.Donec condimentum neque non efficitur rhoncus. Maecenas facilisis magna at tempor pulvinar.Sed sit amet nunc egestas, blandit arcu quis.</p>
-                <ul class="list-styled mb-20">
-                    <li>Nulla aliquam dictum erat, vitae maximus sem interdum ut.</li>
-                    <li> Proin nec finibus mi. Sed odio diam.</li>
-                    <li>Maecenas dignissim malesuada elit, sit amet efficitur est suscipit nec</li>
-                    <li>Maecenas in mattis justo.</li>
-                    <li> Proin nec finibus mi. Sed odio diam.</li>
-                </ul>
-                <h4 class="mb-20">3 - Aenean placerat condimentum enim.</h4>
-                <p class="mb-20">Aenean blandit congue libero, sed consectetur nisl gravida et. Vestibulum eget velit diam. Cras id nunc bibendum, condimentum purus id, quam. Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vel elementum odio, eu congue velit Fusce dapibus diam at nunc auctor pharetra. In tempus orci id volutpat fermentum.</p>
-            </div>' ]);
+        Setting::create(['name' => 't_n_c_fr','value' => '                <div class="coodiv-pageContent">
+                    <div class="row justify-content-start">
+                        <div class="col-md-6 col-12">
+                            <h3>Introduction</h3>
+                            <p>
+                                These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, Acticome accessible at
+                                <a href="http://www.coodiv.net" target="_blank" rel="noopener noreferrer">www.coodiv.net</a>.
+                            </p>
+                            <p>
+                                These Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree
+                                with any of these Website Standard Terms and Conditions.
+                            </p>
+                            <p>Minors or people below 18 years old are not allowed to use this Website.</p>
+                            <h3>Intellectual Property Rights</h3>
+                            <p>Other than the content you own, under these Terms, Acticome and/or its licensors own all the intellectual property rights and materials contained in this Website.</p>
+                            <p>You are granted limited license only for purposes of viewing the material contained on this Website.</p>
+                            <h3>Restrictions</h3>
+                            <p>You are specifically restricted from all of the following:</p>
+                            <ul>
+                                <li>publishing any Website material in any other media;</li>
+                                <li>selling, sublicensing and/or otherwise commercializing any Website material;</li>
+                                <li>publicly performing and/or showing any Website material;</li>
+                                <li>using this Website in any way that is or may be damaging to this Website;</li>
+                                <li>using this Website in any way that impacts user access to this Website;</li>
+                                <li>using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</li>
+                                <li>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</li>
+                                <li>using this Website to engage in any advertising or marketing.</li>
+                            </ul>
+                            <p>
+                                Certain areas of this Website are restricted from being access by you and Acticome may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and
+                                password you may have for this Website are confidential and you must maintain confidentiality as well.
+                            </p>
+                            <h3>Your Content</h3>
+                            <p>
+                                In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Acticome
+                                a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.
+                            </p>
+                            <p>Your Content must be your own and must not be invading any third-party’s rights. Acticome reserves the right to remove any of Your Content from this Website at any time without notice.</p>
+                        </div>
+
+
+                        <div class="col-md-6 col-12">
+                            <h3>Your Privacy</h3>
+                            <p>Please read <a href="privacy.html">Privacy Policy.</a></p>
+                            <h3>No warranties</h3>
+                            <p>
+                                This Website is provided “as is,” with all faults, and Acticome express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing
+                                contained on this Website shall be interpreted as advising you.
+                            </p>
+                            <h3>Limitation of liability</h3>
+                            <p>
+                                In no event shall Acticome, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is
+                                under contract. Acticome, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of
+                                this Website.
+                            </p>
+                            <h3>Indemnification</h3>
+                            <p>
+                                You hereby indemnify to the fullest extent Acticome from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the
+                                provisions of these Terms.
+                            </p>
+                            <h3>Severability</h3>
+                            <p>If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
+                            <h3>Variation of Terms</h3>
+                            <p>Acticome is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p>
+                            <h3>Assignment</h3>
+                            <p>
+                                The Acticome is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of
+                                your rights and/or obligations under these Terms.
+                            </p>
+                            <h3>Entire Agreement</h3>
+                            <p>These Terms constitute the entire agreement between Acticome and you in relation to your use of this Website, and supersede all prior agreements and understandings.</p>
+                            <h3>Governing Law &amp; Jurisdiction</h3>
+                            <p>
+                                These Terms will be governed by and interpreted in accordance with the laws of the State of us, and you submit to the non-exclusive jurisdiction of the state and federal courts located in us for the
+                                resolution of any disputes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+' ]);
 
 
 
-        Setting::create(['name' => 't_n_c_ar','value' => '     <div class="ptb-30 prl-30">
-                <h3 class="t-uppercase h-title mb-40">الأحكام والشروط</h3>
-                <h4 class="mb-20">1 - خلافاَ للإعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً، بل إن له جذور في الأدب اللاتيني .</h4>
-                <p class="mb-20">خلافاَ للإعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد، مما يجعله أكثر من 2000 عام في القدم. قام البروفيسور "ريتشارد ماك لينتوك" (Richard McClintock) وهو بروفيسور اللغة اللاتينية في جامعة هامبدن-سيدني في فيرجينيا بالبحث عن أصول كلمة لاتينية غامضة في نص لوريم إيبسوم وهي "consectetur"، وخلال تتبعه لهذه الكلمة في الأدب اللاتيني اكتشف المصدر الغير قابل للشك. فلقد اتضح أن كلمات نص لوريم إيبسوم تأتي من الأقسام 1.10.32 و 1.10.33 من كتاب "حول أقاصي الخير والشر" (de Finibus Bonorum et Malorum) للمفكر شيشيرون (Cicero) والذي كتبه في عام 45 قبل الميلاد. هذا الكتاب هو بمثابة مقالة علمية مطولة في نظرية الأخلاق، وكان له شعبية كبيرة في عصر النهضة. السطر الأول من لوريم إيبسوم "Lorem ipsum dolor sit amet.." يأتي من سطر في القسم 1.20.32 من هذا الكتاب.</p>
-                <p class="mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي. وبالتالي يكون النص الناتح خالي من التكرار، أو أي كلمات أو عبارات غير لائقة أو ما شابه. وهذا ما يجعله أول مولّد نص لوريم إيبسوم حقيقي على الإنترنت.</p>
-                <h4 class="mb-20">2 - هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم.</h4>
-                <p class="mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي.</p>
-                <ul class="list-styled mb-20">
-                    <li>لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</li>
-                    <li>هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي.</li>
-                    <li>على مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم إيبسوم</li>
-                    <li>أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض العبارات الفكاهية إليها.</li>
-                    <li> ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة.</li>
-                </ul>
-                <h4 class="mb-20">3 - خلافاَ للإعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً.</h4>
-                <p class="mb-20">فلقد اتضح أن كلمات نص لوريم إيبسوم تأتي من الأقسام 1.10.32 و 1.10.33 من كتاب "حول أقاصي الخير والشر" (de Finibus Bonorum et Malorum) للمفكر شيشيرون (Cicero) والذي كتبه في عام 45 قبل الميلاد. هذا الكتاب هو بمثابة مقالة علمية مطولة.</p>
-            </div>' ]);
+        Setting::create(['name' => 't_n_c_ar','value' => '                     <div class="coodiv-pageContent">
+                    <div class="row justify-content-start">
+                        <div class="col-md-6 col-12">
+                            <h3>Introduction</h3>
+                            <p>
+                                These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, Acticome accessible at
+                                <a href="http://www.coodiv.net" target="_blank" rel="noopener noreferrer">www.coodiv.net</a>.
+                            </p>
+                            <p>
+                                These Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree
+                                with any of these Website Standard Terms and Conditions.
+                            </p>
+                            <p>Minors or people below 18 years old are not allowed to use this Website.</p>
+                            <h3>Intellectual Property Rights</h3>
+                            <p>Other than the content you own, under these Terms, Acticome and/or its licensors own all the intellectual property rights and materials contained in this Website.</p>
+                            <p>You are granted limited license only for purposes of viewing the material contained on this Website.</p>
+                            <h3>Restrictions</h3>
+                            <p>You are specifically restricted from all of the following:</p>
+                            <ul>
+                                <li>publishing any Website material in any other media;</li>
+                                <li>selling, sublicensing and/or otherwise commercializing any Website material;</li>
+                                <li>publicly performing and/or showing any Website material;</li>
+                                <li>using this Website in any way that is or may be damaging to this Website;</li>
+                                <li>using this Website in any way that impacts user access to this Website;</li>
+                                <li>using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</li>
+                                <li>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</li>
+                                <li>using this Website to engage in any advertising or marketing.</li>
+                            </ul>
+                            <p>
+                                Certain areas of this Website are restricted from being access by you and Acticome may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and
+                                password you may have for this Website are confidential and you must maintain confidentiality as well.
+                            </p>
+                            <h3>Your Content</h3>
+                            <p>
+                                In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Acticome
+                                a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.
+                            </p>
+                            <p>Your Content must be your own and must not be invading any third-party’s rights. Acticome reserves the right to remove any of Your Content from this Website at any time without notice.</p>
+                        </div>
+
+
+                        <div class="col-md-6 col-12">
+                            <h3>Your Privacy</h3>
+                            <p>Please read <a href="privacy.html">Privacy Policy.</a></p>
+                            <h3>No warranties</h3>
+                            <p>
+                                This Website is provided “as is,” with all faults, and Acticome express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing
+                                contained on this Website shall be interpreted as advising you.
+                            </p>
+                            <h3>Limitation of liability</h3>
+                            <p>
+                                In no event shall Acticome, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is
+                                under contract. Acticome, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of
+                                this Website.
+                            </p>
+                            <h3>Indemnification</h3>
+                            <p>
+                                You hereby indemnify to the fullest extent Acticome from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the
+                                provisions of these Terms.
+                            </p>
+                            <h3>Severability</h3>
+                            <p>If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
+                            <h3>Variation of Terms</h3>
+                            <p>Acticome is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p>
+                            <h3>Assignment</h3>
+                            <p>
+                                The Acticome is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of
+                                your rights and/or obligations under these Terms.
+                            </p>
+                            <h3>Entire Agreement</h3>
+                            <p>These Terms constitute the entire agreement between Acticome and you in relation to your use of this Website, and supersede all prior agreements and understandings.</p>
+                            <h3>Governing Law &amp; Jurisdiction</h3>
+                            <p>
+                                These Terms will be governed by and interpreted in accordance with the laws of the State of us, and you submit to the non-exclusive jurisdiction of the state and federal courts located in us for the
+                                resolution of any disputes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+' ]);
 
 
 

@@ -30,7 +30,7 @@
         <span class="badge badge-pill badge-default" style="font-size: small;">{{$order->tracking_code}}</span>
         <span class="badge badge-pill badge-default" style="font-size: small;">{{$order->created_at}}</span>
         <span class="badge badge-pill badge-default" style="font-size: small;">{{number_format($order->total,2).trans('DA')}}</span>
-        <a class="cart__remove text-right float-right" href="#"><i class="fal fa-times"></i> {{__("Cancel order")}}</a>
+{{--        <a class="cart__remove text-right float-right" href="#"><i class="fal fa-times"></i> {{__("Cancel order")}}</a>--}}
     </div>
 
     <div class="order__items {{"border-$color"}}">

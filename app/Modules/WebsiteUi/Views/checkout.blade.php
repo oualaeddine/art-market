@@ -53,7 +53,7 @@
                                                     <div class="field field field__style__one">
                                                         <div class="field__label">{{__("Phone number")}}</div>
                                                         <div class="field__wrap">
-                                                            <input class="field__input" type="tel" {{auth()->guard('client')->check()?'readonly':''}}
+                                                            <input class="field__input phone-input" type="tel" {{auth()->guard('client')->check()?'readonly':''}}
                                                                    value="{{auth()->guard('client')->check()?('0'.auth()->guard('client')->user()->phone):''}}"
                                                                    name="phone" placeholder="{{__("Phone number")}}" required=""/>
                                                         </div>
@@ -171,7 +171,7 @@
                                 </div>
 
                                 <div class="popup__btns">
-                                    <button type="submit" class="button popup__button">{{__("PROCEED TO CHECKOUT")}}</button>
+                                    <button type="submit" class="button popup__button btn-phone-send">{{__("PROCEED TO CHECKOUT")}}</button>
                                 </div>
                             </div>
                         </div>

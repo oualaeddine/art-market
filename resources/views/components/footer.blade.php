@@ -13,32 +13,32 @@
                 </div>
                 <div class="col-md-6 col-12 row justify-content-start mb-lg-0 mb-10">
                     <div class="col-4 text-lg-left text-center footer__links__group">
-                        <h5 class="h5 font-weight-bold">SHOP</h5>
+                        <h5 class="h5 font-weight-bold">{{__("SHOP")}}</h5>
                         <ul class="footer__links__items">
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="#">Collections</a></li>
-                            <li><a href="#">Lookbook</a></li>
-                            <li><a href="#">Women</a></li>
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Kids</a></li>
+                            <li><a href="{{route('shop')}}">{{__("Shop")}}</a></li>
+                            <li><a href="{{route('vendors')}}">{{__("Vendors")}}</a></li>
+{{--                            <li><a href="#">Collections</a></li>--}}
+{{--                            <li><a href="#">Lookbook</a></li>--}}
+{{--                            <li><a href="#">Women</a></li>--}}
+{{--                            <li><a href="#">Men</a></li>--}}
+{{--                            <li><a href="#">Kids</a></li>--}}
                         </ul>
                     </div>
 
                     <div class="col-4 text-lg-left text-center footer__links__group">
-                        <h5 class="h5 font-weight-bold">HELP</h5>
+                        <h5 class="h5 font-weight-bold">{{__("HELP")}}</h5>
                         <ul class="footer__links__items">
-                            <li><a href="#">Returns & Exchanges</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="{{route('faq')}}">{{__("FAQ")}}</a></li>
+                            <li><a href="{{route('privacy')}}">{{__("Privacy Policy")}}</a></li>
+                            <li><a href="{{route('terms_conditions')}}">{{__("Terms & Conditions")}}</a></li>
                         </ul>
                     </div>
 
                     <div class="col-4 text-lg-left text-center footer__links__group">
-                        <h5 class="h5 font-weight-bold">ABOUT</h5>
+                        <h5 class="h5 font-weight-bold">{{__("ABOUT")}}</h5>
                         <ul class="footer__links__items">
-                            <li><a href="#">Journal</a></li>
-                            <li><a href="#">Our Story</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{route('about')}}">{{__("Our Story")}}</a></li>
+                            <li><a href="{{route('contact')}}">{{__("Contact")}}</a></li>
                         </ul>
                     </div>
                 </div>

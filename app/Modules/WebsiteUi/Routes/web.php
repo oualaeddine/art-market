@@ -29,13 +29,13 @@ use App\Modules\WebsiteUi\Controllers\Auth\ShowResetPassword;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutComplete;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutConfirmation;
 use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutInfo;
-use App\Modules\WebsiteUi\Controllers\Checkout\ShowCheckoutOverView;
 use App\Modules\WebsiteUi\Controllers\ShowAboutUs;
 use App\Modules\WebsiteUi\Controllers\ShowAccount;
 use App\Modules\WebsiteUi\Controllers\ShowCart;
 use App\Modules\WebsiteUi\Controllers\ShowContact;
 use App\Modules\WebsiteUi\Controllers\ShowFAQ;
 use App\Modules\WebsiteUi\Controllers\ShowHome;
+use App\Modules\WebsiteUi\Controllers\ShowPrivacy;
 use App\Modules\WebsiteUi\Controllers\ShowProductPage;
 use App\Modules\WebsiteUi\Controllers\ShowShop;
 use App\Modules\WebsiteUi\Controllers\ShowTermsAndConditions;
@@ -93,9 +93,10 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
     });
 
 
-    Route::get('/faq', ShowFAQ::class)->name('faq');
-    Route::get('/terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
-    Route::get('/about', ShowAboutUs::class)->name('about');
+    Route::get('faq', ShowFAQ::class)->name('faq');
+    Route::get('terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
+    Route::get('about', ShowAboutUs::class)->name('about');
+    Route::get('privacy', ShowPrivacy::class)->name('privacy');
 
 
     Route::post('{product}/add-to-cart', AddCart::class)->name('add-cart');

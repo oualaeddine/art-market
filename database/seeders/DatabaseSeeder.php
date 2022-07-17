@@ -24,16 +24,17 @@ class DatabaseSeeder extends Seeder
 //         $this->call(ProductsSeeder::class);
 
         $this->call(TCSeeder::class);
+        $this->call(PrivacySeeder::class);
         $this->call(AboutUsSeeder::class);
         $this->call(ExtraPermissionsSeeder::class);
         $this->call(YalidineWilayaArab::class);
         $this->call(YalidineMairiesArab::class);
         $this->call(VendorPermissionsSeeder::class);
 //
-//        $this->call(CategorySeeder::class);
-//        $this->call(BrandsSeeder::class);
-//        $this->call(VendorSeeder::class);
-//        $this->call(ProductSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(BrandsSeeder::class);
+        $this->call(VendorSeeder::class);
+        $this->call(ProductSeeder::class);
     }
 
 }

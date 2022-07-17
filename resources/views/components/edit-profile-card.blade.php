@@ -42,7 +42,7 @@
                             <div class="field field__style__one">
                                 <div class="field__label">{{__("Phone")}}</div>
                                 <div class="field__wrap">
-                                    <input class="field__input" type="tel" name="phone"
+                                    <input class="field__input form-control phone-input" type="tel" name="phone"
                                            value="{{'0'.$client->phone}}"  required="">
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <div class="col-md-6">
                                     <div class="profile__address__box"  style="height: auto">
                                         @if($loop->first)
-                                            <span class="profile__address__box__default"><i class="fal fa-check"></i>default</span>
+                                            <span class="profile__address__box__default"><i class="fal fa-check"></i>{{__("default")}}</span>
 
                                         @endif
                                         {{--                                    <div class="profile__address__box__name">Nedjai Mohamed</div>--}}
@@ -112,7 +112,7 @@
 
 
                 <div class="details__btns">
-                    <button class="button details__button">{{__("Update Profile")}}</button>
+                    <button class="button details__button btn-phone-send">{{__("Update Profile")}}</button>
                 </div>
             </form>
         </div>

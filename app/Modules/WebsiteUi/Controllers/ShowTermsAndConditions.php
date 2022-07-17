@@ -23,17 +23,10 @@ class ShowTermsAndConditions
 
     {
 
-        $lang = Session::get('client_lang');
-
-        if($lang){
-            SetLocal::generate('ar');
-        }
-
-
-        $terms=Setting::query()->where('name',Session::get('client_lang')?'t_n_c_ar':'t_n_c_fr')->first();
-        return view('WebsiteUi::terms_conditions',[
+        $terms=Setting::query()->where('name',app()->getLocale()!='fr'?'t_n_c_ar':'t_n_c_fr')->first();
+        return view('WebsiteUi::tnc',[
             'terms'=>$terms
-        ])->with(['page_title' => Session::get('client_lang')?'الأحكام والشروط':'terms and conditions']);
+        ])->with(['page_title' => trans('Terms and conditions')]);
     }
 
 }

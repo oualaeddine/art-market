@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class ShowAboutUs
+class ShowPrivacy
 {
 
     use AsAction;
@@ -19,10 +19,11 @@ class ShowAboutUs
     {
 
 
-        $terms=Setting::query()->where('name',app()->getLocale()!='fr'?'about_us_ar':'about_us_fr')->first();
-        return view('WebsiteUi::about_us',[
+        $terms=Setting::query()->where('name',app()->getLocale()!='fr'?'pvc_ar':'pvc_fr')->first();
+
+        return view('WebsiteUi::privacy',[
             'terms'=>$terms
-        ])->with(['page_title' => trans('About us')]);
+        ])->with(['page_title' => trans('Privacy')]);
     }
 
 }

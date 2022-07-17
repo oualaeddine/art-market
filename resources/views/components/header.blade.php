@@ -1,13 +1,15 @@
-<header class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header" data-id="#header">
+<header
+    class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header"
+    data-id="#header">
 
     <div class="header__center center">
 
-            <x-header-elements />
+        <x-header-elements/>
 
-            <x-cart-header />
+        <x-cart-header/>
 
         @auth('client')
-            <x-profile-dropdown />
+            <x-profile-dropdown/>
         @endauth
 
         @guest('client')
