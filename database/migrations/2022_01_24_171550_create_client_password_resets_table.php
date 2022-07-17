@@ -16,7 +16,7 @@ class CreateClientPasswordResetsTable extends Migration
             Schema::create('client_password_resets', function (Blueprint $table) {
                 $table->string('email')->index();
                 $table->string('token');
-                $table->string('code');
+                $table->string('code')->nullable();
                 $table->timestamp('created_at')->nullable();
             });
     }
