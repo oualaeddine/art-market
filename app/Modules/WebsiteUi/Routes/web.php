@@ -97,7 +97,6 @@ Route::group(['prefix' => '', 'middleware' => ['ChangeLang']], function () {
 
     Route::get('faq', ShowFAQ::class)->name('faq');
     Route::get('terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
-    Route::get('about', ShowAboutUs::class)->name('about');
     Route::get('privacy', ShowPrivacy::class)->name('privacy');
     Route::get('/faq', ShowFAQ::class)->name('faq');
     Route::get('/terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
