@@ -1,8 +1,7 @@
 @extends('website.app')
 
 @section('content')
-
-    @include('partials.error.error')
+    
     <div class="outer__inner">
         <div class="cart__container pt-10 pb-25">
             <form action="{{route('checkout.confirmation')}}">
@@ -13,6 +12,7 @@
                             <div class="billing__form">
                                 <div class="billing__list">
                                     <div class="billing__item">
+                                        @include('partials.error.error')
                                         <div class="d-lg-flex justify-content-between align-items-center">
                                             <div class="billing__category">{{__("Your personal information")}} </div>
                                             @guest('client')
@@ -53,7 +53,7 @@
                                                     <div class="field field field__style__one">
                                                         <div class="field__label">{{__("Phone number")}}</div>
                                                         <div class="field__wrap">
-                                                            <input class="field__input phone-input" type="tel" {{auth()->guard('client')->check()?'readonly':''}}
+                                                            <input class="field__input form-control phone-input" type="tel" {{auth()->guard('client')->check()?'readonly':''}}
                                                                    value="{{auth()->guard('client')->check()?('0'.auth()->guard('client')->user()->phone):''}}"
                                                                    name="phone" placeholder="{{__("Phone number")}}" required=""/>
                                                         </div>

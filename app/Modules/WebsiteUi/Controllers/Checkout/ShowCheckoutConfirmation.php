@@ -25,7 +25,6 @@ class ShowCheckoutConfirmation
         if ($client) {
             $info = $this->getLoggedInClientInfo($request, $client);
         } else {
-            if (!Session::exists('non_logged_client_info')) return redirect()->route('shop');
             $info = $this->getNonLoggedInClientInfo($request);
 
         }
