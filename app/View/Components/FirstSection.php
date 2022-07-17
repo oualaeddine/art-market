@@ -19,7 +19,7 @@ class FirstSection extends Component
     public function __construct()
     {
         $this->tops =Website_image::query()->where('name','like',"%Top%")->whereLang(\app()->getLocale())->get();
-        $this->brands=Brand::query()->whereIsActive(true)->whereHas('products')->withCount('products')->get();
+        $this->brands=Brand::query()->whereIsActive(true)/* ->whereHas('products') */->withCount('products')->get();
     }
 
     /**

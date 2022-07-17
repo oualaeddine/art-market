@@ -16,7 +16,7 @@ class BrandsSection extends Component
      */
     public function __construct()
     {
-        $this->brands=Brand::query()->whereIsActive(true)->whereHas('products')->withCount('products')->get();
+        $this->brands=Brand::query()->whereIsActive(true)/* ->whereHas('products') */->withCount('products')->get();
     }
 
     /**
