@@ -3,12 +3,12 @@
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-md-3 col-12 text-lg-left text-center mb-lg-0 mb-10">
-                    <a class="footer__logo" href="index.html"><img class="some-icon" src="/ArtMarket.png"
+                    <a class="footer__logo" href="{{route('index')}}"><img class="some-icon" src="/ArtMarket.png"
                                                                    alt="Crypter NFT"/><img class="some-icon-dark"
                                                                                            src="/website/images/logo-light.png"
                                                                                            alt="Crypter NFT"/></a>
-                    <div class="footer__info"><i class="fad fa-map-marked-alt"></i> 17 rue de setif, algeria.</div>
-                    <div class="footer__info__contact"><a href="#">support@coodiv.net</a> <a href="#">003135566332</a>
+                    <div class="footer__info"><i class="fad fa-map-marked-alt"></i> {{$settings->where('name',app()->getLocale()=='fr'?'adresse_fr':'adresse_ar')->first()->value??'#'}}.</div>
+                    <div class="footer__info__contact"><a href="#">{{ $settings->where('name', 'email')->first()->value ?? '' }}</a> <a href="#">{{ $settings->where('name', 'contact tél 1')->first()->value ?? '#' }}</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-12 row justify-content-start mb-lg-0 mb-10">
@@ -54,10 +54,11 @@
                             <p class="sub-title">{{__("Enter your phone number and we will call  to help you")}}.</p>
                         </div>
 
-                        <form class="subscription">
-                            <input class="subscription__input" type="email" name="email"
+                        <form class="subscription" action="{{route('help-phone')}}" method="POST">
+                            @csrf
+                            <input class="subscription__input form-control phone-input" type="text" name="phone"
                                    placeholder="{{__("Enter your phone number")}}" required="required"/>
-                            <button class="subscription__btn">
+                            <button type="submit" class="subscription__btn phone-s  btn-phone-send">
                                 <span class="icon icon-arrow-next"></span>
                             </button>
                         </form>
@@ -66,16 +67,6 @@
             </div>
             <div class="footer__foot">
                 <div class="footer__copyright">© {{__("coodiv.net 2022. All rights reserved")}}.</div>
-                <div class="footer__note">
-                    <i class="fab fa-cc-amazon-pay"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-discover"></i>
-                    <i class="fab fa-cc-stripe"></i>
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
-                </div>
             </div>
         </div>
     </footer>

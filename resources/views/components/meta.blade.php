@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="website/images/apple-touch-icon.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="website/images/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="website/images/favicon-16x16.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="ArtMarket.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="ArtMarket.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="ArtMarket.png"/>
 
     <meta name="description" content="emyui | ecommerce UI Design Kit"/>
 
