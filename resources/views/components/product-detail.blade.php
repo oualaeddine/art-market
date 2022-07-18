@@ -67,15 +67,15 @@
                     <div class="item__tabs js-tabs">
                         <div class="item__nav">
                             <a class="item__link js-tabs-link active" href="#"><i class="fal fa-info-circle"></i>
-                                Product Informations</a>
+                                {{__("Product Information")}}</a>
 {{--                            <a class="item__link js-tabs-link" href="#"><i class="fal fa-shipping-fast"></i> bid history</a>--}}
                         </div>
 
                         <div class="item__container">
                             <div class="item__box js-tabs-item" style="display: block;">
                                 <ul class="item__tabs__informations">
-                                    <li><b>Ref : </b> {{$product->ref}}</li>
-                                    <li><b>Category : </b> {{$product->categories->first()->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</li>
+                                    <li><b>{{__("Ref")}} : </b> {{$product->ref}}</li>
+                                    <li><b>{{__("Category")}} : </b> {{$product->categories->first()->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</li>
                                 </ul>
 {{--                                <div--}}
 {{--                                    class="item__radio__color__checkbox btn-group d-flex mb-10 px-5 mt-5 align-items-center"--}}
