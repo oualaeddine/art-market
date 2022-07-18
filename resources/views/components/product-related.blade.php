@@ -9,7 +9,7 @@
             <div class="hot__inner">
                 <div class="hot__slider js-slider-hot">
                     @foreach($products as $product)
-                        <x-home-product-card :product="$product"/>
+                        <x-product-card :product="$product"/>
                     @endforeach
                 </div>
             </div>

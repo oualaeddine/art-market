@@ -6,8 +6,10 @@ use App\Models\Vendor;
 use App\Models\VendorUser;
 use App\Rules\PhoneNumber;
 use App\Traits\UploadImageTrait;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -39,6 +41,21 @@ class UpdateVendorUser
 
     }
 
+    public function prepareForValidation(ActionRequest $request): void
+    {
+        $request->merge(['phone' => $this->getPhoneNumberClean($request->phone)]);
+    }
+
+    private function getPhoneNumberClean($phone)
+    {
+        if (Str::startsWith($phone, '00213') && strlen($phone) ===14) return explode('00213', $phone, 2)[1];
+        elseif (Str::startsWith($phone, '0213') && strlen($phone) ===13) return explode('0213', $phone, 2)[1];
+        elseif (Str::startsWith($phone, '+213') && strlen($phone) ===13) return explode('+213', $phone, 2)[1];
+        elseif (Str::startsWith($phone, '213') && strlen($phone) ===12) return explode('213', $phone, 2)[1];
+        elseif (Str::startsWith($phone, '0') && strlen($phone) ===10) return explode('0', $phone, 2)[1];
+        elseif ((Str::startsWith($phone, '6') || Str::startsWith($phone, '5') || Str::startsWith($phone, '7')) && strlen($phone) ===9) return $phone;
+        else return 0;
+    }
 
     public function rules(): array
     {
@@ -57,9 +74,15 @@ class UpdateVendorUser
         return [
             'name_ar' => 'nom en ar',
             'name_fr' => 'nom en fr',
-            'password'=>'Nouveau mot de passe',
-            'password_confirmation'=>'Confirmation de nouveau mot de passe',
+            'password'=>'nouveau mot de passe',
+            'phone'=>'téléphone'
         ];
+    }
+
+    public function getValidationRedirect(UrlGenerator $url): string
+    {
+
+        return $url->to("admin-dash/vendors/".request()->user->vendor_id."/all/detail?#Users");
     }
 
 }

@@ -16,7 +16,7 @@ class ShowVendors
 
     public function asController(Request $request)
     {
-        $header = GenerateHeader::run('Vendeurs', 'icon-award', 'blue', 'Liste des vendeurss');
+        $header = GenerateHeader::run('Vendeurs', 'icon-award', 'blue', 'Liste des vendeurs');
         $user_info = Auth::user();
         $breadcrumbs = array(['name' => 'Vendeurs', 'url' => route('admin.vendors.index')]);
 
@@ -69,7 +69,7 @@ class ShowVendors
 
         }
 
-        return view('VendorsUi::index', compact('header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendor']);
+        return view('VendorsUi::index', compact('header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendeurs']);
     }
 
 

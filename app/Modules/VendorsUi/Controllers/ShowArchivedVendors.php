@@ -69,7 +69,7 @@ class ShowArchivedVendors
 
         }
 
-        return view('VendorsUi::index-archived', compact('header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendor']);
+        return view('VendorsUi::index-archived', compact('header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendeurs archivés']);
     }
 
 

@@ -5,8 +5,8 @@
             <th></th>
             <th>Identifiant</th>
             <th>Nom</th>
-            <th>Image en arabe</th>
             <th>Image en français</th>
+            <th>Image en arabe</th>
             <th>Date de création</th>
             <th>Actions</th>
         </tr>

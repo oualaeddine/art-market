@@ -89,7 +89,7 @@
 {{--                        </div>--}}
 
                     <div class="form-group col-sm-12 col-md-5">
-                        <label class=" mb-1">Mot de pass</label> <b class="text-danger">*</b>
+                        <label class=" mb-1">Mot de passe</label> <b class="text-danger">*</b>
                         <div class="input-group">
                             <input type="password"
                                    class="form-control"
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-2 mt-4">
-                        <button type="button" onclick="generatePassword()" class="btn btn-primary">Génere un mot de pass</button>
+                        <button type="button" onclick="generatePassword()" class="btn btn-primary">Générer un mot de passe</button>
                     </div>
 
                 </div>
@@ -143,7 +143,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-sm-12 col-md-6">
-                        <label class="mb-1">Nom en francais</label> <b class="text-danger">*</b>
+                        <label class="mb-1"> Nom en français</label> <b class="text-danger">*</b>
                         <input
                             type="text"
                             value="{{old('name_fr')}}"
@@ -179,7 +179,7 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6 text-end">
                         <label class=" mb-1 "> <b class="text-danger">*</b>وصف قصير</label>
-                        <textarea required class="form-control" name="short_dec_ar" id="" cols="30"
+                        <textarea  dir="rtl" required class="form-control" name="short_dec_ar" id="" cols="30"
                                   rows="2">{{old('short_dec_ar')}}</textarea>
                     </div>
 

@@ -15,7 +15,7 @@
                             <div class="form-group col-md-12">
                                 <label for="category">Marques</label> <b class="text-danger">*</b>
 
-                                <select style="width: 100%!important;" class="brands-select col-sm-12 " id="marque" name="brands[]" multiple="multiple">
+                                <select required style="width: 100%!important;" class="brands-select col-sm-12 " id="marque" name="brands[]" multiple="multiple">
 
                                     @foreach($brands as $brand)
                                         <option {{in_array($brand->id,$selected_brands)?'selected':''}} value="{{$brand->id}}">{{$brand->name_fr}}</option>

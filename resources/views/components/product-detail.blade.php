@@ -11,29 +11,28 @@
 
                         <div id="mainCarousel" class="item__preview__slider__items_group">
                             <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-2.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-2.jpeg"/>
+                                 data-src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
+                                <img src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
-                            <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-3.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-3.jpeg"/>
-                            </div>
-                            <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-4.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-4.jpeg"/>
-                            </div>
+                          @foreach($product->images as $image)
+                                <div class="carousel__slide item__preview__slider__item"
+                                     data-src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
+                                    <img src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                                </div>
+                          @endforeach
                         </div>
 
+
                         <div id="thumbCarousel" class="mini__item__preview_buttom">
+
                             <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-2.jpeg"/>
+                                <img class="panzoom__content" src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
-                            <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-3.jpeg"/>
-                            </div>
-                            <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-4.jpeg"/>
-                            </div>
+                            @foreach($product->images as $image)
+                                <div class="carousel__slide">
+                                    <img class="panzoom__content" src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 {{--                    <div class="options">--}}
@@ -68,15 +67,15 @@
                     <div class="item__tabs js-tabs">
                         <div class="item__nav">
                             <a class="item__link js-tabs-link active" href="#"><i class="fal fa-info-circle"></i>
-                                Product Informations</a>
+                                {{__("Product Information")}}</a>
 {{--                            <a class="item__link js-tabs-link" href="#"><i class="fal fa-shipping-fast"></i> bid history</a>--}}
                         </div>
 
                         <div class="item__container">
                             <div class="item__box js-tabs-item" style="display: block;">
                                 <ul class="item__tabs__informations">
-                                    <li><b>Ref : </b> {{$product->ref}}</li>
-                                    <li><b>Category : </b> {{$product->categories->first()->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</li>
+                                    <li><b>{{__("Ref")}} : </b> {{$product->ref}}</li>
+                                    <li><b>{{__("Category")}} : </b> {{$product->categories->first()->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</li>
                                 </ul>
 {{--                                <div--}}
 {{--                                    class="item__radio__color__checkbox btn-group d-flex mb-10 px-5 mt-5 align-items-center"--}}
@@ -133,9 +132,11 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                        <div class="item__btns">
-                            <a class="button item__button js-popup-open" href="#popup-purchase"
-                               data-effect="mfp-zoom-in">{{__("Purchase now")}}</a>
+                        <a href="javascript:void(0)" data-id="{{$product->id}}" class="button item__button add-to-cart">{{__("Order now")}}</a>
+{{--                        <div class="item__btns">--}}
+{{--                            <button class="button item__button js-popup-open add-to-cart"--}}
+{{--                               data-id="{{$product->id}}"--}}
+{{--                             >{{__("Purchase now")}}</button>--}}
 {{--                            <a class="button-stroke item__button js-popup-open" href="#popup-bid"--}}
 {{--                               data-effect="mfp-zoom-in">Place a bid</a></div>--}}
                     </div>

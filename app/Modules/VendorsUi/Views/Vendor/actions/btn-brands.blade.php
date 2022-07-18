@@ -6,6 +6,6 @@
 ><i
         data-bs-toggle="tooltip"
         data-bs-placement="top"
-        title="Activer/Déactiver"
+        title="Activer / Désactiver"
         class="feather icon-toggle-right f-w-600 f-20 text-c-lite-green"></i>
 </a>

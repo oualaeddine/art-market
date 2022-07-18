@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-sm-12 col-md-6">
-                                <label class="mb-1">Nom en francais</label> <b class="text-danger">*</b>
+                                <label class="mb-1">Nom en français</label> <b class="text-danger">*</b>
                                 <input
                                     type="text"
                                     value="{{$vendor->name_fr}}"

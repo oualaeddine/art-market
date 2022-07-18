@@ -6,7 +6,7 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
-                    <h4 class="modal-title">Modifier l'utilisateur</h4>
+                    <h4 class="modal-title">Modifier un utilisateur</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -29,7 +29,7 @@
                                 <input
                                     type="tel"
                                     onkeypress="return onlyNumberKey(event)"
-                                    class="form-control mt-1"
+                                    class="form-control mt-1 phone-input"
                                     id="phone_user_edit"
                                     name="phone"
                                     placeholder=""
@@ -78,7 +78,7 @@
                                 >
 
                                     @foreach($roles as  $role)
-                                        <option value="{{$role->id}}">{{$role->name}}</option>
+                                        <option value="{{$role->id}}">{{$role->ref}}</option>
                                     @endforeach
 
                                 </select>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect " data-bs-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary waves-effect waves-light ">Modifier</button>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light btn-phone-send">Modifier</button>
                 </div>
             </form>
         </div>

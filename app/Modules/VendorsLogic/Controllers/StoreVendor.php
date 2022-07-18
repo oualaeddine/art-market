@@ -23,7 +23,7 @@ class StoreVendor
             return redirect()->back()->withInput();
         }
         $this->handle($request);
-        Session::flash('success', 'Vendor ajouté avec succès.');
+        Session::flash('success', 'Vendeur ajouté avec succès.');
         return redirect()->route('admin.vendors.index');
     }
 
@@ -121,6 +121,9 @@ class StoreVendor
         return [
             'name_ar' => 'nom en ar',
             'name_fr' => 'nom en fr',
+            'phone'=>'téléphone',
+            'password'=>'mot de passe',
+            'password_confirmation'=>'confirmation de mot de passe'
         ];
     }
 

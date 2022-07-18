@@ -54,7 +54,7 @@
                         <div class="dropdown-toggle" data-bs-toggle="dropdown">
                             <img src="/admin.png" class="img-radius" alt="User-Profile-Image">
 
-                             <span>{{auth()->guard('vendor')->check()?auth()->guard('vendor')->user()->email:auth()->user()->email}}</span>
+                             <span>{{auth()->guard('vendor')->check()?auth()->guard('vendor')->user()->email:auth()->user()->email}} {{"( ".auth()->user()->roles->first()->ref." )"}}</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">

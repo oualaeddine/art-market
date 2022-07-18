@@ -23,7 +23,7 @@ class ShowCreateVendors
 
         $roles=Role::query()->where('guard_name','vendor')->get();
 
-        return view('VendorsUi::pages.create', compact('roles','header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendor Create']);
+        return view('VendorsUi::pages.create', compact('roles','header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Ajouter un vendeur']);
     }
 
 

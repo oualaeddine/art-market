@@ -9,7 +9,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>êtes-vous sûr de supprimer ce utilisateur ?</p>
+                <p>êtes-vous sûr de supprimer cet utilisateur ?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-bs-dismiss="modal">Non</button>

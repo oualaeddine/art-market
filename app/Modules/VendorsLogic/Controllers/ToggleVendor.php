@@ -14,7 +14,7 @@ class ToggleVendor
     public function asController(Vendor $vendor)
     {
         $this->handle($vendor);
-        Session::flash('success', 'Vendor mis à jour avec succès.');
+        Session::flash('success', 'Vendeur mis à jour avec succès.');
         return redirect()->back();
     }
 

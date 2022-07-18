@@ -5,11 +5,11 @@
                 @csrf
                 @method('delete')
             <div class="modal-header">
-                <h4 class="modal-title text-danger">Archiver un vendor</h4>
+                <h4 class="modal-title text-danger">Archiver un vendeur</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>êtes-vous sûr de archiver ce vendor ?</p>
+                <p>êtes-vous sûr d’archiver ce vendeur ?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-bs-dismiss="modal">Non</button>

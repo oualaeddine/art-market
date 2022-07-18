@@ -5,7 +5,8 @@
             <th></th>
             <th>Identifiant</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Téléphone</th>
+            <th>Rôles</th>
             <th>Actif</th>
             <th>Date de création</th>
             <th>Actions</th>

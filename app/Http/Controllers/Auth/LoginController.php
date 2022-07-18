@@ -121,9 +121,7 @@ class LoginController extends Controller
             $this->credentials($request), $request->filled('remember')
         );
 
-        $vendor=Auth::guard('vendor')->attempt(
-            $this->credentials($request), $request->filled('remember')
-        );
+        $vendor=Auth::guard('vendor')->attempt(array_merge($this->credentials($request),['is_active'=>true]), $request->filled('remember'));
         return $admin||$vendor;
     }
 

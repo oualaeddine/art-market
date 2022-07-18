@@ -1,7 +1,8 @@
 <div class="hot__slide">
     <div class="card border-0">
         <div class="card__preview">
-            <img src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/frfrghj.png')}}" alt="Card preview" />
+            <img src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/frfrghj.png')}}" style="height: 450px;
+    object-fit: cover;" alt="Card preview" />
 
             <div class="card__control">
 {{--                <div class="status-green card__category">Currently on sale! <span role="img" aria-label="fire">🔥</span></div>--}}

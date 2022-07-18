@@ -19,7 +19,7 @@
 
     <div class="card">
         <div class="card-header text-end">
-           <a type="button" href="{{route('admin.vendors.create')}}" class="btn btn-success waves-effect"  > Ajouter un vendor</a>
+           <a type="button" href="{{route('admin.vendors.create')}}" class="btn btn-success waves-effect"  > Ajouter un vendeur</a>
         </div>
         <div class="card-block table-border-style">
             <!-- Basic table -->
@@ -30,11 +30,11 @@
                                     <th> identifiant </th>
                                     <th> Nom en français </th>
                                     <th> Nom en arabe </th>
-                                    <th> Sommaire en français </th>
-                                    <th> Sommaire en arabe </th>
+                                    <th> Description en français </th>
+                                    <th> Description en arabe </th>
 {{--                                    <th> description en français </th>--}}
 {{--                                    <th> description en arabe </th>--}}
-                                    <th> Logo en français </th>
+                                    <th> Logo </th>
 {{--                                    <th> Logo en arabe</th>--}}
                                     <th> Actif</th>
                                     <th> Date de création</th>
@@ -51,7 +51,7 @@
 
         </div>
         <div class="card-header text-start">
-            <a href="{{route('admin.vendors.archived')}}"  class="btn  btn-danger waves-effect mb-2"> Venduers archivés</a>
+            <a href="{{route('admin.vendors.archived')}}"  class="btn  btn-danger waves-effect mb-2"> Vendeurs archivés </a>
 
         </div>
 
