@@ -15,7 +15,7 @@ class SavePhone
 
     public function prepareForValidation(ActionRequest $request): void
     {
-        $request->merge(['phone' => GetCleanPhoneNumber::getPhone($request->phone)]);
+        $request->merge(['phone' => GetCleanPhoneNumber::getPhone($request->phone), 'message' => $request->message ?? 'Need Help!']);
 
     }
 
@@ -39,7 +39,7 @@ class SavePhone
 
     public function handle(ActionRequest $request)
     {
-        return Contact::create($request->all() + ['message' => $request->message ?? 'Need Help!']);
+        return Contact::create($request->all());
     }
 
     public function rules()
