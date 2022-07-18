@@ -1,7 +1,7 @@
 @extends('website.app')
 
 @section('content')
-    
+
     <div class="outer__inner">
         <div class="cart__container pt-10 pb-25">
             <form action="{{route('checkout.confirmation')}}">
@@ -157,14 +157,14 @@
                                     </div>
                                     <div class="popup__row">
                                         <div class="popup__col">{{__("Shipping")}} (yalidine)</div>
-                                        <div class="popup__col">0.00 DA</div>
+                                        <div class="popup__col">0.00 {{__("DA")}}</div>
                                     </div>
                                     <div class="popup__row">
                                         <div class="popup__col">{{__("TVA fee")}}</div>
-                                        <div class="popup__col">0.00 DA</div>
+                                        <div class="popup__col">0.00 {{__("DA")}}</div>
                                     </div>
                                     <div class="popup__row">
-                                        <div class="popup__col">{{_("You will pay")}}</div>
+                                        <div class="popup__col">{{__("You will pay")}}</div>
                                         <div
                                             class="popup__col">{{\Gloudemans\Shoppingcart\Facades\Cart::total().trans('DA')}}</div>
                                     </div>

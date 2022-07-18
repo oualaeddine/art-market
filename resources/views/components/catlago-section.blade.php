@@ -25,7 +25,7 @@
                         </select>
                     </div>
                     <button class="sidebar__filter__toggle">
-                        <span class="closed__discover__filter">Filter <i class="fad fa-sliders-h"></i></span> <i class="fal fa-times opened__discover__filter"></i>
+                        <span class="closed__discover__filter">{{__("Filter")}} <i class="fad fa-sliders-h"></i></span> <i class="fal fa-times opened__discover__filter"></i>
                     </button>
                 </div>
             </div>

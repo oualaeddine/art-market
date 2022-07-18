@@ -100,7 +100,7 @@
                                     class="button entry__button d-flex w-100 mt-10 btn-phone-send">{{__("Sign up")}}</button>
                         </form>
                     </div>
-                    <div class="signin__page__info">Already have an account? <a
+                    <div class="signin__page__info">{{__("Already have an account?")}} <a
                             href="{{route('client.login')}}">{{__("Sign in")}}</a></div>
 
                 </div>

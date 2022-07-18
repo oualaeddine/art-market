@@ -30,7 +30,7 @@
 
                     <div class="col-md-3 contact__us__section">
                         <i class="fal fa-location-arrow"></i>
-                        <h5>Address</h5>
+                        <h5>{{__("Address")}}</h5>
                         <span class="mb-7">{{__("Coodiv team Ltd")}}.</span>
                         <span>{{$setting->where('name',app()->getLocale()=='fr'?'adresse_fr':'adresse_ar')->first()->value??'#'}}</span>
                     </div>
@@ -41,10 +41,10 @@
                         <div class="popular__stage">{{__("Do you want to get touch with our team?")}}</div>
                         <h3 class="hot__title h3 mb-6">{{__("Can We Help?")}}</h3>
                         <p class="contact__us__section__group__text">
-                            {{__(" Our team was handpicked for their understanding of materials, process and passion for fashion. Whether you are browsing our site or visiting our store, we are always willing to share our deep knowledge and understanding of our makers and their craft")}}.
+                            {{__("Our team was handpicked for their understanding of materials, process and passion for fashion. Whether you are browsing our site or visiting our store, we are always willing to share our deep knowledge and understanding of our makers and their craft")}}.
                         </p>
                         <p class="contact__us__section__group__text">
-                            {{__("The most commonly asked questions are covered in Our")}} <a href="{{route('faq')}}">{{__("FAQs")}}</a>.
+                            {{__("The most commonly asked questions are covered in Our")}} <a href="{{route('faq')}}">{{__("FAQ")}}</a>.
                         </p>
                     </div>
                 </div>
@@ -54,16 +54,16 @@
                         <form action="{{route('help-phone')}}" method="POST">
                             @csrf
                             <div class="field field__style__one mb-8">
-                                <div class="field__label">{{__("Your Name")}}</div>
+                                <div class="field__label">{{__("Full name")}}</div>
                                 <div class="field__wrap">
-                                    <input class="field__input" type="text" name="name" value="{{old('name')}}" placeholder="{{__("Your full name")}}" required="" />
+                                    <input class="field__input" type="text" name="name" value="{{old('name')}}" placeholder="{{__("Full name")}}" required="" />
                                 </div>
                             </div>
 
                             <div class="field field__style__one mb-8">
-                                <div class="field__label">{{__("Your Phone")}}</div>
+                                <div class="field__label">{{__("Your phone")}}</div>
                                 <div class="field__wrap">
-                                    <input class="field__input form-control phone-input" value="{{old('phone')}}" type="tel" name="phone" placeholder="{{__("Your phone number")}}" required="" />
+                                    <input class="field__input form-control phone-input" value="{{old('phone')}}" type="tel" name="phone" placeholder="{{__("Your phone")}}" required="" />
                                 </div>
                             </div>
 
