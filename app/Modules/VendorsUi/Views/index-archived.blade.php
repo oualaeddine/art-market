@@ -26,11 +26,11 @@
                                     <th> identifiant </th>
                                     <th> Nom en français </th>
                                     <th> Nom en arabe </th>
-                                    <th> Sommaire en français </th>
-                                    <th> Sommaire en arabe </th>
+                                    <th> Description en français</th>
+                                    <th> Description en arabe </th>
 {{--                                    <th> description en français </th>--}}
 {{--                                    <th> description en arabe </th>--}}
-                                    <th> Logo en français </th>
+                                    <th> Logo</th>
 {{--                                    <th> Logo en arabe</th>--}}
                                     <th> Actif</th>
                                     <th> Date de création</th>
@@ -63,7 +63,7 @@
                         dom: 'Bfrtip',
                         responsive: true,
                         processing: true,
-                        serverSide: true,
+                        // serverSide: true,
                         /* paging: false, */
                         language: {
                             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"

@@ -15,7 +15,7 @@ class DeleteVendor
     public function asController(Vendor $vendor)
     {
         $this->handle($vendor);
-        Session::flash('success', 'Vendor archivé avec succès.');
+        Session::flash('success', 'Vendeur archivé avec succès.');
         return redirect()->back();
     }
 

@@ -35,7 +35,7 @@ class StoreVendorUser
             'phone' => $request->phone,
             'email' => $request->email,
             'is_active' => true,
-            'password'=>Hash::make(123456789)
+            'password'=>Hash::make($request->password)
         ]);
 
         $user->roles()->sync($request->roles);
@@ -64,6 +64,7 @@ class StoreVendorUser
         return [
             'phone' => ['required', 'unique:vendor_users,phone'],
             'email' => 'required|email|unique:vendor_users,email|unique:users',
+            'password'=>['required','string','confirmed'],
 //            'is_active' => 'required|in:0,1',
             'roles'=>['required','array'],
             'roles.*'=>['exists:roles,id']
@@ -75,6 +76,10 @@ class StoreVendorUser
         return [
             'name_ar' => 'nom en ar',
             'name_fr' => 'nom en fr',
+            'phone'=>'téléphone',
+            'roles'=>'rôles',
+            'password'=>'mot de passe',
+            'roles.*'=>'rôles'
         ];
     }
 

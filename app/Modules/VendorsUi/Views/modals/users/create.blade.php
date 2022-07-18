@@ -38,6 +38,28 @@
                                 />
                             </div>
 
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label class=" mb-1">Mot de passe</label>
+                                <input
+                                    type="password"
+                                    class="form-control mt-1"
+                                    name="password"
+                                    placeholder=""
+                                    aria-label=""
+                                />
+                            </div>
+
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label class=" mb-1">Confirmation de mot de passe</label>
+                                <input
+                                    type="password"
+                                    class="form-control mt-1"
+                                    name="password_confirmation"
+                                    placeholder=""
+                                    aria-label=""
+                                />
+                            </div>
+
 {{--                            <div class="form-group col-sm-12 col-md-4">--}}
 {{--                                <label class=" mb-1">État</label> <b class="text-danger">*</b>--}}
 {{--                                <select required name="is_active" class="form-control" id="">--}}
@@ -55,7 +77,7 @@
                                     name="roles[]" multiple="multiple">
 
                                 @foreach($roles as  $role)
-                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    <option value="{{$role->id}}">{{$role->ref}}</option>
                                 @endforeach
 
                             </select>

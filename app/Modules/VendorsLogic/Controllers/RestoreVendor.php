@@ -15,7 +15,7 @@ class RestoreVendor
     public function asController(Vendor $vendor)
     {
         $this->handle($vendor);
-        Session::flash('success', 'Vendor restauré avec succès.');
+        Session::flash('success', 'Vendeur restauré avec succès.');
         return redirect()->back();
     }
 

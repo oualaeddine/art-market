@@ -337,7 +337,7 @@
         {
             "url": "admin-dash/vendors",
             "name": "Vendeurs",
-            "icon": "icon-briefcase",
+            "icon": "icon-award",
             "slug": [
                 "admin.vendors.index",
                 "admin.vendors.products.create",

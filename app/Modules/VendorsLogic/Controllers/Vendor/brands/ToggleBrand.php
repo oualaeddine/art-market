@@ -21,7 +21,7 @@ class ToggleBrand
     public function asController(ActionRequest $request,VendorBrand $brand)
     {
         $this->handle($request,$brand);
-        Session::flash('success', 'Marque mis à jour  ajouté avec succès.');
+        Session::flash('success', 'Marque mis à jour avec succès.');
 
         return redirect()->route('vendor.brands.index');
     }

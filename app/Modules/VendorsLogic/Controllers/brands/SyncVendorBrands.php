@@ -19,7 +19,7 @@ class SyncVendorBrands
     public function asController(ActionRequest $request,Vendor $vendor)
     {
         $this->handle($request,$vendor);
-        Session::flash('success', 'Marque ajouté avec succès.');
+        Session::flash('success', 'Marque ajoutée avec succès.');
 
         return redirect()->route('admin.vendors.detail',['vendor'=>$vendor->id,'type'=>'all','#Brands']);
     }

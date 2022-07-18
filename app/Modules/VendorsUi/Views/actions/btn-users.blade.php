@@ -20,7 +20,7 @@
 
         data-bs-toggle="tooltip"
         data-bs-placement="top"
-        title="Archivé"
+        title="Supprimer"
         class="feather icon-trash f-w-600 f-20 text-c-red"></i>
 </a>
 @endif

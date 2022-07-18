@@ -26,16 +26,16 @@ class ShowVendorDetail
 
     public function asController(ActionRequest $request,Vendor $vendor,$type)
     {
-        $header = GenerateHeader::run('Détail de vendeur', 'icon-award', 'blue', 'Détail de vendeur');
+        $header = GenerateHeader::run('Vendeurs ', 'icon-award', 'blue', "Détails du vendeur ( $vendor->name_fr ) ");
         $user_info = Auth::user();
-        $breadcrumbs = array(['name' => 'Vondeurs', 'url' => route('admin.vendors.index')],['name'=>'Détail de vendeur','url'=>route('admin.vendors.detail',['type'=>'all','vendor'=>$vendor->id])]);
+        $breadcrumbs = array(['name' => 'Vendeurs ', 'url' => route('admin.vendors.index')],['name'=>'Détails du vendeur','url'=>route('admin.vendors.detail',['type'=>'all','vendor'=>$vendor->id])]);
 
         $selected_categories=VendorCategory::query()->where('vendor_id',$vendor->id)->pluck('category_id')->toArray();
         $categories = Category::query()->where('is_active',1)->get();
 
         $selected_brands=VendorBrand::query()->where('vendor_id',$vendor->id)->pluck('brand_id')->toArray();
 
-        $brands = Brand::get();
+        $brands = Brand::query()->whereIsActive(true)->get();
         $roles=Role::query()->where('guard_name','vendor')->get();
 
 
@@ -49,7 +49,7 @@ class ShowVendorDetail
 
 
 
-        return view('VendorsUi::detail', compact('roles','selected_brands','brands','selected_categories','categories','vendor','header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendor Edit']);
+        return view('VendorsUi::detail', compact('roles','selected_brands','brands','selected_categories','categories','vendor','header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Détails du vendeur']);
     }
 
     private function getData($vendor,$type)
@@ -70,6 +70,15 @@ class ShowVendorDetail
                     ->addColumn('created_at', function ($param) {
 
                         return $param->created_at;
+
+                    })
+                    ->addColumn('roles', function ($record) {
+                       $txt='';
+                        foreach ($record->roles as $role){
+                            $txt.= $role->ref.'  ';
+                        }
+
+                        return $txt;
 
                     })
                     ->addColumn('is_active', function ($user) {
@@ -159,13 +168,20 @@ class ShowVendorDetail
                         return $param->created_at;
 
                     })
+                    ->addColumn('image', function ($param) {
+                        if (!$param->brand->image) return  '<span class="badge badge-danger">Aucune</span>';
+
+                        return '<a href="' . asset($param->brand->image) . '" target="_blank">  <img src="' . asset($param->brand->image) . '" alt="" class="img img-fluid image-hold" height="100"  width="100"  /></a>';
+
+
+                    })
                     ->addColumn('is_active', function ($user) {
 
                         if ($user->is_active) return '<span class="badge badge-success">Oui</span>';
                         return '<span class="badge badge-danger">Non</span>';
 
                     })
-                    ->rawColumns(['action','is_active','responsive', 'created_at'])
+                    ->rawColumns(['action','is_active','image','responsive', 'created_at'])
                     ->make(true);
 
 
