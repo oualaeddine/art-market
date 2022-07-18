@@ -11,30 +11,29 @@
 
                         <div id="mainCarousel" class="item__preview__slider__items_group">
                             <div class="carousel__slide item__preview__slider__item"
-                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
-                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                                 data-src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
+                                <img src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
-                            <div class="carousel__slide item__preview__slider__item"
-                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
-                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
-                            </div>
-                            <div class="carousel__slide item__preview__slider__item"
-                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
-                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
-                            </div>
+                          @foreach($product->images as $image)
+                                <div class="carousel__slide item__preview__slider__item"
+                                     data-src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
+                                    <img src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                                </div>
+                          @endforeach
                         </div>
 
-{{--                        <div id="thumbCarousel" class="mini__item__preview_buttom">--}}
-{{--                            <div class="carousel__slide">--}}
-{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-2.jpeg"/>--}}
-{{--                            </div>--}}
-{{--                            <div class="carousel__slide">--}}
-{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-3.jpeg"/>--}}
-{{--                            </div>--}}
-{{--                            <div class="carousel__slide">--}}
-{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-4.jpeg"/>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
+                        <div id="thumbCarousel" class="mini__item__preview_buttom">
+
+                            <div class="carousel__slide">
+                                <img class="panzoom__content" src="{{asset($product->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                            </div>
+                            @foreach($product->images as $image)
+                                <div class="carousel__slide">
+                                    <img class="panzoom__content" src="{{asset($image->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
 {{--                    <div class="options">--}}
 {{--                        <div class="options__list">--}}
