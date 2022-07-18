@@ -11,15 +11,15 @@
 
                         <div id="mainCarousel" class="item__preview__slider__items_group">
                             <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-2.jpeg" data-fancybox="gallery">
-                                <img src=""/>
-                            </div>
-                            <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-3.jpeg" data-fancybox="gallery">
+                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
                                 <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
                             <div class="carousel__slide item__preview__slider__item"
-                                 data-src="/website/images/demo/item-0-4.jpeg" data-fancybox="gallery">
+                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
+                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
+                            </div>
+                            <div class="carousel__slide item__preview__slider__item"
+                                 data-src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}" data-fancybox="gallery">
                                 <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                         <div class="item__btns">
-                            <a class="button item__button js-popup-open add-to-cart"
+                            <button class="button item__button js-popup-open add-to-cart"
                                data-id="{{$product->id}}"
-                             >{{__("Purchase now")}}</a>
+                             >{{__("Purchase now")}}</button>
 {{--                            <a class="button-stroke item__button js-popup-open" href="#popup-bid"--}}
 {{--                               data-effect="mfp-zoom-in">Place a bid</a></div>--}}
                     </div>
