@@ -25,13 +25,13 @@ class ShowCreateProducts
     {
         $id=$request->vendor_id;
 
-        $categories=Category::query()->whereHas('vendors',function ($query) use ($id){
+        $categories=Category::query()/* ->whereHas('vendors',function ($query) use ($id){
             $query->where('vendor_id',$id);
-        })->get();
+        }) */->get();
 
-        $brands=Brand::query()->whereHas('vendors',function ($query) use ($id){
+        $brands=Brand::query()/* ->whereHas('vendors',function ($query) use ($id){
             $query->where('vendor_id',$id);
-        })->get();
+        }) */->get();
 
 
 
