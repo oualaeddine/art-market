@@ -4,7 +4,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h3 class="h3 text-center hero__area__shop__title">
-                        <span class="badge badge-danger">{{__("Browse")}}</span> {{("Our unique and diverse")}}<br />
+                        <span class="badge badge-danger">{{__("Browse")}}</span> {{__("Our unique and diverse")}}<br />
                         <b>{{__("Catalogue")}}</b>
                     </h3>
                     <p class="hero__area__shop__subtitle">

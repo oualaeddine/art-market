@@ -10,7 +10,7 @@
                 @foreach($tops as $top)
                     @if($loop->first)
                         <div class="col-md-4">
-                            <a class="selection__card" href="item.html">
+                            <a class="selection__card" href="{{$top->link}}">
                                 <div class="selection__preview"><img src="{{$top->image}}" alt="Selection" /></div>
                                 <div class="selection__head">
                                     <div class="selection__line">

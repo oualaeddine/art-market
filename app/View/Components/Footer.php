@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Modules\SettingsLogic\Models\Setting;
 use Illuminate\View\Component;
 
 class Footer extends Component
 {
+    public $settings;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class Footer extends Component
      */
     public function __construct()
     {
-        //
+        $this->settings=Setting::query()->get();
     }
 
     /**
