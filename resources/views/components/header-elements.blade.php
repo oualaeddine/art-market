@@ -1,6 +1,6 @@
 
     <a class="header__logo" href="{{route('index')}}">
-        <img class="some-icon" src="/website/images/logo-dark.png" alt="logo"/>
+        <img class="some-icon" src="/ArtMarket.png" alt="logo"/>
         <img class="some-icon-dark" src="/website/images/logo-light.png" alt="logo"/>
     </a>
     <div class="header__wrapper js-header-wrapper">

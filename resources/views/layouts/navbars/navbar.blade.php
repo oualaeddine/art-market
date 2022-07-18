@@ -3,7 +3,7 @@
         <div class="navbar-logo">
             <a href="{{route('admin.home')}}">
 
-                <img class="img-fluid" src="/fav-icon.png" alt="Theme-Logo" width="50"  height="50" />
+                <img class="img-fluid" src="/ArtMarket.png" alt="Theme-Logo" width="150"  height="150" />
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
               <i class="feather icon-menu"></i>

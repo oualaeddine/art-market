@@ -123,7 +123,7 @@
                             <tr>
                                 <td align="center" valign="top" style="padding: 36px 24px;">
                                     <a href="{{config('app.url')}}" target="_blank" style="display: inline-block;">
-                                        <img src="{{asset('/website/images/logo-dark.png')}}" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+                                        <img src="{{asset('/ArtMarket.png')}}" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
                                     </a>
                                 </td>
                             </tr>
