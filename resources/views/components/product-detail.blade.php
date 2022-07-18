@@ -132,10 +132,11 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                        <div class="item__btns">
-                            <button class="button item__button js-popup-open add-to-cart"
-                               data-id="{{$product->id}}"
-                             >{{__("Purchase now")}}</button>
+                        <a href="javascript:void(0)" data-id="{{$product->id}}" class="button item__button add-to-cart">{{__("Order now")}}</a>
+{{--                        <div class="item__btns">--}}
+{{--                            <button class="button item__button js-popup-open add-to-cart"--}}
+{{--                               data-id="{{$product->id}}"--}}
+{{--                             >{{__("Purchase now")}}</button>--}}
 {{--                            <a class="button-stroke item__button js-popup-open" href="#popup-bid"--}}
 {{--                               data-effect="mfp-zoom-in">Place a bid</a></div>--}}
                     </div>
