@@ -24,7 +24,7 @@ class ShowCreateCategories
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Catégories", 'url' => '/cod-dash/categories'],['name' => "Ajouter une catégorie", 'url' => '/cod-dash/categories/ajouter']);
+        $breadcrumbs = array(['name' => "Catégories", 'url' => '/admin-dash/categories'],['name' => "Ajouter une catégorie", 'url' => '/admin-dash/categories/ajouter']);
 
         $categories = Category::query()->where('is_active',1)->whereDoesntHave('parent_1.parent_2')->get();
 

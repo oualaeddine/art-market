@@ -30,7 +30,7 @@ class ShowCouponPage
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Commandes", 'url' => '/cod-dash/commandes'],['name' => "Generation de coupon", 'url' => '/cod-dash/commandes/'.$order->id.'/generate-coupon']);
+        $breadcrumbs = array(['name' => "Commandes", 'url' => '/admin-dash/commandes'],['name' => "Generation de coupon", 'url' => '/admin-dash/commandes/'.$order->id.'/generate-coupon']);
 
         try{
             $url='https://kados.coodivteam.com/api/V1/get/families?email=superDzadmin@gmail.com&password=$A1Fw?%$y$';

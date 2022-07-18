@@ -79,13 +79,13 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/../app/Modules/WebsiteUi/Routes/web.php';
 
 
-Route::group(['prefix' => 'cod-dash'], function () {
+Route::group(['prefix' => 'admin-dash'], function () {
     Auth::routes(['register'=>false]);
     Route::get('/reload-captcha', [App\Http\Controllers\Auth\LoginController::class, 'reload_captcha'])->name('reload-captcha');
 });
 
 
-Route::group(['prefix' => 'cod-dash/vendor', 'as' => 'vendor.', 'middleware' => ['auth:vendor']], function () {
+Route::group(['prefix' => 'admin-dash/vendor', 'as' => 'vendor.', 'middleware' => ['auth:vendor']], function () {
 
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('profile', \App\Modules\VendorsUi\Controllers\VendorProfile::class)->name('profile');
@@ -191,7 +191,7 @@ Route::group(['prefix' => 'cod-dash/vendor', 'as' => 'vendor.', 'middleware' => 
 });
 
 
-Route::group(['prefix' => 'cod-dash', 'as' => 'admin.', 'middleware' => ['auth:web']], function () {
+Route::group(['prefix' => 'admin-dash', 'as' => 'admin.', 'middleware' => ['auth:web']], function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

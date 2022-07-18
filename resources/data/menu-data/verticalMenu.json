@@ -1,7 +1,7 @@
 {
     "menu": [
         {
-            "url": "cod-dash/home",
+            "url": "admin-dash/home",
             "name": "Accueil",
             "icon": "icon-home",
             "slug": [
@@ -16,7 +16,7 @@
             "permission": "view_home"
         },
         {
-            "url": "cod-dash/contacts",
+            "url": "admin-dash/contacts",
             "name": "Demandes de contact",
             "icon": "icon-mail",
             "slug": [
@@ -51,7 +51,7 @@
             ],
             "submenu": [
                 {
-                    "url": "cod-dash/raw-commandes",
+                    "url": "admin-dash/raw-commandes",
                     "name": "Nouvelles commandes",
                     "icon": "icon-box",
                     "slug": [
@@ -68,7 +68,7 @@
                     "permission": "view_command"
                 },
                 {
-                    "url": "cod-dash/commandes",
+                    "url": "admin-dash/commandes",
                     "name": "Commandes confirmées",
                     "icon": "icon-box",
                     "slug": [
@@ -92,7 +92,7 @@
 
 
         {
-            "url": "cod-dash/clients",
+            "url": "admin-dash/clients",
             "name": "Clients",
             "icon": "icon-users",
             "slug": [
@@ -135,7 +135,7 @@
             ],
             "submenu": [
                 {
-                    "url": "cod-dash/produits",
+                    "url": "admin-dash/produits",
                     "name": "Gestion des produits",
                     "icon": "icon-package",
                     "slug": [
@@ -153,7 +153,7 @@
                     "permission": "view_product"
                 },
                 {
-                    "url": "cod-dash/categories",
+                    "url": "admin-dash/categories",
                     "name": "Catégories",
                     "icon": "icon-align-justify",
                     "slug": [
@@ -172,7 +172,7 @@
                     "permission": "view_categories"
                 },
                 {
-                    "url": "cod-dash/marques",
+                    "url": "admin-dash/marques",
                     "name": "Marques",
                     "icon": "icon-layout",
                     "slug": [
@@ -205,7 +205,7 @@
             ],
             "submenu": [
                 {
-                    "url": "cod-dash/users",
+                    "url": "admin-dash/users",
                     "name": "Utilisateurs",
                     "icon": "icon-user",
                     "slug": [
@@ -220,7 +220,7 @@
                     "permission": "view_user"
                 },
                 {
-                    "url": "cod-dash/roles",
+                    "url": "admin-dash/roles",
                     "name": "Rôles",
                     "icon": "icon-lock",
                     "slug": [
@@ -234,7 +234,7 @@
                     "permission": "view_role"
                 },
                 {
-                    "url": "cod-dash/permissions",
+                    "url": "admin-dash/permissions",
                     "name": "Permissions",
                     "icon": "icon-lock",
                     "slug": [
@@ -270,7 +270,7 @@
             ],
             "submenu": [
                 {
-                    "url": "cod-dash/parametres",
+                    "url": "admin-dash/parametres",
                     "name": "Paramètres",
                     "icon": "icon-settings",
                     "slug": [
@@ -283,7 +283,7 @@
                     "permission": "view_param"
                 },
                 {
-                    "url": "cod-dash/website-images",
+                    "url": "admin-dash/website-images",
                     "name": "Images du site web",
                     "icon": "icon-sliders",
                     "slug": [
@@ -296,7 +296,7 @@
                     "permission": "view_website_img"
                 },
                 {
-                    "url": "cod-dash/home-offers",
+                    "url": "admin-dash/home-offers",
                     "name": "Dernières offres",
                     "icon": "icon-sliders",
                     "slug": [
@@ -308,7 +308,7 @@
                     "permission": "view_param"
                 },
                 {
-                    "url": "cod-dash/home-categories",
+                    "url": "admin-dash/home-categories",
                     "name": "Catégories d'accueil",
                     "icon": "icon-sliders",
                     "slug": [
@@ -320,7 +320,7 @@
                     "permission": "view_param"
                 },
                 {
-                    "url": "cod-dash/faq",
+                    "url": "admin-dash/faq",
                     "name": "FAQ",
                     "icon": "icon-sliders",
                     "slug": [
@@ -335,7 +335,7 @@
             ]
         },
         {
-            "url": "cod-dash/vendors",
+            "url": "admin-dash/vendors",
             "name": "Vendeurs",
             "icon": "icon-briefcase",
             "slug": [
@@ -359,7 +359,7 @@
         } ,
 
         {
-            "url": "cod-dash/vendor/profile",
+            "url": "admin-dash/vendor/profile",
             "name": "Vendeur",
             "icon": "icon-user",
             "slug": [
@@ -375,7 +375,7 @@
         } ,
 
         {
-            "url": "cod-dash/vendor/users",
+            "url": "admin-dash/vendor/users",
             "name": "Utilisateurs",
             "icon": "icon-users",
             "slug": [
@@ -392,7 +392,7 @@
             "permission": "vendor_view_users"
         } ,
         {
-            "url": "cod-dash/vendor/clients",
+            "url": "admin-dash/vendor/clients",
             "name": "Clients",
             "icon": "icon-tag",
             "slug": [
@@ -407,7 +407,7 @@
             "permission": "vendor_view_categories"
         },
         {
-            "url": "cod-dash/vendor/categories",
+            "url": "admin-dash/vendor/categories",
             "name": "Catégories",
             "icon": "icon-home",
             "slug": [
@@ -422,7 +422,7 @@
             "permission": "vendor_view_categories"
         },
         {
-            "url": "cod-dash/vendor/brands",
+            "url": "admin-dash/vendor/brands",
             "name": "Marques",
             "icon": "icon-tablet",
             "slug": [
@@ -437,7 +437,7 @@
             "permission": "vendor_view_brand"
         },
         {
-            "url": "cod-dash/vendor/images",
+            "url": "admin-dash/vendor/images",
             "name": "Images",
             "icon": "icon-image",
             "slug": [
@@ -452,7 +452,7 @@
             "permission": "vendor_view_img"
         },
         {
-            "url": "cod-dash/vendor/products",
+            "url": "admin-dash/vendor/products",
             "name": "Produits",
             "icon": "icon-award",
             "slug": [
@@ -469,7 +469,7 @@
             "permission": "vendor_view_product"
         },
         {
-            "url": "cod-dash/vendor/orders/raw",
+            "url": "admin-dash/vendor/orders/raw",
             "name": "Nouvelles commandes",
             "icon": "icon-box",
             "slug": [
@@ -485,7 +485,7 @@
             "permission": "vendor_view_raw_order"
         },
         {
-            "url": "cod-dash/vendor/orders",
+            "url": "admin-dash/vendor/orders",
             "name": "Commandes confirmées",
             "icon": "icon-package",
             "slug": [

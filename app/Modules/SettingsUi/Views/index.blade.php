@@ -55,7 +55,7 @@
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                 },
                 ajax:{
-                    url : '/cod-dash/parametres',
+                    url : '/admin-dash/parametres',
                 },
                 columns: [
                     {data: 'responsive', className: 'responsive'},

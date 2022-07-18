@@ -31,7 +31,7 @@ class ShowClients
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/clients']);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/clients']);
 
         if ($request->ajax()) {
             $data =  Client::query()->with('commune');

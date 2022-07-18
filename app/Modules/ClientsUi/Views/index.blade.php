@@ -80,7 +80,7 @@
                             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                     },
                     ajax:{
-                        url : '/cod-dash/clients',
+                        url : '/admin-dash/clients',
                         cache: false
                     },
                     buttons: [

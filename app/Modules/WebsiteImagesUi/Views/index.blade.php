@@ -68,7 +68,7 @@
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                 },
                 ajax:{
-                    url : '/cod-dash/website-images',
+                    url : '/admin-dash/website-images',
                 },
                 columns: [
                     {data: 'responsive', className: 'responsive'},

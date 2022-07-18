@@ -24,7 +24,7 @@ class ShowTreeCategories
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Catégories", 'url' => '/cod-dash/categories'], ['name' => "Arborescence des catégories", 'url' => '/cod-dash/categories/treeview']);
+        $breadcrumbs = array(['name' => "Catégories", 'url' => '/admin-dash/categories'], ['name' => "Arborescence des catégories", 'url' => '/admin-dash/categories/treeview']);
 
         $categories = Category::query()->where('parent_id',null)->with('sub_categories')->orderby('name_fr','asc')->get();
 

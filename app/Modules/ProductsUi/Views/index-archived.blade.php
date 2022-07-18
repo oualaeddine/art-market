@@ -160,7 +160,7 @@
                             text: 'Exporter tout',
                             className: 'visually-hidden',
                             action: function ( e, dt, button, config ) {
-                                window.location = '/cod-dash/produits/export_all';
+                                window.location = '/admin-dash/produits/export_all';
                             }
                         }
                     ],

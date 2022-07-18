@@ -31,7 +31,7 @@ class ShowContacts
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/contacts']);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/contacts']);
 
         if ($request->ajax()) {
             $data =  Contact::query()->orderby('created_at', 'desc');

@@ -64,7 +64,7 @@
 
                 ],
                 ajax:{
-                    url : '/cod-dash/home-categories',
+                    url : '/admin-dash/home-categories',
                 },
                 columns: [
                     {data: 'responsive', className: 'responsive'},

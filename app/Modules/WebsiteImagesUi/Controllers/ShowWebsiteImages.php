@@ -26,7 +26,7 @@ class ShowWebsiteImages
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Images du site web", 'url' => '/cod-dash/website-images']);
+        $breadcrumbs = array(['name' => "Images du site web", 'url' => '/admin-dash/website-images']);
 
         if ($request->ajax()) {
             $data =  Website_image::orderby('created_at', 'desc');
@@ -35,7 +35,7 @@ class ShowWebsiteImages
                     ->addColumn('action','WebsiteImagesUi::actions.btn')
                     ->addColumn('responsive', function ($category) { return '';})
                     ->addColumn('image', function ($category) {
-                         
+
                         if($category->image != null){
                             return '<a href="'.asset($category->image).'" target="_blank">  <img src="'.asset($category->image).'" alt="" class="img img-fluid image-hold" height="100"  width="100"  /></a>';
 

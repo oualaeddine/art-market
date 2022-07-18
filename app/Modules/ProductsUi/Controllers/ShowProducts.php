@@ -26,7 +26,7 @@ class ShowProducts
 
         $user_info = Auth::user();
         $vendors=Vendor::query()->get();
-        $breadcrumbs = array(['name' => "Produits", 'url' => '/cod-dash/produits']);
+        $breadcrumbs = array(['name' => "Produits", 'url' => '/admin-dash/produits']);
 
         if ($request->ajax()) {
 

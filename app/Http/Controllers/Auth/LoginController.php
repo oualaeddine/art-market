@@ -90,10 +90,10 @@ class LoginController extends Controller
     {
 
         if (Auth::guard('vendor')->check()){
-            return '/cod-dash/vendor/home';
+            return '/admin-dash/vendor/home';
 
         }
-        return '/cod-dash/home';
+        return '/admin-dash/home';
     }
 
     protected function sendLoginResponse(Request $request)
@@ -194,7 +194,7 @@ class LoginController extends Controller
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/cod-dash/login');
+            : redirect('/admin-dash/login');
     }
 
 

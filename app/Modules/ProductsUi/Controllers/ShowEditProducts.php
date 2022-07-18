@@ -38,7 +38,7 @@ class ShowEditProducts
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Produits", 'url' => '/cod-dash/produits'],['name' => "Modifier un produit", 'url' => '/cod-dash/produits/'.$product->id.'/modifier']);
+        $breadcrumbs = array(['name' => "Produits", 'url' => '/admin-dash/produits'],['name' => "Modifier un produit", 'url' => '/admin-dash/produits/'.$product->id.'/modifier']);
 
 
 

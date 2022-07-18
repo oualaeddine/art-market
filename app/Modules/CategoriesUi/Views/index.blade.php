@@ -77,7 +77,7 @@
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                 },
                 ajax:{
-                    url : '/cod-dash/categories',
+                    url : '/admin-dash/categories',
                 },
                 buttons: [
                     // {

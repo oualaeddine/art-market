@@ -24,7 +24,7 @@ class ShowBrands
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => 'Marques', 'url' => '/cod-dash/marques']);
+        $breadcrumbs = array(['name' => 'Marques', 'url' => '/admin-dash/marques']);
 
         if ($request->ajax()) {
             $data =  Brand::orderby('created_at', 'desc');

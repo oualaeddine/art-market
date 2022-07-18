@@ -30,7 +30,7 @@ class ShowClientCreate
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/clients'], ['name' => 'Ajouter un client', 'url' => '/cod-dash/clients/creer']);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/clients'], ['name' => 'Ajouter un client', 'url' => '/admin-dash/clients/creer']);
 
         $wilayas = YalidineWilaya::get();
 

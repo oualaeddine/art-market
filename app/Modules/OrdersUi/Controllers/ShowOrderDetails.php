@@ -27,7 +27,7 @@ class ShowOrderDetails
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Commandes", 'url' => '/cod-dash/commandes'],['name' => "Détail de Commande", 'url' => '/cod-dash/commandes/'.$order->id.'/details']);
+        $breadcrumbs = array(['name' => "Commandes", 'url' => '/admin-dash/commandes'],['name' => "Détail de Commande", 'url' => '/admin-dash/commandes/'.$order->id.'/details']);
 
 
         if ($request->ajax()) {

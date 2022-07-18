@@ -25,7 +25,7 @@ class ShowEditCategories
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Catégories", 'url' => '/cod-dash/categories'],['name' => "Modifier une catégorie", 'url' => '/cod-dash/categories/'.$category->id.'/modifier']);
+        $breadcrumbs = array(['name' => "Catégories", 'url' => '/admin-dash/categories'],['name' => "Modifier une catégorie", 'url' => '/admin-dash/categories/'.$category->id.'/modifier']);
 
         $categories = Category::query()->where('is_active',1)->whereDoesntHave('parent_1.parent_2')->get();
 

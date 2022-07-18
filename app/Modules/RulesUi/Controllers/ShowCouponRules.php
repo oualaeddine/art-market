@@ -25,7 +25,7 @@ class ShowCouponRules
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Coupon règles", 'url' => '/cod-dash/coupons-rules']);
+        $breadcrumbs = array(['name' => "Coupon règles", 'url' => '/admin-dash/coupons-rules']);
 
         if ($request->ajax()) {
 

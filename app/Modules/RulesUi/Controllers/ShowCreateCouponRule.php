@@ -27,7 +27,7 @@ class ShowCreateCouponRule
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Coupon règles", 'url' => '/cod-dash/coupons-rules'],['name' => "Ajouter une regle", 'url' => route('admin.coupons.rules.create')]);
+        $breadcrumbs = array(['name' => "Coupon règles", 'url' => '/admin-dash/coupons-rules'],['name' => "Ajouter une regle", 'url' => route('admin.coupons.rules.create')]);
 
         return view('RulesUi::pages.rule.create', compact('header', 'user_info','breadcrumbs'))->with(['page_title' => "Rule | create"]);
     }

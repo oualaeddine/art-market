@@ -75,7 +75,7 @@
 
                 ],
                 ajax:{
-                    url : '/cod-dash/faq',
+                    url : '/admin-dash/faq',
                 },
                 columns: [
                     {data: 'responsive', className: 'responsive'},

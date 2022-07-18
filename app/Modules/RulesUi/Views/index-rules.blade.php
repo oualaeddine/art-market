@@ -59,7 +59,7 @@
                                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                         },
                         ajax:{
-                            url : '/cod-dash/coupons-rules',
+                            url : '/admin-dash/coupons-rules',
                         },
                         columns: [
                             {data: 'responsive', className: 'responsive'},

@@ -302,7 +302,7 @@
             $('#order_detail tbody').empty()
 
             $.ajax({
-                url: '/cod-dash/commandes/getDetail/' + order_id,
+                url: '/admin-dash/commandes/getDetail/' + order_id,
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -349,7 +349,7 @@
                         },
                     ],
                     ajax: {
-                        url: '/cod-dash/commandes?client_id='+ {{$client->id}},
+                        url: '/admin-dash/commandes?client_id='+ {{$client->id}},
                         data:{from_date:from_date, to_date:to_date}
                     },
                     columns: [

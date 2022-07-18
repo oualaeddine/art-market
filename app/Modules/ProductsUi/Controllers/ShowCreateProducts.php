@@ -39,7 +39,7 @@ class ShowCreateProducts
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Produits", 'url' => '/cod-dash/produits'],['name' => "Ajouter un produit", 'url' => '/cod-dash/produits/ajouter']);
+        $breadcrumbs = array(['name' => "Produits", 'url' => '/admin-dash/produits'],['name' => "Ajouter un produit", 'url' => '/admin-dash/produits/ajouter']);
 
         return view('ProductsUi::pages.create', compact('id','header', 'user_info','breadcrumbs','categories','brands'))->with(['page_title' => "Produits"]);
     }

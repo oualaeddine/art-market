@@ -31,7 +31,7 @@ class ShowClientSpecial
         $wilayas = YalidineWilaya::all();
 
         $header = GenerateHeader::run('Clients', 'icon-user', 'blue', 'Détails du client');
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/clients'], ['name' => 'Détails du client', 'url' => route('admin.clients.special', ['client' => $client->id])]);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/clients'], ['name' => 'Détails du client', 'url' => route('admin.clients.special', ['client' => $client->id])]);
 
         $tab = Session::get('detail_tab') ?? 'information';
         Session::forget('detail_tab');

@@ -28,7 +28,7 @@ class ShowCreateOrder
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Commandes", 'url' => '/cod-dash/commandes'],['name' => "Ajouter une commande", 'url' => '/cod-dash/commandes/creer']);
+        $breadcrumbs = array(['name' => "Commandes", 'url' => '/admin-dash/commandes'],['name' => "Ajouter une commande", 'url' => '/admin-dash/commandes/creer']);
 
         $products = Product::query()->where('vendor_id',$id)->get();
 

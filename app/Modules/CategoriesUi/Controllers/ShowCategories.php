@@ -25,7 +25,7 @@ class ShowCategories
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Catégories", 'url' => '/cod-dash/categories']);
+        $breadcrumbs = array(['name' => "Catégories", 'url' => '/admin-dash/categories']);
 
         if ($request->ajax()) {
             $data =  Category::orderby('created_at', 'desc');
@@ -34,7 +34,7 @@ class ShowCategories
                     ->addColumn('action','CategoriesUi::actions.btn')
                     ->addColumn('responsive', function ($category) { return '';})
                     ->addColumn('icon', function ($category) {
-                         
+
                         if($category->icon != null){
                             return '<a href="'.asset($category->icon).'" target="_blank">  <img src="'.asset($category->icon).'" alt="" class="img img-fluid image-hold" height="100"  width="100"  /></a>';
 

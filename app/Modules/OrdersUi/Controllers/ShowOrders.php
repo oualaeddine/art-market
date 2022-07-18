@@ -28,7 +28,7 @@ class ShowOrders
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Commandes", 'url' => '/cod-dash/commandes']);
+        $breadcrumbs = array(['name' => "Commandes", 'url' => '/admin-dash/commandes']);
 
         $products = Product::get();
         $vendors = Vendor::query()->get();

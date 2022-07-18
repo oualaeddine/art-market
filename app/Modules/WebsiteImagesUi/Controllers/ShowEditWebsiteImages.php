@@ -25,14 +25,14 @@ class ShowEditWebsiteImages
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Images du site web", 'url' => '/cod-dash/website-images'],['name' => "Modifier une image", 'url' => '/cod-dash/website-images/'.$website_image->id.'/modifier']);
+        $breadcrumbs = array(['name' => "Images du site web", 'url' => '/admin-dash/website-images'],['name' => "Modifier une image", 'url' => '/admin-dash/website-images/'.$website_image->id.'/modifier']);
 
         $images = $website_image;
 
         $products = Product::get();
 
         $categories = Category::get();
-       
+
         return view('WebsiteImagesUi::pages.edit', compact('header','products','categories','user_info','breadcrumbs','images'))->with(['page_title' => "Images du site web"]);
     }
 

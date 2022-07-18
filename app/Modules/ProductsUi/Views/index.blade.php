@@ -121,7 +121,7 @@
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
                     },
                     ajax: {
-                        url: '/cod-dash/produits',
+                        url: '/admin-dash/produits',
                     },
                     columns: [{
                             data: 'responsive',
@@ -191,7 +191,7 @@
                             text: 'Exporter tout',
                             className: 'visually-hidden',
                             action: function ( e, dt, button, config ) {
-                                window.location = '/cod-dash/produits/export_all';
+                                window.location = '/admin-dash/produits/export_all';
                             }
                         }
                     ],

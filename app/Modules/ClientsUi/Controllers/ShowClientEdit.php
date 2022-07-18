@@ -32,7 +32,7 @@ class ShowClientEdit
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/clients'],['name' => 'Modifier un client' , 'url' => '/cod-dash/clients/modifier/'.$id]);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/clients'],['name' => 'Modifier un client' , 'url' => '/cod-dash/clients/modifier/'.$id]);
 
         $id = base64_decode($id);
 

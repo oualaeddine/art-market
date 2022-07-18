@@ -101,7 +101,7 @@
                             },
                         ],
                         ajax: {
-                            url: '/cod-dash/raw-commandes',
+                            url: '/admin-dash/raw-commandes',
                             data:{from_date:from_date, to_date:to_date}
                         },
                         columns: [

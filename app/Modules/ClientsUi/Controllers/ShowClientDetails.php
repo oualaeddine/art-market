@@ -38,7 +38,7 @@ class ShowClientDetails
         $client = Client::findorfail($id);
 
         $header = GenerateHeader::run('Détails du client ('.$client->first_name.' '.$client->last_name.' )', 'icon-users', 'blue', 'Liste des détails du client');
-        $breadcrumbs = array(['name' => 'Clients', 'url' => '/cod-dash/clients'],['name' => 'Détails du client', 'url' => route('admin.clients.details',['id'=>base64_encode($id)])]);
+        $breadcrumbs = array(['name' => 'Clients', 'url' => '/admin-dash/clients'],['name' => 'Détails du client', 'url' => route('admin.clients.details',['id'=>base64_encode($id)])]);
 
         $user_info = Auth::user();
         $wilayas = YalidineWilaya::get();

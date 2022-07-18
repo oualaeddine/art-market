@@ -26,7 +26,7 @@ class ShowArchivedOrders
 
         $user_info = Auth::user();
 
-        $breadcrumbs = array(['name' => "Commandes", 'url' => '/cod-dash/commandes'],['name' => "Commandes archivées", 'url' => '/cod-dash/commandes/archived']);
+        $breadcrumbs = array(['name' => "Commandes", 'url' => '/admin-dash/commandes'],['name' => "Commandes archivées", 'url' => '/admin-dash/commandes/archived']);
 
         $products = Product::get();
 
