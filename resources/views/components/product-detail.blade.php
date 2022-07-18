@@ -12,29 +12,29 @@
                         <div id="mainCarousel" class="item__preview__slider__items_group">
                             <div class="carousel__slide item__preview__slider__item"
                                  data-src="/website/images/demo/item-0-2.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-2.jpeg"/>
+                                <img src=""/>
                             </div>
                             <div class="carousel__slide item__preview__slider__item"
                                  data-src="/website/images/demo/item-0-3.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-3.jpeg"/>
+                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
                             <div class="carousel__slide item__preview__slider__item"
                                  data-src="/website/images/demo/item-0-4.jpeg" data-fancybox="gallery">
-                                <img src="/website/images/demo/item-0-4.jpeg"/>
+                                <img src="{{asset($product->image??$product->images->first()->image??'https://toka.b-cdn.net/wp-content/uploads/2022/04/vrgvg.png')}}"/>
                             </div>
                         </div>
 
-                        <div id="thumbCarousel" class="mini__item__preview_buttom">
-                            <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-2.jpeg"/>
-                            </div>
-                            <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-3.jpeg"/>
-                            </div>
-                            <div class="carousel__slide">
-                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-4.jpeg"/>
-                            </div>
-                        </div>
+{{--                        <div id="thumbCarousel" class="mini__item__preview_buttom">--}}
+{{--                            <div class="carousel__slide">--}}
+{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-2.jpeg"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="carousel__slide">--}}
+{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-3.jpeg"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="carousel__slide">--}}
+{{--                                <img class="panzoom__content" src="/website/images/demo/mini-item-0-4.jpeg"/>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 {{--                    <div class="options">--}}
 {{--                        <div class="options__list">--}}
@@ -134,8 +134,9 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                         <div class="item__btns">
-                            <a class="button item__button js-popup-open" href="#popup-purchase"
-                               data-effect="mfp-zoom-in">{{__("Purchase now")}}</a>
+                            <a class="button item__button js-popup-open add-to-cart"
+                               data-id="{{$product->id}}"
+                             >{{__("Purchase now")}}</a>
 {{--                            <a class="button-stroke item__button js-popup-open" href="#popup-bid"--}}
 {{--                               data-effect="mfp-zoom-in">Place a bid</a></div>--}}
                     </div>
