@@ -60,7 +60,7 @@ class ShowVendorDetail
 
     private function getCategories($selected_vendor)
     {
-        return Category::query()->where('is_active', 1)
+        return Category::query()->whereIsActive(true)
             ->whereHas('products', function ($query) use ($selected_vendor) {
                 $query->where('vendor_id', $selected_vendor->id);
 
@@ -70,6 +70,7 @@ class ShowVendorDetail
     private function getBrands($request, $selected_vendor)
     {
         return Brand::query()->whereHas('products')
+            ->whereIsActive(true)
             ->whereHas('products', function ($query) use ($selected_vendor) {
                 $query->where('vendor_id', $selected_vendor->id);
 
@@ -79,7 +80,8 @@ class ShowVendorDetail
 
     private function getProducts($request, $vendor, $sort_by_array, $selected_category, $selected_brand, $price, $per_page)
     {
-        return Product::query()->orderby($sort_by_array[0], $sort_by_array[1])->with('vendor')
+        return Product::query()->orderby($sort_by_array[0], $sort_by_array[1])
+            ->withWhereHas('vendor')
             ->where('vendor_id', $vendor->id)
             ->where('is_active', 1)
             ->when($request->filled('category'), function ($query) use ($selected_category) {
