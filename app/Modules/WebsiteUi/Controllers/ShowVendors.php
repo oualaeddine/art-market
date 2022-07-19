@@ -16,7 +16,7 @@ class ShowVendors
 
     public function asController(ActionRequest $request)
     {
-        return view('WebsiteUi::vendors')->with(['page_title' => 'Vendor']);
+        return view('WebsiteUi::vendors')->with(['page_title' => trans('Vendeurs')]);
     }
 
 }

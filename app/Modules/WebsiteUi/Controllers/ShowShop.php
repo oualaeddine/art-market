@@ -93,7 +93,8 @@ class ShowShop
 
     private function getProducts($request, $sort_by_array, $selected_category, $selected_brand, $price, $per_page)
     {
-        return Product::query()->orderby($sort_by_array[0], $sort_by_array[1])->with('vendor')
+        return Product::query()->orderby($sort_by_array[0], $sort_by_array[1])
+            ->withWhereHas('vendor')
             ->when($request->filled('vendor'), function ($query) use ($request) {
                 $query->where(function ($query) use ($request) {
                     $query->whereHas('vendor', function ($query) use ($request) {

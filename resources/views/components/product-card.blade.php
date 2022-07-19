@@ -5,21 +5,27 @@
     </a>
     <div class="card__default__informations">
         <div class="card__body">
-{{--            <button class="card__favorite">--}}
-{{--                <svg class="icon icon-heart">--}}
+            @if($product->discount)
+                <span class=" text-white p-1 rounded " style="position: absolute;top: 8px;right: 8px;background: #45B26B;outline: none !important;">
+                  <p>{{$product->discount."% 🔥" }}</p>
+            </span>
+            @endif
 
-{{--                </svg>--}}
-{{--            </button>--}}
+
 
             <div class="card__line">
                 <h6 class="h6 mb-4">
-                    <small class="d-block font-weight-light">{{$product->vendor->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</small>
+                    @if(\Illuminate\Support\Facades\Route::currentRouteName()!='vendor-detail')
+                        <small class="d-block font-weight-light">{{$product->vendor->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</small>
+                    @endif
                     {{$product->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}
                 </h6>
             </div>
-            <div class="product__default__card__prices align-items-center d-flex justify-content-end">
-                <div class="the__price__discount" style="text-decoration: none">{{number_format($product->price,2).' '. trans('DA')}}</div>
-{{--                <div class="the__price text-right"></div>--}}
+            <div class="product__default__card__prices align-items-center d-flex justify-content-between">
+                @if($product->price_old && $product->price_old!=0)
+                    <div class="the__price__discount">{{number_format($product->price_old,2).' '. trans('DA')}}</div>
+                @endif
+                <div class="the__price text-right">{{number_format($product->price,2).' '. trans('DA')}}</div>
             </div>
         </div>
 

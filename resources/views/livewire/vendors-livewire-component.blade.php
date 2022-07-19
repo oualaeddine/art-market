@@ -15,7 +15,7 @@
                     </p>
                 </h6>
                 <div class="w-60">
-                    <input class="header__input " wire:model.debounce="search" type="text" name="search" placeholder="Search" required="">
+                    <input class="header__input " wire:model.debounce="search" type="text" name="search" placeholder="{{__("Search")}}" required="">
                 </div>
                 <div class="right__side__options d-lg-flex align-items-center">
 

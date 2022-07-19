@@ -13,7 +13,7 @@ class VendorsLivewireComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $perPage=24;
+    public $perPage=2;
     public $search = '';
     public $sort_by='default';
 
@@ -36,13 +36,14 @@ class VendorsLivewireComponent extends Component
     {
         return view('livewire.vendors-livewire-component',[
             'vendors'=>Vendor::query()
+                ->whereIsActive(true)
                 ->where('name_fr', 'like', '%'.$this->search.'%')
                        ->orWhere('name_ar', 'like', '%'.$this->search.'%')
 
                 ->when($this->sort_by!='default',function ($query){
-                    $query->orderBy('name_fr');
-                },function ($query){
                     $query->orderByDesc('name_fr');
+                },function ($query){
+                    $query->orderBy('name_fr');
                 })
                 ->whereHas('vendors',function ($query){
                     $query->where('is_active',1);

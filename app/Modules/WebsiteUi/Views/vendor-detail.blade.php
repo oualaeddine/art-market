@@ -8,7 +8,7 @@
             <div class="profile__head js-profile-head" style="background-image: url('{{asset($vendor->images->where('name','banner')->first()->{app()->getLocale()=='fr'?'img_fr':'img_ar'}??'https://toka.b-cdn.net/wp-content/uploads/2022/04/frfrghj.png') }}');">
             </div>
 
-            <div class="user header__user d-flex justify-content-between align-items-center">
+            <div class="user header__user mt-0 d-flex justify-content-between align-items-center">
                 <div class="user__header d-flex align-items-center mb-8">
                     <div class="user__avatar"><img style="width: 85px;height: 85px;" src="{{asset($vendor->logo_fr??'client.png')}}" alt="Avatar"></div>
                     <div class="user__avatar__informations" >
@@ -20,13 +20,13 @@
                     </div>
                 </div>
 
-                <div class="user__header_right d-flex ">
-                    <a class="user__header__contact__btn" href="#">
-                        <i class="fad fa-at"></i>
-                        <span> {{$vendor->vendors->first()->phone}}</span>
-                    </a>
+{{--                <div class="user__header_right d-flex ">--}}
+{{--                    <a class="user__header__contact__btn" href="#">--}}
+{{--                        <i class="fad fa-at"></i>--}}
+{{--                        <span> {{$vendor->vendors->first()->phone}}</span>--}}
+{{--                    </a>--}}
 
-                </div>
+{{--                </div>--}}
             </div>
 
             <x-catlago-section :products="$products" :sort-by="$sort_by"  />
