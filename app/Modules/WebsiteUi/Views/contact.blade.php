@@ -70,7 +70,7 @@
                             <div class="field field__style__one mb-8">
                                 <div class="field__label">{{__("Your Message")}}</div>
                                 <div class="field__wrap">
-                                    <textarea required class="field__text__area" name="messsage" rows="5" cols="50">{{old('message')}}</textarea>
+                                    <textarea required class="field__text__area" name="message" rows="5" cols="50">{{old('message')}}</textarea>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
