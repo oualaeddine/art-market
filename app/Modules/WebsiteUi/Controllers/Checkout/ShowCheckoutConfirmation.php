@@ -84,13 +84,25 @@ class ShowCheckoutConfirmation
                 'last_name' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
                 'first_name' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
                 'phone' => ['required', new PhoneNumber],
-                'wilaya' => ['required', 'string', 'max:190'],
-                'commune' => ['required', 'string', 'max:190'],
+                'wilaya' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
+                'commune' => ['required', 'regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu', 'max:190'],
                 'address' => ['required', 'string', 'max:190']
             ];
         }
 
         return $rules;
+    }
+
+    public function getValidationAttributes(): array
+    {
+        return [
+            'last_name' => trans('Last name'),
+            'first_name' => trans('First name'),
+            'phone' => trans('Phone'),
+            'wilaya' => trans('Wilaya'),
+            'commune' => trans('Commune'),
+            'address' => trans('Address'),
+        ];
     }
 
 }

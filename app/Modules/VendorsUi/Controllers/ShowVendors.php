@@ -33,13 +33,13 @@ class ShowVendors
                 })
 
 
-                ->addColumn('name_ar', function ($vendor) {
+                ->addColumn('namear', function ($vendor) {
 
 
                         return '<span class="badge badge-info shadow-sm">'.$vendor->name_ar.'</span> ';
 
                 })
-                ->addColumn('name_fr', function ($vendor) {
+                ->addColumn('namefr', function ($vendor) {
 
 
                         return '<span class="badge badge-info shadow-sm">'.$vendor->name_fr.'</span> ';
@@ -64,7 +64,7 @@ class ShowVendors
 
                 })
 
-                ->rawColumns(['action','name_ar','name_fr','is_active','logo_fr','logo_ar', 'responsive', 'created_at'])
+                ->rawColumns(['action','namear','namefr','is_active','logo_fr','logo_ar', 'responsive', 'created_at'])
                 ->make(true);
 
         }

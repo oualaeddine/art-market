@@ -1,4 +1,8 @@
 @extends('website.app')
+@push('css')
+    @include('layouts.extra.css.select2')
+
+@endpush
 
 @section('content')
     <style>
@@ -20,7 +24,7 @@
                             @csrf
                             <div class="field field_icon mb-3">
                                 <div class="field__wrap">
-                                    <input required class="field__input" type="text" name="last_name"
+                                    <input required class="field__input" value="{{old('last_name')}}" type="text" name="last_name"
                                            placeholder="{{__("Your last name")}}" id="last_name">
                                     <div class="field__icon">
                                         <i class="fal fa-user"></i>
@@ -29,7 +33,7 @@
                             </div>
                             <div class="field field_icon mb-3">
                                 <div class="field__wrap">
-                                    <input required class="field__input" type="text" name="first_name"
+                                    <input required class="field__input" type="text" value="{{old('first_name')}}" name="first_name"
                                            placeholder="{{__("Your first name")}}" id="first_name">
                                     <div class="field__icon">
                                         <i class="fal fa-user"></i>
@@ -74,26 +78,25 @@
                             </div>
                             <div class="field field_icon mb-3">
                                 <div class="field__wrap">
-                                    <select required class="select" name="wilaya" id="wilaya_id" >
+                                    <select required class="form-control" name="wilaya" id="wilaya_id" >
                                         <option value="" selected disabled>{{__('Your wilaya')}}</option>
                                             @foreach($wilayas as $wilaya)
-                                            <option value="{{$wilaya->id}}">{{"( $wilaya->id ) ". $wilaya->{app()->getLocale()=='fr'?'name':'name_ar'} }}</option>
+                                            <option value="{{$wilaya->id}}" {{$wilaya->id==old('wilaya')?'selected':''}}>{{"( $wilaya->id ) ". $wilaya->{app()->getLocale()=='fr'?'name':'name_ar'} }}</option>
                                             @endforeach
                                     </select>
-                                    <div class="field__icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
                                 </div>
                             </div>
 
                             <div class="field field_icon mb-3">
                                 <div class="field__wrap">
-                                    <select required class="select"  id="commune_id" name="commune_id">
-                                        <option value="" selected disabled>{{__('Your commune')}}</option>
+                                    <select required class="form-control"  id="commune_id" name="commune_id">
+                                        @if(\Illuminate\Support\Facades\Session::get('commune'))
+                                            <option value="{{\Illuminate\Support\Facades\Session::get('commune')['id']}}" selected>{{\Illuminate\Support\Facades\Session::get('commune')['name']}}</option>
+                                        @else
+                                            <option value="" selected disabled>{{__('Your commune')}}</option>
+
+                                        @endif
                                     </select>
-                                    <div class="field__icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
                                 </div>
                             </div>
                             <button type="submit"
@@ -108,6 +111,50 @@
         </div>
     </div>
 
-    @vite(['resources/js/wilaya.js'])
+    @push('js')
+        @include('layouts.extra.js.select2')
+
+        {{--    @vite(['resources/js/wilaya.js'])--}}
+        <script>
+            $(document).ready(function () {
+                $('#wilaya_id').select2({
+                    /* placeholder: "Start typing ...", */
+                    theme: 'bootstrap4',
+                });
+                $('#commune_id').select2({
+                    /* placeholder: "Start typing ...", */
+                    theme: 'bootstrap4',
+                });
+
+                $('#wilaya_id').on('change', function () {
+                    var id = $(this).val();
+                    $('#commune_id').val(null).trigger('change');
+                    var url_coumne = '{{ route("get.commune",":id") }}';
+
+                    console.log(id);
+                    url_coumne = url_coumne.replace(':id', id);
+
+                    $('#commune_id').select2({
+                        /* placeholder: "Start typing ...", */
+                        // theme: 'bootstrap4',
+                        ajax: {
+                            url: url_coumne,
+                            dataType: 'json',
+                            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                            processResults: function (data) {
+                                return {
+                                    results: data
+                                };
+                            },
+
+                        }
+                    });
+
+                });
+            });
+        </script>
+
+    @endpush
+
 
 @endsection

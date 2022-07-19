@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 {{--    <div class="container">--}}
 {{--        <div class="d-flex justify-content-between align-items-center" aria-label="breadcrumb">--}}
 {{--            <ol class="breadcrumb">--}}

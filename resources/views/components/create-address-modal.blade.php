@@ -1,3 +1,4 @@
+
 <div class="popup popup_connect mfp-hide" id="popup-new-adress">
     <form action="{{route('client.store.address')}}" method="POST">
         @csrf
@@ -14,7 +15,7 @@
                         <div class="field field field__style__one select__field">
                             <div class="field__label">{{__("Wilaya")}}</div>
                             <div class="field__wrap">
-                                <select required class="select" name="wilaya" id="wilaya_id">
+                                <select required class="form-control" name="wilaya" id="wilaya_id">
                                     <option value="" selected disabled>{{__('Your wilaya')}}</option>
                                     @foreach($wilayas as $wilaya)
                                         <option
@@ -29,7 +30,7 @@
                         <div class="field field__style__one select__field">
                             <div class="field__label">{{("Commune")}}</div>
                             <div class="field__wrap">
-                                <select required class="select" id="commune_id" name="commune_id">
+                                <select required class="form-control" id="commune_id" name="commune_id">
                                     <option value="" selected disabled>{{__('Your commune')}}</option>
                                 </select>
                             </div>
@@ -69,3 +70,4 @@
         </div>
     </form>
 </div>
+

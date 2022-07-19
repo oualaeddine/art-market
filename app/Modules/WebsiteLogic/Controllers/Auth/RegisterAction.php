@@ -68,18 +68,14 @@ class RegisterAction
         $wilaya = YalidineWilaya::query()->find(request()->wilaya);
         $commune = YalidineMairie::query()->find(request()->commune_id);
         if ($wilaya) {
-            Session::put([
-                'wilaya' => $wilaya->id ?? 0,
-            ]);
+            Session::flash('wilaya',$wilaya->id ?? 0);
 
         }
 
         if ($commune) {
-            Session::put([
-                'commune' => [
+            Session::flash('commune',[
                     'id' => $commune->id ?? '',
                     'name' => $commune->name ?? ''
-                ]
             ]);
         }
 
