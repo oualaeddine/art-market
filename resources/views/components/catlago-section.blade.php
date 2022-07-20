@@ -27,6 +27,20 @@
                     <button class="sidebar__filter__toggle">
                         <span class="closed__discover__filter">{{__("Filter")}} <i class="fad fa-sliders-h"></i></span> <i class="fal fa-times opened__discover__filter"></i>
                     </button>
+                    <button class="ml-2" style="position: relative;    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    border-radius: 24px;
+                    font-family: 'Sofia Pro', sans-serif;
+                    font-size: 14px;
+                    color: #2e3335;
+                    transition: all .2s;
+                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                    border: 0;
+                    outline: none !important;">
+                        <a href="{{\Illuminate\Support\Facades\URL::current()}}" style="text-decoration: none" class="text-reset text-red"><i class="fad text-red fa-redo-alt"></i></a>
+                    </button>
                 </div>
             </div>
 

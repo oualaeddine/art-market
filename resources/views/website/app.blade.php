@@ -26,10 +26,12 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     @livewireStyles
+    @stack('css')
 </head>
 <body>
 
 <script src="{{asset("website/js/lib/jquery.min.js")}}"></script>
+
 
 
 <div class="outer">
@@ -47,6 +49,7 @@
 </div>
 <!-- Scripts -->
 @include('website.scripts')
+@stack('js')
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 @livewireScripts

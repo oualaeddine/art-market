@@ -24,6 +24,10 @@ class LoginAction
 
         Toastr::success(trans('Logged in successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
+        if ($request->from=='checkout')
+            return redirect()->route('checkout');
+
+
         return redirect()->route('client.account');
 
 
@@ -60,7 +64,7 @@ class LoginAction
     public function getValidationMessages(): array
     {
         return [
-            'phone.exists' => trans('The phone number is invalid'),
+            'phone.exists' => trans('Invalid credentials'),
         ];
     }
 

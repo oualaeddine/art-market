@@ -99,8 +99,8 @@
                     columns: [
                         {data: 'responsive', className: 'responsive'},
                         {data: 'id', name: 'id'},
-                        {data: 'first_name', name: 'first_name'},
                         {data: 'last_name', name: 'last_name'},
+                        {data: 'first_name', name: 'first_name'},
                         {data: 'wilaya', name: 'wilaya'},
                         {data: 'commune', name: 'commune'},
                         {data: 'phone', name: 'phone'},

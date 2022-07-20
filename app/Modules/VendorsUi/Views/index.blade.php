@@ -104,8 +104,8 @@
                         columns: [
                             {data: 'responsive', className: 'responsive'},
                             {data: 'id', name: 'id'},
-                            {data: 'name_fr', name: 'name_fr'},
-                            {data: 'name_ar', name: 'name_ar'},
+                            {data: 'namefr', name: 'name_fr'},
+                            {data: 'namear', name: 'name_ar'},
                             {data: 'short_dec_fr', name: 'short_dec_fr'},
                             {data: 'short_dec_ar', name: 'short_dec_ar'},
                             // {data: 'desc_fr', name: 'desc_fr'},

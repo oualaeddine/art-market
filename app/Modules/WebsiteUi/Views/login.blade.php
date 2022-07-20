@@ -13,7 +13,7 @@
                     @include('partials.error.error')
 
                     <div class="field_signin_page">
-                        <form action="{{route('client.login.action')}}" method="POST">
+                        <form action="{{route('client.login.action',['from'=>request()->from])}}" method="POST">
                             @csrf
                             <div class="field field_icon mb-3">
                                 <div class="field__wrap">
@@ -26,7 +26,7 @@
                             </div>
                             <div class="field field_icon">
                                 <div class="field__wrap">
-                                    <input class="field__input" type="password" name="password" placeholder="Password">
+                                    <input required class="field__input" type="password" name="password" placeholder="{{__("Password")}}">
                                     <div class="field__icon">
                                         <i class="fal fa-lock"></i>
                                     </div>

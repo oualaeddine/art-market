@@ -42,10 +42,10 @@
                                             <div class="col-md-4">
                                                 <div
                                                     class="cart__subtitle">{{$item->instance->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</div>
-                                                <div class="cart__description">{{__("From")}} <a
-                                                        href="#">{{$order->vendor->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</a> {{__("store")}}
+                                                <div class="cart__description">{{__("From vendor")}} <a
+                                                        href="{{route('vendor-detail',[$order->vendor->name_fr])}}">{{$order->vendor->{app()->getLocale()=='fr'?'name_fr':'name_ar'} }}</a>
                                                 </div>
-                                                <div class="header__date">{{$item->created_at}}</div>
+                                                <div class="header__date">{{$item->created_at->format('d-m-Y H:i')}}</div>
                                             </div>
 
                                             <div class="col-md-2">
@@ -87,10 +87,10 @@
                                             <div class="popup__col">{{__("Shipping")}} (yalidine)</div>
                                             <div class="popup__col">0.00 {{__("DA")}}</div>
                                         </div>
-                                        <div class="popup__row">
-                                            <div class="popup__col">{{__("TVA fee")}}</div>
-                                            <div class="popup__col">0.00 {{__("DA")}}</div>
-                                        </div>
+{{--                                        <div class="popup__row">--}}
+{{--                                            <div class="popup__col">{{__("TVA fee")}}</div>--}}
+{{--                                            <div class="popup__col">0.00 {{__("DA")}}</div>--}}
+{{--                                        </div>--}}
                                         <div class="popup__row">
                                             <div class="popup__col">{{__("You will pay")}}</div>
                                             <div

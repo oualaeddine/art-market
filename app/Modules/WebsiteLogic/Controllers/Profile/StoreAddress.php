@@ -45,9 +45,9 @@ class StoreAddress
     public function getValidationAttributes(): array
     {
         return [
-            'address' => trans('address'),
-            'code_postal' => trans('code postal'),
-            'commune_id' => trans('commune'),
+            'address' => trans('Address'),
+            'code_postal' => trans('Zip'),
+            'commune_id' => trans('Commune'),
         ];
     }
 }

@@ -37,7 +37,8 @@ class AddCart
                         'vendor_name_fr' => $product->vendor->name_fr,
                         'image' => $product->image,
                         'price_old' => $product->price_old,
-                        'created_at'=>now()
+                        'created_at'=>now(),
+                        'shipping'=>$product->shipping
                        /*  'sub_total' => $product->price_old * $qty, */
                     ]
                 ],

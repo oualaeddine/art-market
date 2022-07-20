@@ -45,10 +45,10 @@
                                             <div class="col-md-4">
                                                 <div
                                                     class="cart__subtitle">{{$item->{app()->getLocale()=='fr'?'name':'->options->name_ar'} }}</div>
-                                                <div class="cart__description">{{__("From")}} <a
-                                                        href="#">{{$item->options->{app()->getLocale()=='fr'?'vendor_name_fr':'vendor_name_ar'} }}</a> {{__("store")}}
+                                                <div class="cart__description">{{__("From vendor")}} <a
+                                                        href="{{route('vendor-detail',[$item->options->vendor_name_fr])}}">{{$item->options->{app()->getLocale()=='fr'?'vendor_name_fr':'vendor_name_ar'} }}</a>
                                                 </div>
-                                                <div class="header__date">{{$item->options->created_at}}</div>
+                                                <div class="header__date">{{$item->options->created_at->format('d-m-Y H:i')}}</div>
                                             </div>
 
                                             <div class="col-md-2">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
 
-                        <div id="sticky-sidebar" class="col-lg-4 col-12 pl-lg-0" style="">
+                        <div class="col-lg-4 col-12 pl-lg-0" style="">
                             <div class="sidebar__inner" style="position: relative;">
                                 <div class="cart__filters js-activity-filters">
                                     <div class="cart__info">{{__("Cart total")}}</div>
@@ -90,13 +90,13 @@
                                                 class="popup__col">{{\Gloudemans\Shoppingcart\Facades\Cart::total().trans('DA')}}</div>
                                         </div>
                                         <div class="popup__row">
-                                            <div class="popup__col">{{__("Shipping")}} (yalidine)</div>
-                                            <div class="popup__col">0.00 {{__("DA")}}</div>
+                                            <div class="popup__col">{{__("Shipping")}} </div>
+                                            <div class="popup__col">{{number_format(\Gloudemans\Shoppingcart\Facades\Cart::content()->sum('options.shipping'),2)}}{{__("DA")}}</div>
                                         </div>
-                                        <div class="popup__row">
-                                            <div class="popup__col">{{__("TVA fee")}}</div>
-                                            <div class="popup__col">0.00 {{__("DA")}}</div>
-                                        </div>
+{{--                                        <div class="popup__row">--}}
+{{--                                            <div class="popup__col">{{__("TVA fee")}}</div>--}}
+{{--                                            <div class="popup__col">0.00 {{__("DA")}}</div>--}}
+{{--                                        </div>--}}
                                         <div class="popup__row">
                                             <div class="popup__col">{{__("You will pay")}}</div>
                                             <div
@@ -108,14 +108,15 @@
                                 <div class="cart__filters js-activity-filters mt-5">
                                     <div class="cart__info">{{__("Shipping details")}}</div>
                                     <div class="shippign__details__sidebar">
-                                        <span class="shippign__details__sidebar__title">{{__("Address")}}</span>
-                                        <p class="shippign__details__sidebar__text">{{$info['address'].' - '.$info['wilaya'].' - '.$info['commune']}}</p>
+                                        <span class="shippign__details__sidebar__title">{{__("Receiver name")}}</span>
+                                        <p class="shippign__details__sidebar__text">{{$info['full_name']}}</p>
 
                                         <span class="shippign__details__sidebar__title">{{__("Phone")}}</span>
                                         <p class="shippign__details__sidebar__text">{{$info['phone']}}</p>
 
-                                        <span class="shippign__details__sidebar__title">{{__("Receiver name")}}</span>
-                                        <p class="shippign__details__sidebar__text">{{$info['full_name']}}</p>
+                                        <span class="shippign__details__sidebar__title">{{__("Address")}}</span>
+                                        <p class="shippign__details__sidebar__text">{{$info['address'].' - '.$info['wilaya'].' - '.$info['commune']}}</p>
+
                                         <a class="shippign__details__sidebar__link"
                                            href="{{route('checkout')}}">{{__("Edit Shipping details")}}</a>
                                     </div>

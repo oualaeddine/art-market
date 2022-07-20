@@ -2,7 +2,7 @@
     <div class="container">
         <div class="item__tabs js-tabs item__description_reting_tabs">
             <div class="item__nav">
-                <a class="item__link js-tabs-link active" href="javascript:void(0)">{{__('Description')}}</a>
+                <span class="disabled btn btn-black rounded">{{__('Description')}}</span>
                 {{--                    <a class="item__link js-tabs-link" href="#">Reviews (533)</a>--}}
             </div>
 

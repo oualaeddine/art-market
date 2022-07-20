@@ -4,8 +4,8 @@
 
         <div class="col-md-4">
             <div class="cart__subtitle">{{$item->{app()->getLocale()=='fr'?'name':'->options->name_ar'} }}</div>
-            <div class="cart__description">{{__("From")}} <a href="#">{{$item->options->{app()->getLocale()=='fr'?'vendor_name_fr':'vendor_name_ar'} }}</a> {{__("store")}}</div>
-            <div class="header__date">{{$item->options->created_at}}</div>
+            <div class="cart__description">{{__("From vendor")}} <a href="{{route('vendor-detail',[$item->options->vendor_name_fr])}}">{{$item->options->{app()->getLocale()=='fr'?'vendor_name_fr':'vendor_name_ar'} }}</a></div>
+            <div class="header__date">{{$item->options->created_at->format('d-m-Y H:i')}}</div>
             <a class="cart__remove" onclick="DeleteCartItem({{$item->id}})" href="#"><i class="fal fa-times"></i>
                 {{__("REMOVE")}}</a>
         </div>
