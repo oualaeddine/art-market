@@ -3,6 +3,7 @@
 <head>
 
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
+    <meta name="Copyright" content="Made with by COODIV.NET all rights reserved">
     <title>{{ $page_title.' | '.  trans('ArtMarket') }}</title>
 
     <x-meta />

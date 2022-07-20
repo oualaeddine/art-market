@@ -65,9 +65,9 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__foot">
+            {{-- <div class="footer__foot">
                 <div class="footer__copyright">© {{__("coodiv.net 2022. All rights reserved")}}.</div>
-            </div>
+            </div> --}}
         </div>
     </footer>
 </div>
