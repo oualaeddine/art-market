@@ -1,5 +1,5 @@
 <div>
-    <footer class="footer pt-15">
+    <footer class="footer pt-10 mb-10">
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-md-3 col-12 text-lg-left text-center mb-lg-0 mb-10">
