@@ -64,13 +64,13 @@
                     <!-- [ style Customizer ] end -->
                 </div>
             </div>
-            <footer class="text-end text-dark" style="z-index: 999;!important ;padding: 15px 0;background-color:#efefef;
+            {{-- <footer class="text-end text-dark" style="z-index: 999;!important ;padding: 15px 0;background-color:#efefef;
                 bottom: 0;
                 width: 100%;
                 padding-top: 15px;
                 ">
                 <span class="mx-2">Made with <img src="https://img.icons8.com/emoji/48/000000/heart-suit.png" width="25"/> by <a target="_blank" href="https://coodiv.net/" class="text-primary"> COODIV.NET</a>.All rights reserved</span>
-            </footer>
+            </footer> --}}
         </div>
     </div>
     <!-- Warning Section Starts -->
