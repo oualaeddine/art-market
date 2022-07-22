@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Modules\SettingsLogic\Models\Setting;
 use Illuminate\View\Component;
 
 class Header extends Component
 {
+    public $phone;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,8 @@ class Header extends Component
      */
     public function __construct()
     {
-        //
+        $this->phone=Setting::query()->where('name', 'contact tél 1')->first();
+
     }
 
     /**

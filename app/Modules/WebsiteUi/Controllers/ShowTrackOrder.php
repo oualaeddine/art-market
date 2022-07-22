@@ -27,9 +27,9 @@ class ShowTrackOrder
         $orders = Order::query()->with('vendor')->with('products.product')->where('tracking_code', $track_id)->get();
         $raw_orders = RawOrder::query()->with('vendor')->with('products.product')->where('tracking_code', $track_id)->get();
 
-        if ($orders->isEmpty() && $raw_orders->isEmpty()) {
-            Toastr::error(trans('No orders were found by this tracking code'), '', ["positionClass" => "toast-bottom-right"]);
-        }
+//        if ($orders->isEmpty() && $raw_orders->isEmpty()) {
+//            Toastr::error(trans('No orders were found by this tracking code'), '', ["positionClass" => "toast-bottom-right"]);
+//        }
 
         return view('WebsiteUi::order-track', compact( 'track_id','orders','raw_orders'))->with(['page_title' => trans('Order Tracking')]);
     }

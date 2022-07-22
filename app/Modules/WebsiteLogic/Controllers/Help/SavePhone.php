@@ -45,7 +45,10 @@ class SavePhone
     public function rules()
     {
         return [
-            'phone' => ['required', new PhoneNumber()]
+            'phone' => ['required', new PhoneNumber()],
+            'name' => ['nullable','regex:/^(?!.*\d)[a-z\p{Arabic}\s]+$/iu' ,'string','max:45'],
+            'message'=>['nullable','string','max:191']
+
         ];
     }
 }

@@ -1,7 +1,10 @@
+
 <header
     class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header d-print-none"
     data-id="#header">
-
+    <div class="container text-center" style="background-color: transparent">
+        {{__("Need help ?")}} <a href="tel:{{ $phone->value ?? '#' }}">{{ $phone->value ?? '#' }}</a>
+    </div>
     <div class="header__center center">
 
 

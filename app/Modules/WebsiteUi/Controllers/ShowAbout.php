@@ -21,7 +21,7 @@ class ShowAbout
     public function asController(ActionRequest $request)
     {
 
-        $about = Setting::where('name','about_us_fr')->first();
+        $about = Setting::where('name',app()->getLocale()=='fr'?'about_us_fr':'about_us_ar')->first();
 
         return view('WebsiteUi::about',compact('about'))->with(['page_title' => trans('About Us')]);
     }

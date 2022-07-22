@@ -50,11 +50,12 @@ class SendResetEmail
 
     }
 
-    public function getValidationAttributes(): array
+    public function getValidationMessages(): array
     {
         return [
-            'email' => trans('Email'),
+            'email.exists' => trans('Invalid email'),
         ];
     }
+
 
 }
