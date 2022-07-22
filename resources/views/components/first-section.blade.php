@@ -2,10 +2,12 @@
 
     <div class="section-pb selection pt-1 pb-20">
         <div class="container">
-{{--            <div class="text-left">--}}
+            <div class="text-left">
+                <div class="popular__stage"></div>
+                <h3 class="hot__title h3"></h3>
 {{--                <div class="popular__stage">{{__("Discover unique")}}</div>--}}
 {{--                <h3 class="hot__title h3">{{__("hand-picked items")}}</h3>--}}
-{{--            </div>--}}
+            </div>
             <div class="row justify-content-center">
                 @foreach($tops as $top)
                     @if($loop->first)
