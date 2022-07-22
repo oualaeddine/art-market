@@ -2,10 +2,10 @@
 
     <div class="section-pb selection pt-1 pb-20">
         <div class="container">
-            <div class="text-left">
-                <div class="popular__stage">{{__("Discover unique")}}</div>
-                <h3 class="hot__title h3">{{__("hand-picked items")}}</h3>
-            </div>
+{{--            <div class="text-left">--}}
+{{--                <div class="popular__stage">{{__("Discover unique")}}</div>--}}
+{{--                <h3 class="hot__title h3">{{__("hand-picked items")}}</h3>--}}
+{{--            </div>--}}
             <div class="row justify-content-center">
                 @foreach($tops as $top)
                     @if($loop->first)
@@ -15,7 +15,8 @@
                                 <div class="selection__head">
                                     <div class="selection__line">
                                         <div class="selection__description">
-                                            <div class="selection__title">{{$top->main_title}}</div>
+                                            <div class="selection__title">{{$top->title}}</div>
+                                            <div class="selection__counter">{{$top->main_title}}</div>
                                             <div class="selection__counter">{{$top->sub_title}}</div>
                                         </div>
                                     </div>
@@ -25,11 +26,12 @@
 
                     @else
                         <div class="col-md-4">
-                            <a class="selection__card d-flex h-100" href="item.html">
+                            <a class="selection__card d-flex h-100" href="{{$top->link}}">
                                 <div class="selection__preview position-relative with-absolute-description">
                                     <img src="{{$top->image}}" alt="Selection" />
                                     <div class="selection__description absolute-home-description-item">
-                                        <div class="selection__title">{{$top->main_title}}</div>
+                                        <div class="selection__title">{{$top->title}}</div>
+                                        <div class="selection__counter">{{$top->main_title}}</div>
                                         <div class="selection__counter">{{$top->sub_title}}</div>
                                     </div>
                                 </div>

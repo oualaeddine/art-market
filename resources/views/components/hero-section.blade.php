@@ -5,7 +5,7 @@
                 <span class="totlion">{{$heroText->title}}</span>
                 <h5 class="title">{{$heroText->main_title}}</h5>
                 <p class="sub-title"> {{$heroText->sub_title}}</p>
-                <a class="btn btn-primary px-12" href="{{$heroText->link}}">{{("See now")}}</a>
+                <a class="btn btn-primary px-12" href="{{$heroText->link}}">{{__("See now")}}</a>
             </div>
 
             <div class="col-md-6 col-12 position-relative hero-area-item-box-container">
