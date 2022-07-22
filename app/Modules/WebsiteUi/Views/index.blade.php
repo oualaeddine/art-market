@@ -10,7 +10,10 @@
 
     <x-home-product-section />
 
-{{--    <x-popular-collection-section />--}}
+    <x-category-section />
+
+
+    {{--    <x-popular-collection-section />--}}
 
     <x-new-arrivals-section />
 

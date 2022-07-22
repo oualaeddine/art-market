@@ -2,12 +2,12 @@
 
 namespace App\View\Components;
 
-use App\Modules\ProductsLogic\Models\Product;
+use App\Modules\CategoriesLogic\Models\Category;
 use Illuminate\View\Component;
 
-class HomeProductSection extends Component
+class CategorySection extends Component
 {
-    public $products;
+    public $categories;
     /**
      * Create a new component instance.
      *
@@ -15,9 +15,7 @@ class HomeProductSection extends Component
      */
     public function __construct()
     {
-        $this->products=Product::query()
-//            ->whereHas('home_offer')
-            ->withWhereHas('vendor')->with('categories')->whereIsActive(true)->inRandomOrder()->limit(10)->get();
+        $this->categories=Category::query()->withWhereHas('vendors')->withCount('products')->whereIsActive(true)->whereParentId(null)->get();
     }
 
     /**
@@ -27,6 +25,6 @@ class HomeProductSection extends Component
      */
     public function render()
     {
-        return view('components.home-product-section');
+        return view('components.category-section');
     }
 }

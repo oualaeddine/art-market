@@ -2,6 +2,7 @@
 
 namespace App\Modules\ProductsLogic\Models;
 
+use App\Models\HomeOffer;
 use App\Models\Vendor;
 use App\Models\VendorBrand;
 use App\Models\VendorCategory;
@@ -117,6 +118,11 @@ class Product extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class,'vendor_id');
+    }
+
+    public function home_offer()
+    {
+        return $this->hasMany(HomeOffer::class,'product_id');
     }
 
 }
