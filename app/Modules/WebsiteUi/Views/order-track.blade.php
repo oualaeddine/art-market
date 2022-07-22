@@ -40,6 +40,7 @@
                                                 @foreach ($order->products as $p)
 
                                                     <div class="package__tracking__box__main__text col-md-12 mb-4">
+                                                        <h4>{{__("Products")}}</h4>
                                                         <h5 class="">{{$p->product->name_fr}} * {{$p->quantity}}</h5>
                                                         <small
                                                             class="dis"><b>{{number_format($p->price,2)}}</b> {{__('DA')}}
