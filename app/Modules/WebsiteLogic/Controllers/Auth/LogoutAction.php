@@ -22,6 +22,6 @@ class LogoutAction
 
         }
 
-        return redirect()->route('index');
+        return redirect()->route('client.login');
     }
 }

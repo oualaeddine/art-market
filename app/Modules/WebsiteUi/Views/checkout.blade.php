@@ -167,7 +167,7 @@
                                     <div class="popup__row">
                                         <div class="popup__col">{{__("Shipping")}}</div>
                                         <div
-                                            class="popup__col">{{number_format(\Gloudemans\Shoppingcart\Facades\Cart::content()->sum('options.shipping'),2)}}{{__("DA")}}</div>
+                                            class="popup__col">{{$shipping}}{{__("DA")}}</div>
                                     </div>
                                     {{--                                    <div class="popup__row">--}}
                                     {{--                                        <div class="popup__col">{{__("TVA fee")}}</div>--}}
@@ -176,7 +176,7 @@
                                     <div class="popup__row">
                                         <div class="popup__col">{{__("You will pay")}}</div>
                                         <div
-                                            class="popup__col">{{\Gloudemans\Shoppingcart\Facades\Cart::total().trans('DA')}}</div>
+                                            class="popup__col">{{$total.trans('DA')}}</div>
                                     </div>
                                 </div>
 

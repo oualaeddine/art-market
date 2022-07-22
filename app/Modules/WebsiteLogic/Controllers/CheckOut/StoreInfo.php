@@ -42,17 +42,17 @@ class StoreInfo
             }
 
             foreach ($orders as $order) {
-                $sub_total = 0;
-                foreach ($order as $item) {
-                    $sub_total = $sub_total + ($item->qty * $item->price);
-                }
+
+                $shipping = $order->sum(function ($item) {return $item->qty * $item->options->shipping;});
+                $total_without_shipping=$order->sum(function ($item) {return $item->qty * $item->price;});
+
 
                 $vendor_id = $order->first()->options->vendor_id;
                 $items = $order;
                 if (auth()->guard('client')->check()) {
-                    $order = $this->handleAuth($request, $sub_total, $vendor_id, $items);
+                    $order = $this->handleAuth($request, $total_without_shipping, $vendor_id, $items,$shipping);
                 } else {
-                    $order = $this->handleUnAuth($request, $sub_total, $vendor_id, $items);
+                    $order = $this->handleUnAuth($request, $total_without_shipping, $vendor_id, $items,$shipping);
                 }
 
                 $order->update([
@@ -80,7 +80,7 @@ class StoreInfo
 
     }
 
-    public function handleAuth($request, $sub_total, $vendor_id, $items)
+    public function handleAuth($request, $sub_total, $vendor_id, $items,$shipping)
     {
 
         $client = auth()->guard('client')->user();
@@ -93,7 +93,8 @@ class StoreInfo
             'mode_payment' => 'COD',
             'commune' => $address->commune->name,
             'sub_total' => $sub_total,
-            'total' => $sub_total,
+            'total' => $sub_total+$shipping,
+            'shipping'=>$shipping,
             'address' => $address->address,
             'vendor_id' => $vendor_id
         ]);
@@ -114,7 +115,7 @@ class StoreInfo
 
     }
 
-    private function handleUnAuth($request, $sub_total, $vendor_id, $items)
+    private function handleUnAuth($request, $sub_total, $vendor_id, $items,$shipping)
     {
 
 //        create raw_orders
@@ -124,7 +125,8 @@ class StoreInfo
             'mode_payment' => 'COD',
             'commune' => $request->commune,
             'sub_total' => $sub_total,
-            'total' => $sub_total,
+            'total' => $sub_total+$shipping,
+            'shipping'=>$shipping,
             'address' => $request->address,
             'vendor_id' => $vendor_id
         ]);

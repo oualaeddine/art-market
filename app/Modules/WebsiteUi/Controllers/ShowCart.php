@@ -2,10 +2,7 @@
 
 namespace App\Modules\WebsiteUi\Controllers;
 
-use App\Helpers\SetLocal;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Session;
-use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class ShowCart
@@ -17,8 +14,10 @@ class ShowCart
     {
 
         $cart = Cart::content();
-
-        return view('WebsiteUi::cart',compact('cart'))->with(['page_title' => trans('Cart')]);
+        $shipping = number_format($cart->sum(function ($item) {return $item->qty * $item->options->shipping;}), 2);
+        $sub_total=$cart->sum(function ($item) {return $item->qty * $item->price;});
+        $total = number_format(($shipping+$sub_total), 2);
+        return view('WebsiteUi::cart', compact('cart','shipping','total'))->with(['page_title' => trans('Cart')]);
     }
 
 }

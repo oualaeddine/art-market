@@ -5,14 +5,14 @@
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
     <title>{{ $page_title.' | '.  trans('ArtMarket') }}</title>
 
-    <x-meta />
+    <x-meta/>
 
     <!-- Styles -->
     @vite(['resources/css/bootstrap.css'])
-    <link rel="stylesheet" media="all" href="{{asset("website/fonts/sofia-pro/typographie.css")}}" />
-    <link rel="stylesheet" media="all" href="{{asset("website/fonts/fontawesome-5/css/all.css")}}" />
+    <link rel="stylesheet" media="all" href="{{asset("website/fonts/sofia-pro/typographie.css")}}"/>
+    <link rel="stylesheet" media="all" href="{{asset("website/fonts/fontawesome-5/css/all.css")}}"/>
     @if(app()->getLocale()=='ar')
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css" />
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
         <style>
             body {
                 font-family: 'DroidArabicKufiRegular', serif !important;
@@ -23,7 +23,6 @@
     @endif
     @vite(['resources/css/app.css','resources/css/fancybox.min.css'])
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-
     @livewireStyles
     @stack('css')
 </head>
@@ -32,18 +31,17 @@
 <script src="{{asset("website/js/lib/jquery.min.js")}}"></script>
 
 
-
 <div class="outer">
 
 
     <!--header-->
-    <x-header />
+    <x-header/>
 
     <div class="outer__inner">
-            @yield('content')
+        @yield('content')
     </div>
     <!-- footer-->
-    <x-footer />
+    <x-footer/>
 
 </div>
 <!-- Scripts -->
@@ -52,5 +50,6 @@
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 @livewireScripts
+
 </body>
 </html>

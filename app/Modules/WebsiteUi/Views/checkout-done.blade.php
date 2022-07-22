@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <div class="outer__inner">
+    <div class="outer__inner " >
         <div class="cart__container pt-10 pb-25">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" id="form-print" >
                     <div class="col-lg-8 col-12 mb-5">
                         <div class="cart__list">
                             <div class="cart__list_header">
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
 
-                            <div style="max-height: 24rem;overflow-y: scroll">
+{{--                            <div style="max-height: 24rem;overflow-y: scroll">--}}
                             @foreach($orders as $order)
                                 @foreach($order->products as $item)
 
@@ -71,7 +71,7 @@
                                     </div>
                                 @endforeach
                             @endforeach
-                            </div>
+{{--                            </div>--}}
 
                         </div>
                         <div class="row float-md-right mt-2">
@@ -81,11 +81,11 @@
                                         <div class="popup__row">
                                             <div class="popup__col">{{__("Total price")}}</div>
                                             <div
-                                                class="popup__col">{{number_format($orders->sum('total'),2).trans('DA')}}</div>
+                                                class="popup__col">{{number_format($orders->sum('sub_total'),2).trans('DA')}}</div>
                                         </div>
                                         <div class="popup__row">
                                             <div class="popup__col">{{__("Shipping")}} (yalidine)</div>
-                                            <div class="popup__col">0.00 {{__("DA")}}</div>
+                                            <div class="popup__col">{{number_format($orders->sum('shipping'),2).trans('DA')}}</div>
                                         </div>
 {{--                                        <div class="popup__row">--}}
 {{--                                            <div class="popup__col">{{__("TVA fee")}}</div>--}}
@@ -110,7 +110,7 @@
                             <div class="success__table">
                                 <div class="success__row">
                                     <div class="success__col">{{__("Status")}}</div>
-                                    <div class="success__col">order ID</div>
+                                    <div class="success__col">{{__("order ID")}}</div>
                                 </div>
                                 <div class="success__row">
                                     <div class="success__col">{{__("Waiting for confirmation")}}</div>
@@ -120,7 +120,10 @@
                         </div>
 
                         <a href="{{route('shop')}}"
-                           class="btn button-stroke d-block w-100">{{__("continue shopping")}}</a>
+                           class="btn button-stroke d-block w-100 d-print-none">{{__("continue shopping")}}</a>
+
+                        <a href="javascript:void(0)"
+                           class="btn  btn-yellow d-block w-100 mt-4 d-print-none" onclick="Print()">{{__("Print")}}</a>
                     </div>
                 </div>
             </div>

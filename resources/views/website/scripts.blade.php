@@ -121,6 +121,21 @@
         }
     });
 </script>
+
+<script type="text/javascript">
+
+    function Print() {
+        window.print();
+    }
+
+    window.onafterprint = function (e) {
+        closePrintView();
+    }
+
+    function closePrintView() {
+        window.location.href = '{{\Illuminate\Support\Facades\URL::current()}}'
+    }
+</script>
 {{--<script src="{{asset('website/js/cart.js')}}"></script>--}}
 
 {{--    @vite([--}}

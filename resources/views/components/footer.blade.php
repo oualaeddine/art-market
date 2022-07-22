@@ -1,4 +1,4 @@
-<div>
+<div class="d-print-none">
     <footer class="footer pt-15">
         <div class="container">
             <div class="row justify-content-start">

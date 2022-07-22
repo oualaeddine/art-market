@@ -29,8 +29,13 @@ class ShowCheckoutConfirmation
 
         }
 
+        $cart=Cart::content();
+        $shipping = number_format($cart->sum(function ($item) {return $item->qty * $item->options->shipping;}), 2);
+        $sub_total=$cart->sum(function ($item) {return $item->qty * $item->price;});
+        $total = number_format(($shipping+$sub_total), 2);
 
-        return view('WebsiteUi::checkout-confirmation', compact('info', 'client'))->with(['page_title' => trans('Checkout confirmation')]);
+
+        return view('WebsiteUi::checkout-confirmation', compact('info', 'client','shipping','total'))->with(['page_title' => trans('Checkout confirmation')]);
     }
 
     private function checkCart(): bool

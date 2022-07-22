@@ -1,5 +1,5 @@
 <header
-    class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header"
+    class="{{Illuminate\Support\Facades\Route::currentRouteName()=='index'?'art-market-pace-header':''}} header js-header homepage-header d-print-none"
     data-id="#header">
 
     <div class="header__center center">

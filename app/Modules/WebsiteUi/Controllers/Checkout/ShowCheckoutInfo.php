@@ -29,7 +29,12 @@ class ShowCheckoutInfo
         $wilayas = YalidineWilaya::get();
         $communes=YalidineMairie::query()->get();
 
-        return view('WebsiteUi::checkout',compact('communes','wilayas','client'))->with(['page_title' => trans('Checkout information')]);
+        $cart=Cart::content();
+        $shipping = number_format($cart->sum(function ($item) {return $item->qty * $item->options->shipping;}), 2);
+        $sub_total=$cart->sum(function ($item) {return $item->qty * $item->price;});
+        $total = number_format(($shipping+$sub_total), 2);
+
+        return view('WebsiteUi::checkout',compact('communes','wilayas','client','shipping','total'))->with(['page_title' => trans('Checkout information')]);
     }
 
 }
