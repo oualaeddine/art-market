@@ -35,8 +35,8 @@
                                         <small>{{$order->tracking_code}}</small></span>
                                         <div class="package__tracking__box__main__informations">
                                             <i class="fad fa-box-alt"></i>
-                                            <h3>{{__("Products")}}</h3>
                                             <div class="row">
+                                                <h3 class="ml-5">{{__("Products")}}</h3>
 
                                                 @foreach ($order->products as $p)
 
@@ -76,9 +76,9 @@
                                         <small>{{$order->tracking_code}}</small></span>
                                         <div class="package__tracking__box__main__informations">
                                             <i class="fad fa-box-alt"></i>
-                                            <h3>{{__("Products")}}</h3>
 
                                             <div class="row">
+                                                <h3 class="ml-5">{{__("Products")}}</h3>
 
                                                 @foreach ($order->products as $p)
 
