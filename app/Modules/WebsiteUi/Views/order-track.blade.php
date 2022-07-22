@@ -26,7 +26,7 @@
                 </div>
 
                 @if ($orders->isNotEmpty() || $raw_orders->isNotEmpty())
-                    @foreach($order as $order)
+                    @foreach($orders as $order)
                         <div class="package__tracking__result">
                             <div class="row justify-content-center mt-15">
                                 <div class="col-md-8">
