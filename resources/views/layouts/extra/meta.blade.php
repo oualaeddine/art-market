@@ -3,4 +3,5 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 5 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
 <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
-<meta name="author" content="colorlib" />
+<meta name="author" content="coodivteam" />
+<meta name="Copyright" content="Made with love by COODIV.NET all rights reserved">
