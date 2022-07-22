@@ -13,7 +13,7 @@ class VendorsLivewireComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $perPage=2;
+    public $perPage=12;
     public $search = '';
     public $sort_by='default';
 

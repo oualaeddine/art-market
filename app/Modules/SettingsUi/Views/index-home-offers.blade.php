@@ -25,8 +25,8 @@
                 <tr>
                     <th></th>
                     <th> Identifiant </th>
-                    <th> Nom ar </th>
                     <th> Nom fr </th>
+                    <th> Nom ar </th>
                     <th> Actions </th>
                 </tr>
                 </thead>

@@ -21,17 +21,17 @@ class ShowTrackOrder
     public function asController(ActionRequest $request)
     {
 
-        $order = null;
+
 
         $track_id = $request->tracking ?? null;
+        $orders = Order::query()->with('vendor')->with('products.product')->where('tracking_code', $track_id)->get();
+        $raw_orders = RawOrder::query()->with('vendor')->with('products.product')->where('tracking_code', $track_id)->get();
 
-        if (RawOrder::query()->whereTrackingCode($track_id)->first()) Toastr::warning(trans('Order waiting for confirmation'), '', ["positionClass" => "toast-bottom-right"]);
-
-        if ($track_id) {
-            $order = Order::where('tracking_code', $track_id)->with('products.product')->first();
+        if ($orders->isEmpty() && $raw_orders->isEmpty()) {
+            Toastr::error(trans('No orders were found by this tracking code'), '', ["positionClass" => "toast-bottom-right"]);
         }
 
-        return view('WebsiteUi::order-track', compact('order', 'track_id'))->with(['page_title' => trans('Order Tracking')]);
+        return view('WebsiteUi::order-track', compact( 'track_id','orders','raw_orders'))->with(['page_title' => trans('Order Tracking')]);
     }
 
 }

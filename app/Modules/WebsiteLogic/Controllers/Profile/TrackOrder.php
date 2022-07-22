@@ -17,11 +17,13 @@ class TrackOrder
 
     public function asController(ActionRequest $request)
     {
+
         $orders = Order::query()->with('vendor')->where('tracking_code', $request->tracking_code)->get();
         $raw_orders = RawOrder::query()->with('vendor')->where('tracking_code', $request->tracking_code)->get();
 
         if ($orders->isEmpty() && $raw_orders->isEmpty()) {
             Toastr::error(trans('No orders were found by this tracking code'), '', ["positionClass" => "toast-bottom-right"]);
+
             return redirect()->back();
         }
 

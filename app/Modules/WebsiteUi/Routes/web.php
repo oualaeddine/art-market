@@ -8,7 +8,6 @@ use App\Modules\WebsiteLogic\Controllers\Auth\LogoutAction;
 use App\Modules\WebsiteLogic\Controllers\Auth\RegisterAction;
 use App\Modules\WebsiteLogic\Controllers\Auth\ResetPassword;
 use App\Modules\WebsiteLogic\Controllers\Auth\SendResetEmail;
-use App\Modules\WebsiteLogic\Controllers\Auth\SendResetSms;
 use App\Modules\WebsiteLogic\Controllers\Cart\AddCart;
 use App\Modules\WebsiteLogic\Controllers\Cart\DeleteItemCart;
 use App\Modules\WebsiteLogic\Controllers\Cart\EditCart;
