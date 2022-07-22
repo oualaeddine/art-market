@@ -43,8 +43,8 @@ Route::group(['prefix' => 'commandes', 'as' => 'orders.'], function () {
     Route::get('{order}/details', ShowOrderDetails::class)->name('details');
 
     /// coupon
-    Route::get('{order}/generate-coupon', ShowCouponPage::class)->name('coupons');
-    Route::post('{order}/generate-coupon/store', GenerateCoupon::class)->name('coupons.store');
+//    Route::get('{order}/generate-coupon', ShowCouponPage::class)->name('coupons');
+//    Route::post('{order}/generate-coupon/store', GenerateCoupon::class)->name('coupons.store');
 
     Route::delete('{order}/delete', DeleteOrder::class)->name('delete');
     Route::delete('{order}/restore', \App\Modules\OrdersLogic\Controllers\RestoreOrder::class)->name('restore')->withTrashed();

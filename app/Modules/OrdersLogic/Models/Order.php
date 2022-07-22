@@ -68,7 +68,8 @@ class Order extends Model
         'client',
         'address_id',
         'tracking_code',
-        'vendor_id'
+        'vendor_id',
+        'shipping'
     ];
 
     /*    public function product()

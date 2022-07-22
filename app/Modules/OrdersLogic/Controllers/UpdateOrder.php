@@ -30,11 +30,11 @@ class UpdateOrder
 
             DB::commit();
 
-            if($response === "send_to_delivery"){
-
-                return redirect()->route('admin.orders.coupons',$order->id);
-
-            }
+//            if($response === "send_to_delivery"){
+//
+//                return redirect()->route('admin.orders.coupons',$order->id);
+//
+//            }
         } catch (Throwable $exception) {
             DB::rollBack();
             Session::flash('error', 'Quelque chose s\'est mal passé.');
