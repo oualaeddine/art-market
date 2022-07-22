@@ -29,6 +29,10 @@
                         </div>
 
                     </div>
+                    <div class="container text-center mt-4">
+                        {{__("Dont find your answer ?")}} <a href="{{route('contact')}}">{{__("Contact us")}}</a>
+
+                    </div>
                 </div>
             </div>
         </div>
