@@ -18,7 +18,7 @@
                         <div class="details__fieldset">
 
                             <div class="field field__style__one">
-                                <div class="field__label">{{__("Current Password")}}</div>
+                                <div class="field__label">{{__("Current password")}}</div>
                                 <div class="field__wrap">
                                     <input class="field__input" type="password" name="current_password" value=""
                                            required="">
