@@ -9,9 +9,19 @@
     "src": "resources/js/wilaya.js",
     "isEntry": true
   },
+  "resources/css/app-rtl.css": {
+    "file": "assets/app-rtl.1075ea5e.css",
+    "src": "resources/css/app-rtl.css",
+    "isEntry": true
+  },
   "resources/css/fancybox.min.css": {
     "file": "assets/fancybox.min.43b298ca.css",
     "src": "resources/css/fancybox.min.css",
+    "isEntry": true
+  },
+  "resources/css/bootstrap-rtl.css": {
+    "file": "assets/bootstrap-rtl.def43707.css",
+    "src": "resources/css/bootstrap-rtl.css",
     "isEntry": true
   },
   "resources/css/app.css": {
