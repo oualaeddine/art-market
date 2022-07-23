@@ -14,7 +14,7 @@ class ShowCart
     {
 
         $cart = Cart::content();
-        $shipping = number_format($cart->sum(function ($item) {return $item->qty * $item->options->shipping;}), 2);
+        $shipping = $cart->sum(function ($item) {return $item->qty * $item->options->shipping;});
         $sub_total=$cart->sum(function ($item) {return $item->qty * $item->price;});
         $total = number_format((($shipping??0)+$sub_total), 2);
         return view('WebsiteUi::cart', compact('cart','shipping','total'))->with(['page_title' => trans('Cart')]);
