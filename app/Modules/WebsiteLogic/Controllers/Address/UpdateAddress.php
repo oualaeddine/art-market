@@ -3,6 +3,7 @@
 namespace App\Modules\WebsiteLogic\Controllers\Address;
 
 use App\Modules\ClientsLogic\Models\ClientAddress;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -22,9 +23,9 @@ class UpdateAddress
 
 
         $this->handle($request, $client_address);
+        Toastr::success(trans('Address updated successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
-        Session::flash('message',Session::get('client_lang')?'تم تحديث العنوان بنجاح': 'Adresse mis à jour avec succès');
-        return redirect()->back();
+        return redirect()->back()->with(['tab'=>'address']);
 
     }
 
@@ -45,8 +46,6 @@ class UpdateAddress
 
     public function rules(): array
     {
-        Session::put(['profile_tab'=>'profile-tab']);
-
         return [
             'address' => ['required', 'string', 'max:255'],
             'code_postal' => ['nullable','sometimes','string'],
@@ -57,9 +56,9 @@ class UpdateAddress
     public function getValidationAttributes(): array
     {
         return [
-            'address' => 'address',
-            'code_postal' => 'code postal',
-            'commune_id' => 'commune',
+            'address' => trans('Address'),
+            'code_postal' => trans('Zip'),
+            'commune_id' => trans('Commune'),
         ];
     }
 }

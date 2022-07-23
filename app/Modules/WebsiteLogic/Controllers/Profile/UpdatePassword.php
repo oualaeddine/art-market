@@ -2,12 +2,8 @@
 
 namespace App\Modules\WebsiteLogic\Controllers\Profile;
 
-use App\Modules\ClientsLogic\Models\Client;
-use App\Rules\PhoneNumber;
-use Illuminate\Routing\UrlGenerator;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -16,46 +12,44 @@ class UpdatePassword
     use AsAction;
 
 
-    public function handle(ActionRequest $request, Client $client)
+    public function handle(ActionRequest $request, $client)
     {
         $client->update(['password' => Hash::make($request->password)]);
-    }
-
-    private function getClientFields($request): array
-    {
-        return $request->only(['old_password','password','current_password']);
     }
 
     public function rules(): array
     {
         return [
-            'current_password' => ['required','current_password:client'],
-            'password' => ['required', 'string', 'min:8', 'confirmed','different:current_password'],
+            'current_password' => ['required', 'current_password:client'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'different:current_password'],
         ];
     }
 
     public function getValidationAttributes(): array
     {
         return [
-            'password' => 'mot de passe',
-            'current_password' => 'ancien mot de passe'
+            'password' => trans('New password'),
+            'current_password' => trans('Current password')
         ];
     }
 
-    public function asController(ActionRequest $request, Client $client)
+    public function getValidationMessages(): array
     {
+        return [
+            'current_password' => trans('Current password is wrong')
+        ];
+    }
 
-        $this->handle($request,$client);
+    public function asController(ActionRequest $request)
+    {
+        $client = auth()->guard('client')->user();
+        $this->handle($request, $client);
+        Toastr::success(trans('Password Updated successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
-        Session::flash('message','Mot de pass mis à jour avec succés');
 
-        return redirect()->route('client.account');
+        return redirect()->back()->with(['tab' => 'password']);
 
     }
 
-    public function getValidationRedirect(UrlGenerator $url): string
-    {
-        return $url->to('account#step5');
-    }
 
 }

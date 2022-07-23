@@ -47,7 +47,7 @@ class ShowClientSpecial
             'id'=>$client->commune_id,
             'name'=>$client->commune->name
         ];
-        $client_addresses = ClientAddress::query()->where('client_id', $client->id)->paginate(5);
+        $client_addresses = ClientAddress::query()->with('commune.wilaya')->where('client_id', $client->id)->get();
         $client_coupons=Client_coupon::query()->get();
         return view('ClientsUi::pages.special', compact('client_coupons','client_commune','client_wilaya','tab', 'client_addresses', 'communes', 'wilayas', 'client', 'header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Client']);
     }

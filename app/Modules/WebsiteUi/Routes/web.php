@@ -20,6 +20,8 @@ use App\Modules\WebsiteLogic\Controllers\Profile\DeleteOrder;
 use App\Modules\WebsiteLogic\Controllers\Profile\StoreAddress;
 use App\Modules\WebsiteLogic\Controllers\Profile\TrackOrder;
 use App\Modules\WebsiteLogic\Controllers\Profile\UpdateAvatar;
+use App\Modules\WebsiteLogic\Controllers\Profile\UpdateOrderAddress;
+use App\Modules\WebsiteLogic\Controllers\Profile\UpdateOrderQty;
 use App\Modules\WebsiteLogic\Controllers\Profile\UpdatePassword;
 use App\Modules\WebsiteLogic\Controllers\Profile\UpdateProfile;
 use App\Modules\WebsiteUi\Controllers\Auth\ShowForgetPassword;
@@ -84,13 +86,16 @@ Route::group(['prefix' => '',], function () {
         Route::post('address/store', StoreAddress::class)->name('store.address')->middleware('auth:client');
         Route::put('update/profile', UpdateProfile::class)->name('update.profile')->middleware('auth:client');
         Route::put('update/avatar', UpdateAvatar::class)->name('update.avatar')->middleware('auth:client');
-        Route::put('{client}/update/password', UpdatePassword::class)->name('update.password')->middleware('auth:client');
+        Route::put('update/password', UpdatePassword::class)->name('update.password')->middleware('auth:client');
 
         Route::put('{client_address}/address/update', UpdateAddress::class)->name('update.address')->middleware('auth:client');
         Route::delete('{client_address}/address/delete', DeleteAddress::class)->name('delete.address')->middleware('auth:client');
 
 
     });
+    Route::delete('{order}/cancel-order', DeleteOrder::class)->name('cancel-order')->middleware('auth:client');
+    Route::put('{order}/update-address', UpdateOrderAddress::class)->name('update-order-address')->middleware('auth:client');
+    Route::put('{product}/update-qty', UpdateOrderQty::class)->name('update-order-qty')->middleware('auth:client');
 
 
     Route::get('terms-and-conditions', ShowTermsAndConditions::class)->name('terms_conditions');
@@ -113,8 +118,6 @@ Route::group(['prefix' => '',], function () {
 
 //client
 
-
-    Route::delete('{order}/cancel-order', DeleteOrder::class)->name('cancel-order');
 
 // help
     Route::post('/help-phone', SavePhone::class)->name('help-phone');

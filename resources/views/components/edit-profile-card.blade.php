@@ -73,41 +73,36 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="details__item">
-                        <div class="details__category">{{__("Addresses")}}</div>
-                        <div class="row justify-content-start">
-                            @foreach($client->addresses as $address)
                                 <div class="col-md-6">
-                                    <div class="profile__address__box"  style="height: auto">
-                                        @if($loop->first)
-                                            <span class="profile__address__box__default"><i class="fal fa-check"></i>{{__("default")}}</span>
-
-                                        @endif
-                                        {{--                                    <div class="profile__address__box__name">Nedjai Mohamed</div>--}}
-                                        <div class="profile__address__box_adress">{{$address->address}}</div>
-                                        <div
-                                            class="profile__address__box_country">{{$client->commune->wilaya->{app()->getLocale()=='fr'?'name':'name_ar'}.' - ' .$client->commune->{app()->getLocale()=='fr'?'name':'name_ar'} }}</div>
-                                        {{--                                    <div class="profile__address__box_phone">+213 675 60 01 05</div>--}}
+                                    <div class="field field__style__one ">
+                                        <div class="field__label">{{__("Wilaya")}}</div>
+                                        <div class="field__wrap">
+                                            <select required class="form-control wilaya_id" name="wilaya"  style="border-radius: 15px;
+    border: 1px solid #d9d9e6;
+    height: 55px;">
+                                                <option value="" selected disabled>{{__('Your wilaya')}}</option>
+                                                @foreach($wilayas as $wilaya)
+                                                    <option
+                                                        value="{{$wilaya->id}}" {{$client->commune->id_wilaya==$wilaya->id?'selected':''}}>{{"( $wilaya->id ) ". $wilaya->{app()->getLocale()=='fr'?'name':'name_ar'} }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="field field__style__one ">
+                                        <div class="field__label">{{__("Commune")}}</div>
+                                        <div class="field__wrap">
+                                            <select required class="form-control commune_id"  name="commune_id">
 
-                            @endforeach
-
-                            <div class="col-md-6">
-                                <div class="profile__address__box add__new" style="height: auto">
-                                    <a class="js-popup-open" data-effect="mfp-zoom-in" tabindex="0"
-                                       href="#popup-new-adress"><i class="fal fa-plus-circle"></i>
-                                        {{__("ADD ADDRESS")}}</a>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
+
                 </div>
 
 
@@ -147,10 +142,75 @@
 
     </div>
 
-<x-create-address-modal :wilayas="$wilayas" />
+{{--<x-create-address-modal :wilayas="$wilayas" />--}}
+
 
 
 </div>
+
+@push('css')
+    @include('layouts.extra.css.select2')
+    <style>
+        .select2-container{
+            width: 100%!important;
+        }
+
+    </style>
+@endpush
+@push('js')
+    @include('layouts.extra.js.select2')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {{--    @vite(['resources/js/wilaya.js'])--}}
+    <script>
+
+        $(document).ready(function () {
+
+            $('.wilaya_id').select2({
+                /* placeholder: "Start typing ...", */
+                theme: 'bootstrap4',
+            });
+
+
+            $('.commune_id').select2({
+                /* placeholder: "Start typing ...", */
+                theme: 'bootstrap4',
+            });
+
+            setTimeout(function (){
+                $('.wilaya_id').trigger('change')
+                $('.commune_id').append('<option value="{{$client->commune_id}}" selected> {{$client->commune->{app()->getLocale()=='fr'?'name':'name_ar'} }}</option>').trigger('change')
+            },1000)
+
+            $('.wilaya_id').on('change', function () {
+                var id = $(this).val();
+                $('.commune_id').val(null).trigger('change');
+                var url_coumne = '{{ route("get.commune",":id") }}';
+
+                console.log(id);
+                url_coumne = url_coumne.replace(':id', id);
+
+                $('.commune_id').select2({
+                    /* placeholder: "Start typing ...", */
+                    // theme: 'bootstrap4',
+                    ajax: {
+                        url: url_coumne,
+                        dataType: 'json',
+                        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                        processResults: function (data) {
+                            return {
+                                results: data
+                            };
+                        },
+
+                    }
+                });
+
+            });
+        });
+    </script>
+
+@endpush
 <script>
     $(document).ready(()=>{
         $('#photo').change(function(){

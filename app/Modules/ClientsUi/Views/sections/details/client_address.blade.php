@@ -24,7 +24,7 @@
                     <td></td>
                     <td>{{$address->id}}</td>
                     <td>{{$address->address}}</td>
-                    <td>{{$address->commune->name}}</td>
+                    <td>{{$address->commune->wilaya->name.' - '.$address->commune->name}}</td>
                     <td>{{$address->code_postal}}</td>
                     {{-- <td>{{$address->observation}}</td --}}
                      <td>{{$address->created_at}}</td>

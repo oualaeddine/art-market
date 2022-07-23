@@ -26,7 +26,7 @@ class UpdateAvatar
         $client = auth()->guard('client')->user();
         $this->handle($request, $client);
 
-        Toastr::success(trans('Updated successfully'), 'Avatar', ["positionClass" => "toast-bottom-right"]);
+        Toastr::success(trans('Avatar Updated successfully'),'', ["positionClass" => "toast-bottom-right"]);
 
         return redirect()->route('client.account', '#step2');
     }

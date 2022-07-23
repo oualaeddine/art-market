@@ -5,7 +5,9 @@ namespace App\Modules\WebsiteLogic\Controllers\Profile;
 use App\Models\User;
 use App\Modules\ClientsLogic\Models\Client;
 use App\Modules\OrdersLogic\Models\Order;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -21,15 +23,17 @@ class DeleteOrder
 
     public function asController(ActionRequest $request, Order $order)
     {
-        if($order != 'completed'){
+        if(!in_array($order->status,['completed','canceled']) && ($order->client ==auth()->guard('client')->id())){
             $this->handle($request,$order);
-            Session::flash('message',"la commande a été annulée avec succès");   
+            Toastr::success(trans('Order updated successfully'), '', ["positionClass" => "toast-bottom-right"]);
+
         }else{
-            Session::flash('error',"commande déjà livrée, pas moyen de l'annuler");    
+            Toastr::error(trans('Order can not be updated'), '', ["positionClass" => "toast-bottom-right"]);
+
         }
 
-        return redirect()->route('client.account','#step3');
-     
+        return redirect()->back()->with(['tab'=>'orders']);
+
     }
 
 

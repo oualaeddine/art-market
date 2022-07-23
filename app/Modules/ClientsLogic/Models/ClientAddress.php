@@ -4,6 +4,7 @@ namespace App\Modules\ClientsLogic\Models;
 
 
 use App\Models\YalidineMairie;
+use App\Modules\OrdersLogic\Models\Order;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,5 +56,10 @@ class ClientAddress extends Model
     public function client()
     {
         return $this->belongsTo(Client::class,'client_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class,'address_id');
     }
 }

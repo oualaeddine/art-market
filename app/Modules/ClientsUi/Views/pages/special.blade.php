@@ -18,7 +18,7 @@
     @include('ClientsUi::modals.address.create')
     @include('ClientsUi::modals.address.edit')
 
-    @include('ClientsUi::modals.coupon.create')
+{{--    @include('ClientsUi::modals.coupon.create')--}}
 
     @include('OrdersUi::modals.delete')
     @include('OrdersUi::modals.edit')
@@ -138,10 +138,10 @@
                             <a class="nav-link active" data-bs-toggle="tab" href="#Addresses" role="tab" aria-selected="true">Adresses</a>
                             <div class="slide"></div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#Coupons" role="tab" aria-selected="false">Coupons</a>
-                            <div class="slide"></div>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" data-bs-toggle="tab" href="#Coupons" role="tab" aria-selected="false">Coupons</a>--}}
+{{--                            <div class="slide"></div>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#Orders" role="tab" aria-selected="false">Commandes confirmées</a>
                             <div class="slide"></div>
@@ -159,13 +159,13 @@
 
                         </div>
 
-                        <div class="tab-pane" id="Coupons" role="tabpanel">
-                            <div class="col-md-12 my-4 text-end">
-                                <button class="btn btn-success" onclick="getFamiliesCall()" data-bs-toggle="modal" data-bs-target="#modals-create-client-coupon">Ajouter un coupon</button>
-                            </div>
-                            @include('ClientsUi::sections.details.client_coupons')
+{{--                        <div class="tab-pane" id="Coupons" role="tabpanel">--}}
+{{--                            <div class="col-md-12 my-4 text-end">--}}
+{{--                                <button class="btn btn-success" onclick="getFamiliesCall()" data-bs-toggle="modal" data-bs-target="#modals-create-client-coupon">Ajouter un coupon</button>--}}
+{{--                            </div>--}}
+{{--                            @include('ClientsUi::sections.details.client_coupons')--}}
 
-                        </div>
+{{--                        </div>--}}
 
                         <div class="tab-pane" id="Orders" role="tabpanel">
                             @include('ClientsUi::sections.details.client_orders')

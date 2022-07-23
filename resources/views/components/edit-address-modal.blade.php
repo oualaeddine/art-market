@@ -1,4 +1,4 @@
-<div class="modal fade" id="AddAddressModal" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="EditAddressModal" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,8 +7,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('client.store.address')}}" method="POST">
+                <form action="" id="form-edit-address" method="POST">
                     @csrf
+                    @method('put')
                     <div class="popup__img">
                         <i class="fal fa-map"></i>
                     </div>
@@ -22,7 +23,7 @@
                                     <div class="field field field__style__one select__field">
                                         <div class="field__label">{{__("Wilaya")}}</div>
                                         <div class="field__wrap">
-                                            <select required class="form-control wilaya_id" name="wilaya"  style="border-radius: 15px;
+                                            <select required class="form-control wilaya_id_edit" name="wilaya"  style="border-radius: 15px;
     border: 1px solid #d9d9e6;
     height: 55px;">
                                                 <option value="" selected disabled>{{__('Your wilaya')}}</option>
@@ -39,7 +40,7 @@
                                     <div class="field field__style__one select__field">
                                         <div class="field__label">{{("Commune")}}</div>
                                         <div class="field__wrap">
-                                            <select required class="form-control commune_id"  name="commune_id">
+                                            <select required class="form-control commune_id_edit"  name="commune_id">
                                                 <option value="" selected disabled>{{__('Your commune')}}</option>
                                             </select>
                                         </div>
@@ -50,7 +51,7 @@
                                     <div class="field field__style__one">
                                         <div class="field__label">{{__("ZIP")}}</div>
                                         <div class="field__wrap">
-                                            <input required class="field__input" type="text" name="code_postal" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" pattern=".{5}" title="Please, enter 5 numbers">
+                                            <input required class="field__input" type="text" id="zip_edit" name="code_postal" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" pattern=".{5}" title="Please, enter 5 numbers">
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +63,7 @@
                                     <div class="field field__style__one">
                                         <div class="field__label">{{__("Your address")}}</div>
                                         <div class="field__wrap">
-                                            <input class="field__input" type="text" name="address" required="">
+                                            <input class="field__input" type="text" name="address" id="address_edit" required="">
                                         </div>
                                     </div>
                                 </div>

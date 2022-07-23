@@ -116,7 +116,9 @@ class Client extends Authenticatable
 
     public function addresses()
     {
-        return $this->hasMany(ClientAddress::class,'client_id');
+        return $this->hasMany(ClientAddress::class,'client_id')
+            ->withExists('orders as has_orders')
+            ;
     }
 
     public function clients_vendors()

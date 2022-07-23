@@ -4,6 +4,7 @@ namespace App\Modules\WebsiteLogic\Controllers\Address;
 
 
 use App\Modules\ClientsLogic\Models\ClientAddress;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -20,10 +21,9 @@ class DeleteAddress
     {
 
         $this->handle($client_address);
-        Session::flash('message', Session::get('client_lang')?'تم حذف العنوان بنجاح': 'Adresse supprimé avec succés');
+        Toastr::success(trans('Address deleted successfully'), '', ["positionClass" => "toast-bottom-right"]);
 
-        Session::put(['profile_tab'=>'profile-tab']);
-        return redirect()->back();
+        return redirect()->back()->with(['tab'=>'address']);
 
     }
 
