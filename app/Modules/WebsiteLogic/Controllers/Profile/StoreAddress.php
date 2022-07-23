@@ -18,7 +18,7 @@ class StoreAddress
     {
         $client=auth()->guard('client')->user();
         $this->handle($request, $client);
-        Toastr::success(trans('Address added successfully'), 'Address', ["positionClass" => "toast-bottom-right"]);
+        Toastr::success(trans('Address added successfully'), '', ["positionClass" => "toast-bottom-right"]);
         return redirect()->back();
     }
 
