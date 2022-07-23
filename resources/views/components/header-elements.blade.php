@@ -10,9 +10,9 @@
             <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='shop'?'active':''}}" href="{{route('shop')}}">{{__("Shop")}}</a></li>
             <li class="nav-item"><a class="header__link {{\Illuminate\Support\Facades\Route::currentRouteName()=='contact'?'active':''}}" href="{{route('contact')}}">{{__("Contact us")}}</a></li>
         </nav>
-        <form class="header__search">
+        <form class="header__search" action="{{route('shop')}}">
             <input class="header__input" type="text" name="search" placeholder="{{__("Search")}}" required=""/>
-            <button class="header__result">
+            <button type="submit" class="header__result">
                 <span class="icon icon-search"></span>
             </button>
         </form>
