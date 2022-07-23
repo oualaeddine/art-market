@@ -11,7 +11,12 @@
 <script src="{{asset('website/js/lib/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('website/js/lib/jquery.countdown.min.js')}}"></script>
 
-<script src="{{asset('website/js/app.js')}}"></script>
+@if(app()->getLocale()=='fr')
+    <script src="{{asset('website/js/app.js')}}"></script>
+@else
+    <script src="{{asset('website/js/app-rtl.js')}}"></script>
+
+@endif
 <script>
     $('.add-to-cart').click(function(){
 

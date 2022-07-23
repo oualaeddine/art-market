@@ -7,9 +7,11 @@ export default defineConfig({
     plugins: [
         laravel([
             'resources/css/app.css',
+            'resources/css/app-rtl.css',
             'resources/css/fancybox.min.css',
 
             'resources/css/bootstrap.css',
+            'resources/css/bootstrap-rtl.css',
 
             'resources/js/shop.js',
             'resources/js/wilaya.js',

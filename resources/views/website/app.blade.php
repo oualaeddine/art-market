@@ -10,19 +10,17 @@
 
     <!-- Styles -->
     @vite(['resources/css/bootstrap.css'])
+    @if(app()->getLocale()=='ar')
+        @vite(['resources/css/bootstrap-rtl.css'])
+    @endif
     <link rel="stylesheet" media="all" href="{{asset("website/fonts/sofia-pro/typographie.css")}}"/>
     <link rel="stylesheet" media="all" href="{{asset("website/fonts/fontawesome-5/css/all.css")}}"/>
+
+    @vite(['resources/css/app.css','resources/css/fancybox.min.css',])
     @if(app()->getLocale()=='ar')
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
-        <style>
-            body {
-                font-family: 'DroidArabicKufiRegular', serif !important;
-                font-weight: initial;
-                font-style: initial;
-            }
-        </style>
+        @vite(['resources/css/app-rtl.css'])
+
     @endif
-    @vite(['resources/css/app.css','resources/css/fancybox.min.css'])
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     @livewireStyles
     @stack('css')
