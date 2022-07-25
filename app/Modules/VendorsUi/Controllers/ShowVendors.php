@@ -73,4 +73,9 @@ class ShowVendors
     }
 
 
+    public function authorize()
+    {
+        return auth()->user()->can('view_vendor');
+    }
+
 }

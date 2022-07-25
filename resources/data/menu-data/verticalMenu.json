@@ -355,7 +355,7 @@
                 "supervisor",
                 "operator"
             ],
-            "permission": "view_home"
+            "permission": "view_vendor"
         } ,
 
         {

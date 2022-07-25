@@ -26,5 +26,9 @@ class ShowCreateVendors
         return view('VendorsUi::pages.create', compact('roles','header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Ajouter un vendeur']);
     }
 
+    public function authorize()
+    {
+        return auth()->user()->can('view_vendor');
+    }
 
 }

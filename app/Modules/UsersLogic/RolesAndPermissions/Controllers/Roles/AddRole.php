@@ -16,7 +16,7 @@ class AddRole
     {
         $admin_roles=64;
         $vendor_roles=65;
-       $role= Role::create(['name' => $request->name]);
+       $role= Role::create(['name' => $request->name,'ref'=>$request->name]);
        $role->syncPermissions($request->permissions);
     }
 

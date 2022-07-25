@@ -358,4 +358,9 @@ class ShowVendorDetail
         }
     }
 
+    public function authorize()
+    {
+        return auth()->user()->can('view_vendor');
+    }
+
 }

@@ -72,5 +72,9 @@ class ShowArchivedVendors
         return view('VendorsUi::index-archived', compact('header', 'user_info', 'breadcrumbs'))->with(['page_title' => 'Vendeurs archivés']);
     }
 
+    public function authorize()
+    {
+        return auth()->user()->can('view_vendor');
+    }
 
 }
